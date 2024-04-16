@@ -1,0 +1,26 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  border-right: white 1px solid;
+  padding: 10px;
+}
+
+.list {
+  padding: 0;
+
+  .item {
+    list-style: none;
+  }
+
+  .item a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .item a:hover {
+    color: gray;
+  }
+}
