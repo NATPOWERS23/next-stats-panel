@@ -1,4 +1,15 @@
 .root {
-    display: flex;
-    gap: 1rem
+  display: flex;
+  gap: 1rem
+}
+
+.section {
+  border: 1px solid white;
+  padding: 1rem;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
