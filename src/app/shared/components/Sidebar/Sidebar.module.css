@@ -8,19 +8,6 @@
   padding: 10px;
 }
 
-.list {
+.menu {
   padding: 0;
-
-  .item {
-    list-style: none;
-  }
-
-  .item a {
-    text-decoration: none;
-    color: white;
-  }
-
-  .item a:hover {
-    color: gray;
-  }
 }

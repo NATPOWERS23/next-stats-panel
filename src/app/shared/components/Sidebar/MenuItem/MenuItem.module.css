@@ -1,0 +1,13 @@
+.item, .subitem {
+  list-style: none;
+  padding: 5px;
+}
+
+.item a, .subitem a {
+  text-decoration: none;
+  color: white;
+}
+
+.item a:hover, .subitem a:hover {
+  color: gray;
+}
