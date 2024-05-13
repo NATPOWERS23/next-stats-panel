@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { subMenuItems } from '../../../../menu-items';
 import styles from './MenuItem.module.css';
@@ -9,7 +10,11 @@ export default function MenuItem({ item }) {
 
   return (
     <div className={styles.item}>
-      <div onClick={() => setIsSubMenuShow(!isSubMenuShow)}>{item.title}</div>
+      {subMenuItems[item.id] ? (
+        <div onClick={() => setIsSubMenuShow(!isSubMenuShow)}>{item.title}</div>
+      ) : (
+        <Link href={item.link}>{item.title}</Link>
+      )}
       {subMenuItems[item.id] && isSubMenuShow && <SubMenu dropDownItem={subMenuItems[item.id]} />}
     </div>
   );
@@ -22,7 +27,7 @@ const SubMenu = ({ dropDownItem }) => {
         {dropDownItem.map((item) => {
           return (
             <li className={styles.subitem} key={item.id}>
-              {item.title}
+              <Link href={item.link}>{item.title}</Link>
             </li>
           );
         })}

@@ -6,9 +6,9 @@ export default function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <h3>Menu</h3>
-        {menuItems.map((item: IMenuItem) => (
-          <MenuItem item={item} key={item.id}/>
-        ))}
+      {menuItems.map((item: IMenuItem) => (
+        <MenuItem item={item} key={item.id} />
+      ))}
     </div>
   );
 }

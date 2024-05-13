@@ -1,13 +1,17 @@
-.item, .subitem {
+.item,
+.subitem {
   list-style: none;
   padding: 5px;
+  cursor: pointer;
 }
 
-.item a, .subitem a {
+.item a {
   text-decoration: none;
   color: white;
 }
 
-.item a:hover, .subitem a:hover {
+.item>a:hover,
+.subitem>a:hover,
+.item>div:hover {
   color: gray;
 }
