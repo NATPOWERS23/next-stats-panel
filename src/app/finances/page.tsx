@@ -8,7 +8,7 @@ export default function FinancesPage() {
     <>
       <h1>Finances</h1>
 
-      <div className={styles.container}>
+      <div className="page-wrapper">
         <div className={styles.top}>
           <InfoBox title="Income" numbers={100000}></InfoBox>
           <InfoBox title="Outcome" numbers={1000}></InfoBox>

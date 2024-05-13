@@ -35,17 +35,17 @@ export const menuItems: IMenuItem[] = [
 ];
 
 export const subMenuItems: SubMenuItems = {
-  'menu_item_9': [
+  menu_item_9: [
     { title: 'Investments', menu_id: 'menu_item_9', id: 'sub_menu_item_1', link: '/investments' },
     { title: 'Release dates', menu_id: 'menu_item_9', id: 'sub_menu_item_2', link: '/merch_dates' },
     { title: 'For future', menu_id: 'menu_item_9', id: 'sub_menu_item_3', link: '/merch_future' },
     { title: 'Collaborations', menu_id: 'menu_item_9', id: 'sub_menu_item_4', link: '/collaborations' },
   ],
-  'menu_item_10': [
-    { title: 'Space', menu_id: 'menu_item_10', id: 'sub_menu_item_5', link: '/space' },
+  menu_item_10: [
+    { title: 'Space', menu_id: 'menu_item_10', id: 'sub_menu_item_5', link: '/dashboard' },
     { title: 'Twich', menu_id: 'menu_item_10', id: 'sub_menu_item_6', link: '/twick_data' },
   ],
-  'menu_item_14': [
+  menu_item_14: [
     { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_7', link: '/landing' },
     { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_8', link: '/landing' },
     { title: 'Other projects', menu_id: 'menu_item_14', id: 'sub_menu_item_9', link: '/projects' },

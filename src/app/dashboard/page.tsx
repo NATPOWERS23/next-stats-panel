@@ -13,7 +13,7 @@ export default function DashboardPage() {
   return (
     <>
       <h1>Dashboard</h1>
-      <section>
+      <div className="page-wrapper">
         <div className={styles.section}>
           <h3>Space Weather</h3>
           <div className={styles.charts}>
@@ -28,7 +28,7 @@ export default function DashboardPage() {
             </ClientOnly>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

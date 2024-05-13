@@ -1,6 +1,10 @@
 @import url('./normalize.css');
 @import url('./variables.css');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
   color: var(--text-main-color, white);
@@ -15,6 +19,13 @@ ul {
 
 .disabled {
   pointer-events: none
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card {
@@ -57,4 +68,14 @@ ul {
   background-color: #659cef;
   border-radius: 3px;
   transition: width 500ms ease-in-out;
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
 }
