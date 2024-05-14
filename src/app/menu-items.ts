@@ -22,7 +22,7 @@ export const menuItems: IMenuItem[] = [
   { title: 'Finances', id: 'menu_item_2', link: '/finances' },
   { title: 'Events calendar', id: 'menu_item_3', link: '/events' },
   { title: 'Videos statistic', id: 'menu_item_4', link: '/videos-statistic' },
-  { title: 'Realeases', id: 'menu_item_5', link: '/realiases' },
+  { title: 'Realeases', id: 'menu_item_5', link: '/realizes' },
   { title: 'Team', id: 'menu_item_6', link: '/team' },
   { title: 'Team tasks', id: 'menu_item_7', link: '/tasks' },
   { title: 'Contracts & Deals', id: 'menu_item_8', link: '/contracts' },
