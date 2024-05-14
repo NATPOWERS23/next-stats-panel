@@ -28,6 +28,14 @@ ul {
   gap: 20px;
 }
 
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+
 .card {
   border: 2px solid white;
   padding: 0.5em 1em;
@@ -37,6 +45,10 @@ ul {
 
 .card-title {
   font-size: 18px;
+}
+
+.danger-card {
+  background-color: tomato;
 }
 
 .card-body {

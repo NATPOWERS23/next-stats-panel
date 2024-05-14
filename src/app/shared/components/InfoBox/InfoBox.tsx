@@ -1,6 +1,14 @@
 import styles from './InfoBox.module.css';
 
-export default function InfoBox({ title, numbers }: { title: string; numbers: number }) {
+export default function InfoBox({
+  title,
+  numbers,
+  description,
+}: {
+  title: string;
+  numbers: number;
+  description: string;
+}) {
   return (
     <div className={styles.infoBox}>
       <div className={styles.title}>{title}</div>
@@ -10,6 +18,7 @@ export default function InfoBox({ title, numbers }: { title: string; numbers: nu
         </div>
       </div>
       <hr></hr>
+      <div className={styles.description}>{description}</div>
     </div>
   );
 }
