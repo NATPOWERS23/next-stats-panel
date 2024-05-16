@@ -1,0 +1,7 @@
+.membersLine {}
+
+.dashboard {
+  display: flex;
+  gap: 10px;
+  height: 600px;
+}
