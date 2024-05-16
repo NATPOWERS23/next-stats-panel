@@ -40,3 +40,6 @@ next-env.d.ts
 
 src/environments/
 src/app/(core)/(mocks)/
+.env
+.env.dev
+.env.prod

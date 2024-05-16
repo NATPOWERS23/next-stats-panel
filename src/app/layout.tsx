@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Providers } from './provider';
 
 import './styles/globals.css';
 import styles from './layout.module.css';
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} style={{ display: 'flex' }}>
         <Sidebar />
-        <main className={styles.main}>{children}</main>
+        <main className={styles.main}>
+          <Providers>{children}</Providers>
+        </main>
       </body>
     </html>
   );
