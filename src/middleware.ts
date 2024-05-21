@@ -7,8 +7,8 @@ export function middleware(request: NextRequest) {
 
   const adminBlockedPaths = [''];
   const chanelOwnerBlockedPaths = ['/websites/landing'];
-  const managerPaths = ['/events', '/profile', '/releases', '/team', '/tasks'];
-  const clientPaths = ['/merch/merch-future'];
+  const managerPaths = ['/events', '/profile', '/releases', '/team', '/tasks', '/logout'];
+  const clientPaths = ['/events', '/logout'];
 
   // Define paths that are considered public (accessible without a token)
   const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail' || path === '/denied';
@@ -23,6 +23,10 @@ export function middleware(request: NextRequest) {
   const role = roleCookies ? +JSON.parse(roleCookies) : ROLE.CLIENT;
 
   // Redirect logic based on the path, user role and token presence
+  if (path === '/logout' && !token) {
+    return NextResponse.redirect(new URL('/login', request.nextUrl));
+  }
+
   if (isPublicPath && token) {
     return NextResponse.redirect(new URL('/', request.nextUrl));
   }
@@ -41,7 +45,7 @@ export function middleware(request: NextRequest) {
     }
 
     if (!isClientUserPath && role === ROLE.CLIENT) {
-      return NextResponse.redirect(new URL('/merch/future', request.nextUrl));
+      return NextResponse.redirect(new URL('/events', request.nextUrl));
     }
 
     if (!isManagerPath && role === ROLE.MANAGER) {
@@ -53,7 +57,7 @@ export function middleware(request: NextRequest) {
 // It specifies the paths for which this middleware should be executed.
 export const config = {
   matcher: [
-    // Match all routes except the ones that start with /login and api and the static folder
+    // Match all routes except the ones that start with public paths and api and the static folder.
     '/((?!api|_next/static|_next/image|favicon.ico|login|signup|verifyemail|denied).*)',
   ],
 };

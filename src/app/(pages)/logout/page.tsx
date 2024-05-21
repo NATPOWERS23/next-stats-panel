@@ -9,7 +9,9 @@ export default function Logout() {
   const logout = () => {
     axios
       .get('/api/users/logout')
-      .then(() => router.push('/login'))
+      .then(() => {
+        router.push('/login');
+      })
       .catch((err) => console.log('Error with logout process: ' + err));
   };
 
