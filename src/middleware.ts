@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   const adminBlockedPaths = [''];
-  const chanelOwnerBlockedPaths = ['/websites/landing'];
+  const chanelOwnerBlockedPaths = ['/websites/landing', '/events'];
   const managerPaths = ['/events', '/profile', '/releases', '/team', '/tasks', '/logout'];
   const clientPaths = ['/events', '/logout'];
 

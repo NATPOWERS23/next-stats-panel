@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
     const response = NextResponse.json({
       message: 'User found',
-      data: user,
+      data: { user },
     });
 
     response.cookies.set('role', user.role, {

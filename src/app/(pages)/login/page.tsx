@@ -1,7 +1,9 @@
 'use client';
+
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/authContext';
 import axios from 'axios';
 
 export default function SignupPage() {
@@ -11,12 +13,16 @@ export default function SignupPage() {
     email: '',
     password: '',
   });
+  const { setAuthUser } = useAuth();
 
   const onLogin = async () => {
     try {
       setLoading(true);
-      const response = await axios.post('/api/users/login', user);
-      router.push('/');
+      axios.post('/api/users/login', user).then((res) => {
+        const { user } = res.data.data;
+        setAuthUser({ ...user });
+        router.push('/');
+      });
     } catch (error: any) {
       console.log('Login failed', error.message);
     } finally {
