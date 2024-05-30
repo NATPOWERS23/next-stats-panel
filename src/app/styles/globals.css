@@ -24,8 +24,9 @@ ul {
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
+  height: 100%;
 }
 
 .form-wrapper {

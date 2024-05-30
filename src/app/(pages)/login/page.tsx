@@ -5,6 +5,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
 import axios from 'axios';
+import CustomLoader from '@/app/components/CustomLoader/CustomLoader';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -25,35 +26,42 @@ export default function SignupPage() {
       });
     } catch (error: any) {
       console.log('Login failed', error.message);
-    } finally {
       setLoading(false);
+    } finally {
+      console.log('Login process finished.');
     }
   };
 
   return (
     <div className="page-wrapper">
-      <h1>{loading ? 'Processing' : 'Login'}</h1>
+      {loading ? (
+        <CustomLoader />
+      ) : (
+        <>
+          <h1>Login</h1>
 
-      <div className="form-wrapper">
-        <label htmlFor="email">email</label>
-        <input
-          id="email"
-          type="text"
-          value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-          placeholder="email"
-        />
-        <label htmlFor="password">password</label>
-        <input
-          id="password"
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-          placeholder="password"
-        />
-        <button onClick={onLogin}>Login</button>
-        <Link href="/signup">Visit signup page</Link>
-      </div>
+          <div className="form-wrapper">
+            <label htmlFor="email">email</label>
+            <input
+              id="email"
+              type="text"
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
+              placeholder="email"
+            />
+            <label htmlFor="password">password</label>
+            <input
+              id="password"
+              type="password"
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
+              placeholder="password"
+            />
+            <button onClick={onLogin}>Login</button>
+            <Link href="/signup">Visit signup page</Link>
+          </div>
+        </>
+      )}
     </div>
   );
 }
