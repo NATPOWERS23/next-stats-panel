@@ -8,11 +8,14 @@ import { ROLE } from '@/app/(core)/constants/ROLES';
 import { IMenuItem, menuItems } from '../../(core)/constants/menu-items';
 import MenuItem from './MenuItem/MenuItem';
 import styles from './Sidebar.module.css';
+import Image from 'next/image';
+import useLogOut from '../../(pages)/logout/useLogOut';
 
 export default function Sidebar() {
   const router = useRouter();
-
   const { authUser, setAuthUser } = useAuth();
+
+  const { logoutUser } = useLogOut();
 
   useEffect(() => {
     !authUser && getUserDetails();
@@ -24,7 +27,10 @@ export default function Sidebar() {
       .then((res) => {
         setAuthUser(res.data.data.user);
       })
-      .catch((err) => console.log(`Error with getting user data: ${err}`));
+      .catch((err) => {
+        logoutUser();
+        console.log(`Error with getting user data: ${err}`);
+      });
   };
 
   return (
@@ -34,7 +40,7 @@ export default function Sidebar() {
           <div className={styles.account}>
             <div className={styles.avatar}>
               {authUser.avatar && (
-                <img className={styles.image} src="/images/avatar.png" alt="avatar" width={100} height={100}></img>
+                <Image className={styles.image} src="/images/avatar.png" alt="avatar" width={100} height={100}></Image>
               )}
             </div>
 

@@ -1,27 +1,10 @@
 'use client';
 
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/authContext';
-import React from 'react';
+import useLogOut from './useLogOut';
 import CustomLoader from '@/app/components/CustomLoader/CustomLoader';
 
 export default function Logout() {
-  const router = useRouter();
-  const { setAuthUser } = useAuth();
-  const [loading, setLoading] = React.useState(false);
-
-  const logout = () => {
-    setLoading(true);
-    axios
-      .get('/api/users/logout')
-      .then(() => {
-        setAuthUser(null);
-        setLoading(false);
-        router.push('/login');
-      })
-      .catch((err) => console.log('Error with logout process: ' + err));
-  };
+  const { logoutUser, loading } = useLogOut();
 
   return (
     <div className="page-wrapper">
@@ -30,7 +13,7 @@ export default function Logout() {
       ) : (
         <>
           <h1>Logout</h1>
-          <button onClick={logout}>Logout</button>
+          <button onClick={logoutUser}>Logout</button>
         </>
       )}
     </div>
