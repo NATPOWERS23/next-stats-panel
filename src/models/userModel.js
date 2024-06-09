@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
   role: {
-    type: String,
+    type: Number,
     default: ROLE.CLIENT,
   },
   forgotPasswordToken: String,

@@ -1,7 +1,7 @@
 'use client';
 
 import useLogOut from './useLogOut';
-import CustomLoader from '@/app/components/CustomLoader/CustomLoader';
+import CustomLoader from '@/components/CustomLoader/CustomLoader';
 
 export default function Logout() {
   const { logoutUser, loading } = useLogOut();

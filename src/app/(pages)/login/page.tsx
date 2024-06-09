@@ -5,7 +5,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
 import axios from 'axios';
-import CustomLoader from '@/app/components/CustomLoader/CustomLoader';
+import CustomLoader from '@/components/CustomLoader/CustomLoader';
 
 export default function SignupPage() {
   const router = useRouter();
