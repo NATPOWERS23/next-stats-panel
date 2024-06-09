@@ -31,7 +31,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/context/authContext.js",
-    "lib/mongo/mongodb.ts"
+    "lib/mongo/mongodb.ts",
+    "middleware.ts"
   ],
   "exclude": ["node_modules"]
 }

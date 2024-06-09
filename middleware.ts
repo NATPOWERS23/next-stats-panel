@@ -5,10 +5,9 @@ import { ROLE } from '@/constants/ROLES';
 export function middleware(request: NextRequest) {
   try {
     const path = request.nextUrl.pathname;
-    console.log('path: ', path);
 
     const adminBlockedPaths = [''];
-    const chanelOwnerBlockedPaths = ['/websites/landing', '/events', '/finances'];
+    const chanelOwnerBlockedPaths = ['/websites/landing', '/events'];
     const managerPaths = ['/events', '/profile', '/releases', '/team', '/tasks', '/logout'];
     const clientPaths = ['/events', '/logout'];
 
@@ -62,8 +61,7 @@ export function middleware(request: NextRequest) {
 // It specifies the paths for which this middleware should be executed.
 export const config = {
   matcher: [
-    '/events/:path*',
     // Match all routes except the ones that start with public paths and api and the static folder.
-    // '/((?!api|_next/static|_next/image|favicon.ico|login|signup|verifyemail|denied).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|login|signup|verifyemail|denied).*)',
   ],
 };
