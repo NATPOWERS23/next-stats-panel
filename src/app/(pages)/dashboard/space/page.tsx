@@ -1,18 +1,18 @@
 'use client';
 
 import styles from './dashboard.module.css';
-import ClientOnly from '../../ClientOnly';
-import { ChartStream } from '../../components/Charts/ChartStream';
-import { ChartDots } from '../../components/Charts/ChartDots';
-import { ChartHistogram } from '../../components/Charts/ChartHistogram';
+import ClientOnly from '../../../ClientOnly';
+import { ChartStream } from '@/components/Charts/ChartStream';
+import { ChartDots } from '@/components/Charts/ChartDots';
+import { ChartHistogram } from '@/components/Charts/ChartHistogram';
 import { useSpaceDataApi } from './useSpaceDataApi';
 
-export default function DashboardPage() {
+export default function Space() {
   const { GSTData, FLRData, FLRClassData } = useSpaceDataApi();
 
   return (
     <>
-      <h1>Dashboard</h1>
+      <h1>Space Data</h1>
       <div className="page-wrapper">
         <div className={styles.section}>
           <h3>Space Weather</h3>

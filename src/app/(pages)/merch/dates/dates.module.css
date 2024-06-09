@@ -1,0 +1,12 @@
+.releases {
+  display: flex;
+  column-gap: 10px;
+  flex-grow: 1;
+  overflow-y: scroll;
+  width: 80vw;
+  padding-bottom: 20px;
+}
+
+.release {
+  min-width: 300px;
+}
