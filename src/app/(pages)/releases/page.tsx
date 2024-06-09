@@ -17,8 +17,8 @@ export default function Releases() {
       <h1>Show Realizes</h1>
 
       <div className="grid-wrapper">
-        {contentItems.map((item) => (
-          <div className="card">
+        {contentItems.map((item, index) => (
+          <div className="card" key={index}>
             <div className="card-title">{item.title}</div>
             <div className="card-body">...</div>
             <div className="card-actions"></div>

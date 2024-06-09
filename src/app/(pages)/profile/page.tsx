@@ -27,7 +27,7 @@ export default function ProfilePage() {
             <p>{user.role && `User Role: ${ROLE[user.role].replaceAll('_', ' ')}`}</p>
           </>
         ) : (
-          <h2>No user information. Please toggle "Details"</h2>
+          <h2>No user information. Please toggle &quot;Details&quot;</h2>
         )}
       </div>
       <button onClick={getUserDetails}>Details</button>
