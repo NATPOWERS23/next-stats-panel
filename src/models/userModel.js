@@ -1,4 +1,4 @@
-import { ROLE } from "@/app/(core)/constants/ROLES";
+import { ROLE } from "@/constants/ROLES";
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({

@@ -7,7 +7,7 @@ export default function InfoBox({
 }: {
   title: string;
   numbers: number;
-  description: string;
+  description?: string;
 }) {
   return (
     <div className={styles.infoBox}>

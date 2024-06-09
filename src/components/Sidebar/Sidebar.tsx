@@ -4,12 +4,12 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useAuth } from '@/context/authContext';
-import { ROLE } from '@/app/(core)/constants/ROLES';
-import { IMenuItem, menuItems } from '../../(core)/constants/menu-items';
+import { ROLE } from '@/constants/ROLES';
+import { IMenuItem, menuItems } from '../../constants/menu-items';
 import MenuItem from './MenuItem/MenuItem';
 import styles from './Sidebar.module.css';
 import Image from 'next/image';
-import useLogOut from '../../(pages)/logout/useLogOut';
+import useLogOut from '../../app/(pages)/logout/useLogOut';
 
 export default function Sidebar() {
   const router = useRouter();

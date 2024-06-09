@@ -1,6 +1,6 @@
 'use client';
 
-import { ROLE } from '@/app/(core)/constants/ROLES';
+import { ROLE } from '@/constants/ROLES';
 import axios from 'axios';
 import { useState } from 'react';
 import { User } from './User';
