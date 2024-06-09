@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Providers } from './provider';
 
-import './styles/globals.css';
+import '@/styles/globals.css';
 import styles from './layout.module.css';
-import Sidebar from './shared/components/Sidebar/Sidebar';
+import Sidebar from '@/components/Sidebar/Sidebar';
+import { AuthProvider } from '@/context/authContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} style={{ display: 'flex' }}>
-        <Sidebar />
-        <main className={styles.main}>
-          <Providers>{children}</Providers>
-        </main>
+        <AuthProvider>
+          <Sidebar />
+          <main className={styles.main}>{children}</main>
+        </AuthProvider>
       </body>
     </html>
   );

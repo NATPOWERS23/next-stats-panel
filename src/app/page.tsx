@@ -1,8 +1,8 @@
 import styles from './page.module.css';
 import Link from 'next/link';
 
-import { getAllArticles } from './(server)/api';
-import { Article, ArticleBrief } from './shared/components/ArticleBrief/article-brief';
+import { getAllArticles } from './(server)/services/api';
+import { Article, ArticleBrief } from '../components/ArticleBrief/article-brief';
 
 const ARTICLES_PER_PAGE = 5;
 

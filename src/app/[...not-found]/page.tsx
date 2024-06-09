@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import errorImage from '../../assets/images/error.png';
+import errorImage from '../../../public/assets/images/error.png';
 
 export default function NotFoundPage() {
   return (

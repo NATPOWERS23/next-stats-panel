@@ -1,0 +1,102 @@
+@import url('./normalize.css');
+@import url('./variables.css');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--text-main-color, white);
+  background-color: var(--bg-color, black);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.disabled {
+  pointer-events: none
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  height: 100%;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+
+.card {
+  border: 2px solid white;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.danger-card {
+  background-color: tomato;
+}
+
+.card-body {
+  padding: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.card-actions {}
+
+
+.progressBarWrapper {
+  width: 100%;
+}
+
+.progressBar {
+  width: 100%;
+  background-color: #e0e0e0;
+  padding: 3px;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progressBarFill {
+  width: 70%;
+  display: block;
+  height: 22px;
+  background-color: #659cef;
+  border-radius: 3px;
+  transition: width 500ms ease-in-out;
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
