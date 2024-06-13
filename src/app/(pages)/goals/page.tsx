@@ -1,7 +1,7 @@
 'use client';
 
 import Loader from '@/app/loading';
-import useFetchTwitchGoals from './useFetchTwitchGoals';
+import useFetchTwitchGoals from '@/hooks/twitch/useFetchTwitchGoals';
 import { Edge } from './goals';
 
 export default function Goals() {

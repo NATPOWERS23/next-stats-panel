@@ -37,23 +37,26 @@ export default function Sidebar() {
     <div className={styles.sidebar}>
       {authUser?.username && (
         <>
-          <div className={styles.account}>
+          <div className={styles.account} onClick={() => router.push('/profile')}>
             <div className={styles.avatar}>
               {authUser.avatar && (
-                <Image className={styles.image} src="/images/avatar.png" alt="avatar" width={100} height={100}></Image>
+                <Image className={styles.image} src={authUser.avatar} alt="avatar" width={100} height={100}></Image>
               )}
             </div>
 
             <div>{ROLE[authUser.role]}</div>
             <div className={styles.email}>{authUser.email || 'Email not found'}</div>
-            <button onClick={() => router.push('/logout')}>Logout</button>
           </div>
 
-          <h3>Menu</h3>
+          <div className={styles.menu}>
+            <h3>Menu</h3>
 
-          {menuItems.map((item: IMenuItem) => (
-            <MenuItem item={item} key={item.id} />
-          ))}
+            {menuItems.map((item: IMenuItem) => (
+              <MenuItem item={item} key={item.id} />
+            ))}
+          </div>
+
+          <button onClick={() => router.push('/logout')}>Logout</button>
         </>
       )}
     </div>

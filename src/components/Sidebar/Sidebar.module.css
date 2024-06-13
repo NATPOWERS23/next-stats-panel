@@ -6,6 +6,8 @@
   width: 200px;
   border-right: white 2.5px solid;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .account {
@@ -26,6 +28,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 .email {
@@ -35,4 +38,5 @@
 
 .menu {
   padding: 0;
+  flex: 1;
 }
