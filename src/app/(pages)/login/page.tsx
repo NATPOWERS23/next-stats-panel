@@ -1,34 +1,42 @@
 'use client';
 
-import Link from 'next/link';
+import axios from 'axios';
 import React from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
-import axios from 'axios';
 import CustomLoader from '@/components/CustomLoader/CustomLoader';
+import { ROLE } from '@/constants/ROLES';
+import { twitchAuthPath } from './twitch.config';
 
 export default function SignupPage() {
   const router = useRouter();
+  const { setAuthUser } = useAuth();
   const [loading, setLoading] = React.useState(false);
   const [user, setUser] = React.useState({
     email: '',
     password: '',
   });
-  const { setAuthUser } = useAuth();
 
   const onLogin = async () => {
     try {
       setLoading(true);
       axios.post('/api/users/login', user).then((res) => {
-        const { user } = res.data.data;
-        setAuthUser({ ...user });
-        router.push('/');
+        const { user, twitch } = res.data.data;
+
+        setAuthUser({ ...user, twitch: twitch ? twitch : null });
+
+        if (user.role === ROLE.CHANNEL_OWNER) {
+          window.location.href = twitchAuthPath;
+        } else {
+          router.push('/');
+        }
       });
     } catch (error: any) {
-      console.log('Login failed', error.message);
       setLoading(false);
+      console.log('Login failed.', error.message);
     } finally {
-      console.log('Login process finished.');
+      setLoading(false);
     }
   };
 

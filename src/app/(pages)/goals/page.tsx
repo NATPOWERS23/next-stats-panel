@@ -2,14 +2,16 @@
 
 import Loader from '@/app/loading';
 import useFetchTwitchGoals from '@/hooks/twitch/useFetchTwitchGoals';
+import { useAuth } from '@/context/authContext';
 import { Edge } from './goals';
 
 export default function Goals() {
-  const { goals, loading } = useFetchTwitchGoals();
+  const { authUser } = useAuth();
+  const { goals, loading } = useFetchTwitchGoals(authUser);
 
   if (loading) return <Loader />;
 
-  const goalsList = goals.map((goal: Edge) => (
+  const goalsList = goals?.map((goal: Edge) => (
     <div
       className="card"
       style={{ maxWidth: '200px', borderColor: `#${goal.node.customizations.progressBarAccentColor}` }}

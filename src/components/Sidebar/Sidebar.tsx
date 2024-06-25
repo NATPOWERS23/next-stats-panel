@@ -1,31 +1,33 @@
 'use client';
 
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { useAuth } from '@/context/authContext';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { ROLE } from '@/constants/ROLES';
-import { IMenuItem, menuItems } from '../../constants/menu-items';
+import { useAuth } from '@/context/authContext';
+import { IMenuItem, menuItems } from '@/constants/menu-items';
+import useLogOut from '@/app/(pages)/logout/useLogOut';
+import reqAxios from '@/app/api/reqAxiosInterceptor';
 import MenuItem from './MenuItem/MenuItem';
 import styles from './Sidebar.module.css';
-import Image from 'next/image';
-import useLogOut from '../../app/(pages)/logout/useLogOut';
 
 export default function Sidebar() {
   const router = useRouter();
-  const { authUser, setAuthUser } = useAuth();
-
   const { logoutUser } = useLogOut();
+  const { authUser, setAuthUser } = useAuth();
+  const searchParams = useSearchParams();
+  const code = searchParams?.get('code') || undefined;
 
   useEffect(() => {
     !authUser && getUserDetails();
   }, []);
 
   const getUserDetails = async () => {
-    await axios
-      .get('/api/users/me')
+    await reqAxios
+      .get('/api/users/me', { params: { code } })
       .then((res) => {
-        setAuthUser(res.data.data.user);
+        const { user } = res.data.data;
+        setAuthUser({ ...user });
       })
       .catch((err) => {
         logoutUser();

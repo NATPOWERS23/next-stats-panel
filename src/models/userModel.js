@@ -28,6 +28,11 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: ROLE.CLIENT,
   },
+  twitchAccountId: {
+    type: String,
+    default: ''
+  },
+  twitchId: [{ type: mongoose.Schema.Types.ObjectId, ref: 'twitch_accesses' }],
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: Date,
   verifyToken: String,

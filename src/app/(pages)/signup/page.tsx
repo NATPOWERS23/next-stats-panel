@@ -1,8 +1,10 @@
 'use client';
-import Link from 'next/link';
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+
+import React from 'react';
 import axios from 'axios';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { ROLE } from '@/constants/ROLES';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -10,6 +12,8 @@ export default function SignupPage() {
     email: '',
     password: '',
     username: '',
+    role: ROLE.CLIENT,
+    twitchAccountId: '',
   });
 
   const onSignup = async () => {
@@ -17,7 +21,7 @@ export default function SignupPage() {
       const response = await axios.post('/api/users/signup', user);
       router.push('/login');
     } catch (error: any) {
-      console.log('Signup failed', error.message);
+      console.log('Signup failed.', error.message);
     }
   };
 
@@ -36,7 +40,7 @@ export default function SignupPage() {
         <label htmlFor="email">email</label>
         <input
           id="email"
-          type="text"
+          type="email"
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
           placeholder="email"
@@ -48,6 +52,21 @@ export default function SignupPage() {
           value={user.password}
           onChange={(e) => setUser({ ...user, password: e.target.value })}
           placeholder="password"
+        />
+        <label htmlFor="role">role</label>
+        <select id="role" value={user.role} onChange={(e) => setUser({ ...user, role: +e.target.value })}>
+          <option value={ROLE.CLIENT}>client</option>
+          <option value={ROLE.ADMIN}>admin</option>
+          <option value={ROLE.CHANNEL_OWNER}>channel owner</option>
+          <option value={ROLE.MANAGER}>manager</option>
+        </select>
+        <label htmlFor="twitchAccountId">twitch account ID</label>
+        <input
+          id="twitchAccountId"
+          type="text"
+          value={user.twitchAccountId}
+          onChange={(e) => setUser({ ...user, twitchAccountId: e.target.value })}
+          placeholder="twitch account ID"
         />
         <button onClick={onSignup}>Sign Up</button>
 
