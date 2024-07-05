@@ -1,6 +1,6 @@
 'use client';
 
-import InfoBox from '../shared/components/InfoBox/InfoBox';
+import InfoBox from '../../shared/components/InfoBox/InfoBox';
 import styles from './finances.module.css';
 
 export default function FinancesPage() {

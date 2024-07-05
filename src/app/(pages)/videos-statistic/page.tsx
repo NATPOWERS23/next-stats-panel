@@ -1,4 +1,4 @@
-import InfoBox from '../shared/components/InfoBox/InfoBox';
+import InfoBox from '../../shared/components/InfoBox/InfoBox';
 
 export const statCards = [
   { id: '1', title: 'Stream Duration', numbers: 120001, diff: 100 },
