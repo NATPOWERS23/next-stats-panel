@@ -1,6 +1,6 @@
 'use client';
 
-import InfoBox from '../../shared/components/InfoBox/InfoBox';
+import InfoBox from '@/components/InfoBox/InfoBox';
 import styles from './finances.module.css';
 
 export default function FinancesPage() {
@@ -10,8 +10,8 @@ export default function FinancesPage() {
 
       <div className="page-wrapper">
         <div className={styles.top}>
-          <InfoBox title="Income" numbers={100000}></InfoBox>
-          <InfoBox title="Outcome" numbers={1000}></InfoBox>
+          <InfoBox title="Income" numbers={100000} description={''}></InfoBox>
+          <InfoBox title="Outcome" numbers={1000} description={''}></InfoBox>
         </div>
         <div className={styles.middle}>
           <div className="card">

@@ -1,5 +1,5 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
-import { IMenuItem, menuItems } from '../../../menu-items';
+import { IMenuItem, menuItems } from '../../constants/menu-items';
 import MenuItem from './MenuItem/MenuItem';
 import styles from './Sidebar.module.css';
 

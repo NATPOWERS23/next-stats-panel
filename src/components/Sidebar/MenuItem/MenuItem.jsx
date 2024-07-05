@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { subMenuItems } from '../../../../menu-items';
+import { subMenuItems } from '../../../constants/menu-items';
 import styles from './MenuItem.module.css';
 
 export default function MenuItem({ item }) {

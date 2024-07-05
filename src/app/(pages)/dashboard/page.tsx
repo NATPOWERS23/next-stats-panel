@@ -1,10 +1,10 @@
 'use client';
 
 import styles from './dashboard.module.css';
-import ClientOnly from '../shared/components/ClientOnly';
-import { ChartStream } from '../shared/components/Charts/ChartStream';
-import { ChartDots } from '../shared/components/Charts/ChartDots';
-import { ChartHistogram } from '../shared/components/Charts/ChartHistogram';
+import ClientOnly from '@/utils/ClientOnly';
+import { ChartStream } from '@/components/Charts/ChartStream';
+import { ChartDots } from '@/components/Charts/ChartDots';
+import { ChartHistogram } from '@/components/Charts/ChartHistogram';
 import { useSpaceDataApi } from './useSpaceDataApi';
 
 export default function DashboardPage() {
