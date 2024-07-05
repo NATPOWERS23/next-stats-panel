@@ -1,8 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-const isProtectedRoute = createRouteMatcher([
-  '/((?!api|_next/static|_next/image|favicon.ico|дщпшт|verifyemail|denied).*)',
-]);
+const isProtectedRoute = createRouteMatcher(['/((?!api|_next/static|_next/image|favicon.ico|client/*||denied).*)']);
 
 export default clerkMiddleware((auth, req) => {
   if (isProtectedRoute(req)) auth().protect();
@@ -11,10 +9,6 @@ export default clerkMiddleware((auth, req) => {
 export const config = {
   matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
-
-// export function middleware(request: NextRequest) {
-//   try {
-//     const path = request.nextUrl.pathname;
 
 //     const adminBlockedPaths = [''];
 //     const chanelOwnerBlockedPaths = ['/websites/landing', '/events'];
@@ -63,15 +57,3 @@ export const config = {
 //         return NextResponse.redirect(new URL('/denied', request.nextUrl));
 //       }
 //     }
-//   } catch (error) {
-//     console.log('error: ', error);
-//   }
-// }
-
-// // It specifies the paths for which this middleware should be executed.
-// export const config = {
-//   matcher: [
-//     // Match all routes except the ones that start with public paths and api and the static folder.
-//     '/((?!api|_next/static|_next/image|favicon.ico|login|signup|verifyemail|denied).*)',
-//   ],
-// };
