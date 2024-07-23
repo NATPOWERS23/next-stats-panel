@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ROUTES } from '@/app/routing';
+import { ROUTES } from '../(server)/routing';
 import styles from './article-brief.module.css';
 
 export interface Article {
@@ -23,8 +23,6 @@ export interface Launch {
 }
 
 export function ArticleBrief({ article }: { article: Article }) {
-  
-
   return (
     <>
       {article && (

@@ -21,6 +21,10 @@ export default function ClientLayout({
           </button>
         )}
 
+        <button>
+          <Link href="/client/news">News</Link>
+        </button>
+
         <SignedOut>
           <SignInButton forceRedirectUrl="/crm" />
         </SignedOut>
