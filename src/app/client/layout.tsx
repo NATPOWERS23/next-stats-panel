@@ -25,7 +25,7 @@ export default function ClientLayout({
           <SignInButton forceRedirectUrl="/crm" />
         </SignedOut>
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </>
   );
 }

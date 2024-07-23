@@ -17,6 +17,8 @@ export interface SubMenuItem {
   link: string;
 }
 
+export const crmPath = '/crm';
+
 export const menuItems: IMenuItem[] = [
   { title: 'Home', id: 'menu_item_1', link: '/' },
   { title: 'Finances', id: 'menu_item_2', link: '/finances' },
