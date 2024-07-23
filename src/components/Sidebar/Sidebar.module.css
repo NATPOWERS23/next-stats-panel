@@ -8,6 +8,20 @@
   padding: 10px;
 }
 
+.menu {
+  padding: 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  border-right: white 2.5px solid;
+  padding: 10px;
+}
+
 .account {
   display: flex;
   flex-direction: column;

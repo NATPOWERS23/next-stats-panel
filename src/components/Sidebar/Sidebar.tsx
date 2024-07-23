@@ -1,61 +1,58 @@
 'use client';
 
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useAuth } from '@/context/authContext';
-import { ROLE } from '@/constants/ROLES';
+import { Protect, SignedIn, useOrganizationList, UserButton } from '@clerk/nextjs';
 import { IMenuItem, menuItems } from '../../constants/menu-items';
 import MenuItem from './MenuItem/MenuItem';
 import styles from './Sidebar.module.css';
-import Image from 'next/image';
-import useLogOut from '../../app/(pages)/logout/useLogOut';
 
 export default function Sidebar() {
-  const router = useRouter();
-  const { authUser, setAuthUser } = useAuth();
+  const { isLoaded, setActive, userMemberships } = useOrganizationList({
+    userMemberships: {
+      infinite: true,
+    },
+  });
 
-  const { logoutUser } = useLogOut();
-
-  useEffect(() => {
-    !authUser && getUserDetails();
-  }, []);
-
-  const getUserDetails = async () => {
-    await axios
-      .get('/api/users/me')
-      .then((res) => {
-        setAuthUser(res.data.data.user);
-      })
-      .catch((err) => {
-        logoutUser();
-        console.log(`Error with getting user data: ${err}`);
-      });
-  };
+  if (!isLoaded) {
+    return <>Loading</>;
+  }
 
   return (
     <div className={styles.sidebar}>
-      {authUser?.username && (
-        <>
-          <div className={styles.account}>
-            <div className={styles.avatar}>
-              {authUser.avatar && (
-                <Image className={styles.image} src="/images/avatar.png" alt="avatar" width={100} height={100}></Image>
-              )}
-            </div>
+      <section>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
 
-            <div>{ROLE[authUser.role]}</div>
-            <div className={styles.email}>{authUser.email || 'Email not found'}</div>
-            <button onClick={() => router.push('/logout')}>Logout</button>
-          </div>
+        <ul>
+          {userMemberships.data?.map(
+            (mem) =>
+              !mem.organization.name && (
+                <li key={mem.id}>
+                  <span>Погодитися з умовами використання {mem.organization.name} - </span>
+                  <a href="#" target="blank">
+                    (умови)
+                  </a>
+                  <br></br>
+                  <br></br>
+                  <button onClick={() => setActive({ organization: mem.organization.id })}>Погодитися</button>
+                </li>
+              ),
+          )}
+        </ul>
+      </section>
 
+      <section>
+        <Protect
+          condition={(has) =>
+            has({ role: 'org:admin' }) || has({ role: 'org:channel_owner' }) || has({ role: 'org:user' })
+          }
+        >
           <h3>Menu</h3>
-
           {menuItems.map((item: IMenuItem) => (
             <MenuItem item={item} key={item.id} />
           ))}
-        </>
-      )}
+        </Protect>
+      </section>
     </div>
   );
 }

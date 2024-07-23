@@ -1,0 +1,7 @@
+.container {
+  width: 100%;
+  background-image: url('../../../public/assets/images/main-client-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
