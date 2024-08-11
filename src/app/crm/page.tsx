@@ -1,3 +1,9 @@
+import DashboardPage from './dashboard/page';
+
 export default async function CrmPage() {
-  return <div>CRM</div>;
+  return (
+    <div>
+      <DashboardPage />
+    </div>
+  );
 }

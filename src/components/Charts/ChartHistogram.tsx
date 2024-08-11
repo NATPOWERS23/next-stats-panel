@@ -11,7 +11,7 @@ import {
   VictoryVoronoiContainer,
 } from 'victory';
 
-import { StreamFLRClassData } from '@/app/(pages)/dashboard/charts-interfaces';
+import { StreamFLRClassData } from '@/app/crm/dashboard/charts-interfaces';
 
 export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClassData; title: string }) {
   const colors = ['#f95d6a', '#ff7c43', '#ffa600'];

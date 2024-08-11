@@ -1,7 +1,7 @@
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 
-import { FLRData, GSTData, StreamFLRClassData } from './charts-interfaces';
+import { FLRData, GSTData, StreamFLRClassData } from '../app/crm/dashboard/charts-interfaces';
 
 const generateDatesOfCurrentMonth = () => {
   const startDate = moment().subtract(1, 'month');

@@ -4,10 +4,7 @@ import Desk from './desk/Desk';
 export default function Events() {
   return (
     <>
-      <Protect
-        condition={(has) => has({ role: 'org:admin' })}
-        fallback={<p>You do not have the permissions to access CRM.</p>}
-      >
+      <Protect role="org:admin" fallback={<p>You do not have the permissions to access this functionality.</p>}>
         <h1>Events Calendar</h1>
 
         <div className="page-wrapper">

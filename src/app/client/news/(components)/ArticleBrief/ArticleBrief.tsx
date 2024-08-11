@@ -1,26 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ROUTES } from '../(server)/routing';
-import styles from './article-brief.module.css';
-
-export interface Article {
-  events: any[];
-  featured: boolean;
-  id: number;
-  imageUrl: string;
-  launches: Launch[];
-  newsSite: string;
-  publishedAt: string;
-  summary: string;
-  title: string;
-  updatedAt: string;
-  url: string;
-}
-
-export interface Launch {
-  id: string;
-  provider: string;
-}
+import { ROUTES } from '../../(server)/routing';
+import { Article } from './ArticleBrief';
+import styles from './ArticleBrief.module.css';
 
 export function ArticleBrief({ article }: { article: Article }) {
   return (
@@ -37,3 +19,4 @@ export function ArticleBrief({ article }: { article: Article }) {
     </>
   );
 }
+export { Article };

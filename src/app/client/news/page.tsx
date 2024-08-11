@@ -1,8 +1,7 @@
-import styles from './news.module.css';
 import Link from 'next/link';
-
 import { getAllArticles } from './(server)/api';
-import { Article, ArticleBrief } from './ArticleBrief/article-brief';
+import { Article, ArticleBrief } from './(components)/ArticleBrief/ArticleBrief';
+import styles from './news.module.css';
 
 const ARTICLES_PER_PAGE = 5;
 
@@ -18,7 +17,7 @@ export default async function News({ searchParams }: { searchParams: Record<stri
   const pageLink = (page: number) => ({ search: new URLSearchParams({ page: page.toString() }).toString() });
 
   return (
-    <div>
+    <>
       <h1>Home Page {page}</h1>
       {articles.map((article: Article) => (
         <ArticleBrief article={article} key={article.id} />
@@ -39,6 +38,6 @@ export default async function News({ searchParams }: { searchParams: Record<stri
           </div>
         )}
       </section>
-    </div>
+    </>
   );
 }

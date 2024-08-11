@@ -21,7 +21,7 @@ export default function CrmLayout({
               paddingLeft: '240px',
             }}
           >
-            <p>Наразі у вас немає доступу до основних функцій сайту.</p>
+            <p>You currently do not have access to the CRM tools.</p>
           </div>
         }
       >

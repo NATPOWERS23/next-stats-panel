@@ -10,8 +10,8 @@ import {
   VictoryVoronoiContainer,
 } from 'victory';
 
-import { StreamFLRData } from '@/app/(pages)/dashboard/charts-interfaces';
-import { timeLabels } from '@/app/(pages)/dashboard/apiDataFormatter';
+import { StreamFLRData } from '@/app/crm/dashboard/charts-interfaces';
+import { timeLabels } from '@/utils/chartApiDataFormatter';
 
 export function ChartDots({ chartData, title }: { chartData: StreamFLRData[]; title: string }) {
   const lengthAxisX = moment().endOf('month').date();
