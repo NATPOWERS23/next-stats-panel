@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { auth } from '@clerk/nextjs/server';
-import { SignedOut, SignInButton } from '@clerk/nextjs';
+import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
+import { SignedOut, SignInButton } from "@clerk/nextjs";
 
-import styles from './layout.module.css';
+import styles from "./layout.module.css";
 
 export default function ClientLayout({
   children,
@@ -16,12 +16,12 @@ export default function ClientLayout({
     <>
       <header className={styles.header}>
         {isSignedIn && (
-          <button>
+          <button type="button">
             <Link href="/crm">Back to CRM</Link>
           </button>
         )}
 
-        <button>
+        <button type="button">
           <Link href="/client/news">News</Link>
         </button>
 

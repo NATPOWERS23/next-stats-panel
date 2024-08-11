@@ -1,6 +1,6 @@
 export enum ROLE {
-  admin,
-  channel_owner,
-  user,
-  unauthenticated,
+  admin = 0,
+  channel_owner = 1,
+  user = 2,
+  unauthenticated = 3,
 }

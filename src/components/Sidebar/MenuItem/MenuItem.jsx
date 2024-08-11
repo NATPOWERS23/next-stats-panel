@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { crmPath, subMenuItems } from '../../../constants/menu-items';
-import styles from './MenuItem.module.css';
+import Link from "next/link";
+import { useState } from "react";
+import { crmPath, subMenuItems } from "../../../constants/menu-items";
+import styles from "./MenuItem.module.css";
 
 export default function MenuItem({ item }) {
   const [isSubMenuShow, setIsSubMenuShow] = useState(false);
@@ -11,7 +11,9 @@ export default function MenuItem({ item }) {
   return (
     <div className={styles.item}>
       {subMenuItems[item.id] ? (
-        <div onClick={() => setIsSubMenuShow(!isSubMenuShow)}>{item.title}</div>
+        <div onClick={() => setIsSubMenuShow(!isSubMenuShow)} onKeyUp={handleKeyUp}>
+          {item.title}
+        </div>
       ) : (
         <Link href={crmPath + item.link}>{item.title}</Link>
       )}

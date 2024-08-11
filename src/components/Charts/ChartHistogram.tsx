@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import moment from 'moment';
+import moment from "moment";
 import {
   VictoryAxis,
   VictoryChart,
@@ -9,36 +9,36 @@ import {
   VictoryLegend,
   VictoryStack,
   VictoryVoronoiContainer,
-} from 'victory';
+} from "victory";
 
-import { StreamFLRClassData } from '@/app/crm/dashboard/charts-interfaces';
+import type { StreamFLRClassData } from "@/app/crm/dashboard/charts-interfaces";
 
 export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClassData; title: string }) {
-  const colors = ['#f95d6a', '#ff7c43', '#ffa600'];
+  const colors = ["#f95d6a", "#ff7c43", "#ffa600"];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <div>{title}</div>
 
       <VictoryChart
         height={400}
         width={400}
-        scale={{ x: 'time' }}
+        scale={{ x: "time" }}
         containerComponent={
           <VictoryVoronoiContainer
             labels={({ datum }) =>
               datum.binnedData[0]
                 ? `${datum.binnedData[0].classType}: ${
                     datum.binnedData.length
-                  } (${datum.binnedData[0].day.toLocaleString('default', {
-                    month: 'long',
+                  } (${datum.binnedData[0].day.toLocaleString("default", {
+                    month: "long",
                   })})`
                 : null
             }
           />
         }
       >
-        <VictoryLabel x={225} y={25} textAnchor="end" text={'Solar Flares Events to in ' + moment().format('YYYY')} />
+        <VictoryLabel x={225} y={25} textAnchor="end" text={`Solar Flares Events to in ${moment().format("YYYY")}`} />
 
         <VictoryStack colorScale={colors}>
           {Object.entries(chartData).map(([key, dataGroup]: Array<string | any>) => {
@@ -46,7 +46,7 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
               <VictoryHistogram
                 style={{
                   data: {
-                    stroke: 'hsl(355, 10%, 25%)',
+                    stroke: "hsl(355, 10%, 25%)",
                     data: { strokeWidth: 0 },
                   },
                 }}
@@ -61,7 +61,7 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
 
         <VictoryAxis
           tickCount={12}
-          tickFormat={(date) => date.toLocaleString('default', { month: 'short' })}
+          tickFormat={(date) => date.toLocaleString("default", { month: "short" })}
           style={sharedAxisStyles}
         />
 
@@ -73,11 +73,11 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
         height={20}
         orientation="horizontal"
         gutter={20}
-        style={{ labels: { fill: 'white' } }}
+        style={{ labels: { fill: "white" } }}
         data={[
-          { name: 'M type', symbol: { fill: colors[0] } },
-          { name: 'C type', symbol: { fill: colors[1] } },
-          { name: 'X type', symbol: { fill: colors[2] } },
+          { name: "M type", symbol: { fill: colors[0] } },
+          { name: "C type", symbol: { fill: colors[1] } },
+          { name: "X type", symbol: { fill: colors[2] } },
         ]}
       />
     </div>
@@ -86,13 +86,13 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
 
 const sharedAxisStyles = {
   tickLabels: {
-    fill: 'white',
+    fill: "white",
     fontSize: 13,
   },
   axisLabel: {
-    fill: 'white',
+    fill: "white",
     padding: 39,
     fontSize: 13,
-    fontStyle: 'italic',
+    fontStyle: "italic",
   },
 };

@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 
 import { getFLRData, getGSTData } from '../services/charts/charts-service';
-import {
+import type {
   FLRData,
   GSTData,
   StreamFLRClassData,

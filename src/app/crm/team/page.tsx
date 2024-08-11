@@ -1,4 +1,4 @@
-import styles from './team.module.css';
+import styles from "./team.module.css";
 
 export default function Team() {
   return (
@@ -11,8 +11,8 @@ export default function Team() {
 
       <h3>Dashboard</h3>
       <div className={styles.dashboard}>
-        <div className="card"></div>
-        <div className="card"></div>
+        <div className="card" />
+        <div className="card" />
         <div className="card">
           <div className="card-title">Team chat</div>
         </div>

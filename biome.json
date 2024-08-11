@@ -1,0 +1,18 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "suspicious": {
+        "noShadowRestrictedNames": "off"
+      },
+      "recommended": true,
+      "a11y": {
+        "useValidAriaRole": "off"
+      }
+    }
+  }
+}

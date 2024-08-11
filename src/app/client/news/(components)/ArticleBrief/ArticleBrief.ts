@@ -1,5 +1,5 @@
 export interface Article {
-  events: any[];
+  events: unknown[];
   featured: boolean;
   id: number;
   imageUrl: string;

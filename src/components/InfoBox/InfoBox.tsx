@@ -1,4 +1,4 @@
-import styles from './InfoBox.module.css';
+import styles from "./InfoBox.module.css";
 
 export default function InfoBox({
   title,
@@ -17,7 +17,7 @@ export default function InfoBox({
           {numbers} <span className={styles.currency}>USD</span>
         </div>
       </div>
-      <hr></hr>
+      <hr />
       <div className={styles.description}>{description}</div>
     </div>
   );

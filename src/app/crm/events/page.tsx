@@ -1,5 +1,5 @@
-import { Protect } from '@clerk/nextjs';
-import Desk from './desk/Desk';
+import { Protect } from "@clerk/nextjs";
+import Desk from "./desk/Desk";
 
 export default function Events() {
   return (
@@ -21,7 +21,7 @@ export default function Events() {
           </div>
 
           <div>
-            <button>+ Add Event</button>
+            <button type="button">+ Add Event</button>
           </div>
         </div>
       </Protect>

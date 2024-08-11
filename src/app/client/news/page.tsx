@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAllArticles } from './(server)/api';
-import { Article, ArticleBrief } from './(components)/ArticleBrief/ArticleBrief';
+import { type Article, ArticleBrief } from './(components)/ArticleBrief/ArticleBrief';
 import styles from './news.module.css';
 
 const ARTICLES_PER_PAGE = 5;

@@ -1,4 +1,4 @@
-import { FLRData, GSTData } from '../../app/crm/dashboard/charts-interfaces';
+import type { FLRData, GSTData } from '../../app/crm/dashboard/charts-interfaces';
 
 const apiUrl = 'https://api.nasa.gov/DONKI/';
 

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import InfoBox from '@/components/InfoBox/InfoBox';
-import styles from './finances.module.css';
-import { Protect } from '@clerk/nextjs';
+import InfoBox from "@/components/InfoBox/InfoBox";
+import styles from "./finances.module.css";
+import { Protect } from "@clerk/nextjs";
 
 export default function FinancesPage() {
   return (
@@ -12,8 +12,8 @@ export default function FinancesPage() {
 
         <div className="page-wrapper">
           <div className={styles.top}>
-            <InfoBox title="Income" numbers={100000} description={''}></InfoBox>
-            <InfoBox title="Outcome" numbers={1000} description={''}></InfoBox>
+            <InfoBox title="Income" numbers={100000} description={""} />
+            <InfoBox title="Outcome" numbers={1000} description={""} />
           </div>
           <div className={styles.middle}>
             <div className="card">
@@ -41,15 +41,15 @@ export default function FinancesPage() {
                 </div>
                 <div className="card">
                   <div className="card-title">Patreon</div>
-                  <div className="card-body"></div>
+                  <div className="card-body" />
                 </div>
                 <div className="card">
                   <div className="card-title">Youtube</div>
-                  <div className="card-body"></div>
+                  <div className="card-body" />
                 </div>
                 <div className="card">
                   <div className="card-title">Twich</div>
-                  <div className="card-body"></div>
+                  <div className="card-body" />
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@ export default function FinancesPage() {
               <div className="card-body">
                 <div className="progressBarWrapper">
                   <div className="progressBar">
-                    <span className="progressBarFill"></span>
+                    <span className="progressBarFill" />
                   </div>
                 </div>
               </div>

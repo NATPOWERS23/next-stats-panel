@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Tasks() {
   return (
@@ -7,16 +7,16 @@ export default function Tasks() {
 
       <div className="grid-wrapper">
         <div>
-          <button>+ New Task</button>
+          <button type="button">+ New Task</button>
         </div>
         <div>
-          <button>Find task</button>
+          <button type="button">Find task</button>
         </div>
         <div>
-          <button>Assigned tasks</button>
+          <button type="button">Assigned tasks</button>
         </div>
         <div>
-          <button>Export tasks in CSV</button>
+          <button type="button">Export tasks in CSV</button>
         </div>
         <div className="card">
           <Link href="./team">Workflow statistic</Link>

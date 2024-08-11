@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Protect, SignedIn, useOrganizationList, UserButton } from '@clerk/nextjs';
-import { IMenuItem, menuItems } from '../../constants/menu-items';
-import MenuItem from './MenuItem/MenuItem';
-import styles from './Sidebar.module.css';
+import { Protect, SignedIn, useOrganizationList, UserButton } from "@clerk/nextjs";
+import { type IMenuItem, menuItems } from "../../constants/menu-items";
+import MenuItem from "./MenuItem/MenuItem";
+import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
   const { isLoaded, setActive, userMemberships } = useOrganizationList({
@@ -32,11 +32,13 @@ export default function Sidebar() {
                   <a href="#" target="blank">
                     (умови)
                   </a>
-                  <br></br>
-                  <br></br>
-                  <button onClick={() => setActive({ organization: mem.organization.id })}>Погодитися</button>
+                  <br />
+                  <br />
+                  <button type="button" onClick={() => setActive({ organization: mem.organization.id })}>
+                    Погодитися
+                  </button>
                 </li>
-              ),
+              )
           )}
         </ul>
       </section>
@@ -44,7 +46,7 @@ export default function Sidebar() {
       <section>
         <Protect
           condition={(has) =>
-            has({ role: 'org:admin' }) || has({ role: 'org:channel_owner' }) || has({ role: 'org:user' })
+            has({ role: "org:admin" }) || has({ role: "org:channel_owner" }) || has({ role: "org:user" })
           }
         >
           <h3>Menu</h3>
