@@ -1,4 +1,4 @@
-import type { ChartData } from '@/app/(pages)/dashboard/charts-interfaces';
+import type { ChartData } from "@/app/crm/dashboard/charts-interfaces";
 
 export const mockGSTCartData = [
   {

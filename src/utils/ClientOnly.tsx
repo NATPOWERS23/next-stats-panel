@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 
 type ClientOnlyProps = { children: JSX.Element };
+
 const ClientOnly = (props: ClientOnlyProps) => {
   const { children } = props;
 
