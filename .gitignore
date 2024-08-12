@@ -43,3 +43,5 @@ src/app/(core)/(mocks)/
 .env
 .env.dev
 .env.prod
+
+.coverage
