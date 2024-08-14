@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { crmPath, subMenuItems } from "../../../constants/menu-items";
+import { crmPath, type IMenuItem, subMenuItems } from "../../../constants/menu-items";
 import styles from "./MenuItem.module.css";
 
-export default function MenuItem({ item }) {
+export default function MenuItem({ item }: { item: IMenuItem }) {
   const [isSubMenuShow, setIsSubMenuShow] = useState(false);
 
   return (
     <div className={styles.item}>
       {subMenuItems[item.id] ? (
-        <div onClick={() => setIsSubMenuShow(!isSubMenuShow)} onKeyUp={handleKeyUp}>
+        <div onKeyUp={() => setIsSubMenuShow(!isSubMenuShow)}>
           {item.title}
         </div>
       ) : (
@@ -22,7 +22,7 @@ export default function MenuItem({ item }) {
   );
 }
 
-const SubMenu = ({ dropDownItem }) => {
+const SubMenu = ({ dropDownItem }: { dropDownItem: IMenuItem[] }) => {
   return (
     <div className={styles.dropdown}>
       <ul>
