@@ -1,14 +1,15 @@
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ROUTES } from '../../(server)/routing';
-import { Article } from './ArticleBrief';
-import styles from './ArticleBrief.module.css';
+import type { Article } from './ArticleBrief';
 
-export function ArticleBrief({ article }: { article: Article }) {
+export default function ArticleBrief({ article }: { article: Article }) {
+  
   return (
     <>
       {article && (
-        <section className={styles.container}>
+        <section>
           <Link href={ROUTES.articles(article.id)}>
             <h2>{article.title}</h2>
           </Link>
@@ -19,4 +20,3 @@ export function ArticleBrief({ article }: { article: Article }) {
     </>
   );
 }
-export { Article };

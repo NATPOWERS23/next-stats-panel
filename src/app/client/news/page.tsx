@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { getAllArticles } from './(server)/api';
-import { type Article, ArticleBrief } from './(components)/ArticleBrief/ArticleBrief';
+import type { Article } from './(components)/ArticleBrief/ArticleBrief';
 import styles from './news.module.css';
+
 
 const ARTICLES_PER_PAGE = 5;
 
@@ -19,7 +20,7 @@ export default async function News({ searchParams }: { searchParams: Record<stri
   return (
     <>
       <h1>Home Page {page}</h1>
-      {articles.map((article: Article) => (
+      {/* {articles.map((article: Article) => (
         <ArticleBrief article={article} key={article.id} />
       ))}
       <section className={styles.pagination}>
@@ -37,7 +38,7 @@ export default async function News({ searchParams }: { searchParams: Record<stri
             </Link>
           </div>
         )}
-      </section>
+      </section> */}
     </>
   );
 }

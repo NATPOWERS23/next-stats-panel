@@ -26,15 +26,15 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
         scale={{ x: "time" }}
         containerComponent={
           <VictoryVoronoiContainer
-            labels={({ datum }) =>
-              datum.binnedData[0]
-                ? `${datum.binnedData[0].classType}: ${
-                    datum.binnedData.length
-                  } (${datum.binnedData[0].day.toLocaleString("default", {
-                    month: "long",
-                  })})`
-                : null
-            }
+            // labels={({ datum }) =>
+            //   datum.binnedData[0]
+            //     ? `${datum.binnedData[0].classType}: ${
+            //         datum.binnedData.length
+            //       } (${datum.binnedData[0].day.toLocaleString("default", {
+            //         month: "long",
+            //       })})`
+            //     : null
+            // }
           />
         }
       >
@@ -47,7 +47,7 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
                 style={{
                   data: {
                     stroke: "hsl(355, 10%, 25%)",
-                    data: { strokeWidth: 0 },
+                    // data: { strokeWidth: 0 },
                   },
                 }}
                 cornerRadius={5}
