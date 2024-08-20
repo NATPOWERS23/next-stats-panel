@@ -25,8 +25,7 @@ export default function Sidebar() {
 
         <ul>
           {userMemberships.data?.map(
-            (mem) =>
-              !mem.organization.name && (
+            (mem) => (
                 <li key={mem.id}>
                   <span>Погодитися з умовами використання {mem.organization.name} - </span>
                   <a href="#" target="blank">
