@@ -2,30 +2,30 @@ import type React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import MenuItem from './MenuItem';
 
-// Mock the next/link component
-jest.mock('next/link', () => {
-  return ({ children, href }: { children: React.ReactNode; href: string }) => (
-    <a href={href}>{children}</a>
-  );
-});
+// // Mock the next/link component
+// jest.mock('next/link', () => {
+//   return ({ children, href }: { children: React.ReactNode; href: string }) => (
+//     <a href={href}>{children}</a>
+//   );
+// });
 
-// Mock the constants
-jest.mock('../../../constants/menu-items', () => ({
-  crmPath: '/crm',
-  subMenuItems: {
-    1: [
-      { id: 'sub1', title: 'Sub Item 1', link: '/sub1' },
-      { id: 'sub2', title: 'Sub Item 2', link: '/sub2' },
-    ],
-  },
-}));
+// // Mock the constants
+// jest.mock('../../../constants/menu-items', () => ({
+//   crmPath: '/crm',
+//   subMenuItems: {
+//     1: [
+//       { id: 'sub1', title: 'Sub Item 1', link: '/sub1' },
+//       { id: 'sub2', title: 'Sub Item 2', link: '/sub2' },
+//     ],
+//   },
+// }));
 
-// Mock the CSS module
-jest.mock('./MenuItem.module.css', () => ({
-  item: 'mockItem',
-  dropdown: 'mockDropdown',
-  subitem: 'mockSubitem',
-}));
+// // Mock the CSS module
+// jest.mock('./MenuItem.module.css', () => ({
+//   item: 'mockItem',
+//   dropdown: 'mockDropdown',
+//   subitem: 'mockSubitem',
+// }));
 
 describe('MenuItem', () => {
   const mockItem = { id: '1', title: 'Test Item', link: '/test' };
