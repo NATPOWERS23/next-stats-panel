@@ -27,7 +27,7 @@ const UserSchema = new Schema({
   },
   // role: {
   //   type: Number,
-  //   default: ROLE.CLIENT,
+  //   default: ROLE.member,
   // },
 })
 

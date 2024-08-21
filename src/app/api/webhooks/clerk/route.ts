@@ -69,9 +69,8 @@ export async function POST(req: Request) {
       username: username,
     }
 
-    console.log(user);
-
     const newUser = await createUser(user);
+    console.log(`Id: ${id}`);
 
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
@@ -79,9 +78,12 @@ export async function POST(req: Request) {
           userId: newUser.id,
         }
       })
+      console.log(`New user created: ${JSON.stringify(newUser)}`);
+    } else {
+      console.log(`User already exists - sign in: ${JSON.stringify(user)}`);
     }
 
-    return NextResponse.json({ message: 'New User created', user: newUser })
+    return NextResponse.json({ success: true })
   }
 
 

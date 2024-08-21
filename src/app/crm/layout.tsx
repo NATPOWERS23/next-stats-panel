@@ -12,7 +12,7 @@ export default function CrmLayout({
       <Sidebar />
       <Protect
         condition={(has) =>
-          has({ role: 'org:admin' }) || has({ role: 'org:channel_owner' }) || has({ role: 'org:user' })
+          has({ role: 'org:admin' }) || has({ role: 'org:channel_owner' }) || has({ role: 'org:member' })
         }
         fallback={
           <div
