@@ -10,6 +10,9 @@ import { createUser } from "@/db/actions/user.action";
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
+  const CRM_ORGANIZATION_ID = process.env.CRM_ORGANIZATION_ID as string
+  const CRM_ORGANIZATION_ROLE = process.env.CRM_ORGANIZATION_ROLE as string
+
 
   if (!WEBHOOK_SECRET) {
     throw new Error('Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
@@ -74,21 +77,20 @@ export async function POST(req: Request) {
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
-          userId: id,
-          userDatabaseId: newUser._id,
-          organizationId: 'org_2ix8NAYfgQfjvaFVzsZaLKZsJWy',
-          role: 'org:member'
+          userId: newUser._id,
+          organizationId: CRM_ORGANIZATION_ID,
+          role: CRM_ORGANIZATION_ROLE
         }
       })
 
       const response = await clerkClient.organizations.createOrganizationMembership({
-        organizationId: 'org_2ix8NAYfgQfjvaFVzsZaLKZsJWy',
+        organizationId: CRM_ORGANIZATION_ID,
         userId: id,
-        role: 'org:member'
+        role: CRM_ORGANIZATION_ROLE
       })
 
       console.log(response)
-      console.log(`New user created: ${JSON.stringify(newUser)}. Setted to ${response.organization.name} organization with role`);
+      console.log(`New user created: ${JSON.stringify(newUser)}. Setted to ${response.organization.name} organization with role: ${CRM_ORGANIZATION_ROLE}`);
     } else {
       console.log(`User already exists - sign in: ${JSON.stringify(user)}`);
     }
