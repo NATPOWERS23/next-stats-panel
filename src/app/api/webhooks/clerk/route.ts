@@ -72,6 +72,7 @@ export async function POST(req: Request) {
     }
 
     const newUser = await createUser(user);
+    
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
@@ -81,7 +82,7 @@ export async function POST(req: Request) {
 
       const response = await clerkClient.organizations.createOrganizationMembership({
         organizationId: DEFAULT_ORGANIZATION_ID,
-        userId: newUser._id,
+        userId: id,
         role: DEFAULT_ORGANIZATION_ROLE
       })
 
