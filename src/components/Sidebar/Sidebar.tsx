@@ -18,6 +18,7 @@ export default function Sidebar() {
 	});
 
 	if (!isLoaded) {
+		console.log(userMemberships.data);
 		return <>Loading</>;
 	}
 
@@ -28,32 +29,28 @@ export default function Sidebar() {
 					<UserButton />
 				</SignedIn>
 
-				{isLoaded && userMemberships.data?.length && (
+				{isLoaded && (
 					<ul>
-						{userMemberships.data.map(
-							(mem) =>
-								mem.organization.id && (
-									<li key={mem.id}>
-										<span>
-											Погодитися з умовами використання {mem.organization.name}{" "}
-											-{" "}
-										</span>
-										<a href="#" target="blank">
-											(умови)
-										</a>
-										<br />
-										<br />
-										<button
-											type="button"
-											onClick={() =>
-												setActive({ organization: mem.organization.id })
-											}
-										>
-											Погодитися
-										</button>
-									</li>
-								),
-						)}
+						{userMemberships.data?.map((mem) => (
+							<li key={mem.id}>
+								<span>
+									Погодитися з умовами використання {mem.organization.name} -{" "}
+								</span>
+								<a href="#" target="blank">
+									(умови)
+								</a>
+								<br />
+								<br />
+								<button
+									type="button"
+									onClick={() =>
+										setActive({ organization: mem.organization.id })
+									}
+								>
+									Погодитися
+								</button>
+							</li>
+						))}
 					</ul>
 				)}
 			</section>
