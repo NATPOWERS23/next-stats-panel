@@ -1,0 +1,32 @@
+.navbar {
+  position: absolute;
+  right: 0
+}
+
+.navbarList {
+  display: flex;
+  padding: 10px 10px 10px 20px;
+  background-color: #1c1c1e;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  gap: 10px;
+  align-items: center
+}
+
+.item,
+.subitem {
+  list-style: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}
+
+.item>a:hover,
+.subitem>a:hover,
+.item>div:hover {
+  color: gray;
+}

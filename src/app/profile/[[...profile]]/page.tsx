@@ -13,11 +13,8 @@ const Profile = async () => {
 	if (!isAuthenticated) redirect("/client");
 
 	return (
-		<div className={styles.profile}>
-			<h1>{user?.username || `${user?.firstName} ${user?.lastName}`}</h1>
-			<div className="page-wrapper" style={{ display: "flex" }}>
-				<UserProfile />
-			</div>
+		<div className={styles.container}>
+			<UserProfile />
 		</div>
 	);
 };

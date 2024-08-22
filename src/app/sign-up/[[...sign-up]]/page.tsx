@@ -1,5 +1,10 @@
 import { SignUp } from "@clerk/nextjs";
+import styles from "./sign-up.module.css";
 
 export default function Page() {
-	return <SignUp afterSignOutUrl="/" />;
+	return (
+		<div className={styles.container}>
+			<SignUp afterSignOutUrl="/" />
+		</div>
+	);
 }
