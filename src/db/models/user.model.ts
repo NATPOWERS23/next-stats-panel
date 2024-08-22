@@ -1,3 +1,4 @@
+import { ROLE } from "@/constants/roles";
 import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
@@ -25,10 +26,10 @@ const UserSchema = new Schema({
   lastName: {
     type: String,
   },
-  // role: {
-  //   type: Number,
-  //   default: ROLE.member,
-  // },
+  role: {
+    type: String,
+    default: ROLE.member,
+  },
 })
 
 const User = models?.User || model("User", UserSchema);

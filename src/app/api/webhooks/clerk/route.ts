@@ -10,8 +10,6 @@ import { createUser } from "@/db/actions/user.action";
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
-  const CRM_ORGANIZATION_ID = process.env.CRM_ORGANIZATION_ID as string
-  const CRM_ORGANIZATION_ROLE = process.env.CRM_ORGANIZATION_ROLE as string
 
 
   if (!WEBHOOK_SECRET) {
@@ -69,7 +67,7 @@ export async function POST(req: Request) {
       photo: image_url,
       firstName: first_name,
       lastName: last_name,
-      username: username,
+      username: username
     }
 
     const newUser = await createUser(user);
@@ -77,20 +75,11 @@ export async function POST(req: Request) {
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
-          userId: newUser._id,
-          organizationId: CRM_ORGANIZATION_ID,
-          role: CRM_ORGANIZATION_ROLE
+          userId: newUser._id
         }
       })
 
-      const response = await clerkClient.organizations.createOrganizationMembership({
-        organizationId: CRM_ORGANIZATION_ID,
-        userId: id,
-        role: CRM_ORGANIZATION_ROLE
-      })
-
-      console.log(response)
-      console.log(`New user created: ${JSON.stringify(newUser)}. Setted to ${response.organization.name} organization with role: ${CRM_ORGANIZATION_ROLE}`);
+      console.log(`New user created: ${JSON.stringify(newUser)}`);
     } else {
       console.log(`User already exists - sign in: ${JSON.stringify(user)}`);
     }

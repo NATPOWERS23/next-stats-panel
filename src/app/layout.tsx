@@ -1,26 +1,36 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ClerkProvider } from '@clerk/nextjs';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 
-import '../styles/globals.css';
+import "../styles/globals.css";
+import CustomLoader from "@/components/CustomLoader/CustomLoader";
+import Navbar from "@/components/Navbar/Navbar";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Stats App',
-  description: 'Description',
+	title: "Stats App",
+	description: "Description",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ClerkProvider>{children}</ClerkProvider>
-      </body>
-    </html>
-  );
+	return (
+		<ClerkProvider>
+			<html lang="en">
+				<body className={inter.className}>
+					<ClerkLoading>
+						<CustomLoader />
+					</ClerkLoading>
+					<ClerkLoaded>
+						<Navbar />
+						{children}
+					</ClerkLoaded>
+				</body>
+			</html>
+		</ClerkProvider>
+	);
 }
