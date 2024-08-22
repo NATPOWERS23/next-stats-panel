@@ -16,10 +16,6 @@ export default function CrmLayout({
 		},
 	});
 
-	if (!isLoaded) {
-		return <p>Loading</p>;
-	}
-
 	const [isSelected, setIsSelected] = useState(false);
 	const [intervalId, setIntervalId] = useState<any>(null);
 
@@ -37,6 +33,10 @@ export default function CrmLayout({
 			clearInterval(intervalId);
 		}
 	}, [isSelected, intervalId]);
+
+	if (!isLoaded) {
+		return <p>Loading</p>;
+	}
 
 	const fetchUserMemberships = async () => {
 		console.log("fetching organizations...");
