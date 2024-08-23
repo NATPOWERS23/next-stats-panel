@@ -30,6 +30,10 @@ const UserSchema = new Schema({
     type: String,
     default: ROLE.member,
   },
+  twitchUserId: {
+    type: String,
+    unique: true,
+  }
 })
 
 const User = models?.User || model("User", UserSchema);

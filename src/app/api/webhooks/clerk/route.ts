@@ -60,8 +60,9 @@ export async function POST(req: Request) {
   // CREATE User in mongodb
   if (eventType === "user.created") {
     const {id, email_addresses, image_url, first_name, last_name, username} = evt.data;
+    const twitchUserId = evt.data.external_accounts.find(account => account.provider === "oauth_twitch")?.provider_user_id;
 
-    console.log(`EVT: ${JSON.stringify(evt.data)}`)
+    console.log(`User twitchUserId: ${JSON.stringify(twitchUserId)}`)
 
     const user = {
       clerkId: id,
@@ -69,7 +70,8 @@ export async function POST(req: Request) {
       photo: image_url,
       firstName: first_name,
       lastName: last_name,
-      username: username
+      username: username,
+      twitchUserId
     }
 
     const newUser = await createUser(user);
@@ -77,7 +79,8 @@ export async function POST(req: Request) {
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
-          userId: newUser._id
+          userId: newUser._id,
+          twitchUserId
         }
       })
 
