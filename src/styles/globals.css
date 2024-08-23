@@ -116,3 +116,9 @@ button {
 button:hover {
   color: rgb(112, 108, 108);
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

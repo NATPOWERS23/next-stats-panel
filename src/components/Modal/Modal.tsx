@@ -28,7 +28,7 @@ export default function Modal() {
 							className={styles.close}
 							onClick={() => handleCloseModal()}
 						>
-							<Icon name="close" />
+							<Icon name="close" size={18} />
 						</button>
 						{modals[modalName]}
 					</div>
