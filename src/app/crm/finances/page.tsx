@@ -3,12 +3,13 @@
 import InfoBox from "@/components/InfoBox/InfoBox";
 import styles from "./finances.module.css";
 import { Protect } from "@clerk/nextjs";
+import { roleList, ROLE } from "@/constants/roles";
 
 export default function FinancesPage() {
 	return (
 		<>
 			<Protect
-				role="org:channel_owner"
+				role={roleList[ROLE.channel_owner]}
 				fallback={<p>You do not have the permissions to access Finances.</p>}
 			>
 				<div className="page-wrapper">

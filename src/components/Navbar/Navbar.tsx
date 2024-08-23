@@ -1,11 +1,16 @@
-import { UserButton } from "@clerk/nextjs";
+import { Protect, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 import styles from "./Navbar.module.css";
+import { ROLE, roleList } from "@/constants/roles";
+import Icon from "../Icon/Icon";
+import TwitchButton from "../TwitchButton/TwitchButton";
 
 export default function Navbar() {
 	const { userId } = auth();
+
+	const openTwitchFormModal = () => {};
 
 	return (
 		<nav className={styles.navbar}>
@@ -26,6 +31,12 @@ export default function Navbar() {
 					</>
 				) : (
 					<>
+						<Protect role={roleList[ROLE.channel_owner]}>
+							<div className={styles.item}>
+								<TwitchButton />
+							</div>
+						</Protect>
+
 						<div className={styles.item}>
 							<Link href="/profile">
 								<li>Profile</li>

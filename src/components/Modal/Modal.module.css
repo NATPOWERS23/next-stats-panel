@@ -1,0 +1,27 @@
+/* Modal Container */
+.container {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content */
+.content {
+  padding: 8px;
+  border: 2px solid white;
+  min-width: 300px;
+  max-width: 90%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+.close {
+  float: right;
+}

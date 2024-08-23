@@ -4,3 +4,10 @@ export enum ROLE {
   member = 2,
   unauthenticated = 3,
 }
+
+export const roleList = [
+  'org:admin',
+  'org:channel_owner',
+  'org:member',
+  'org:unauthenticated',
+]

@@ -5,6 +5,7 @@ import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import "../styles/globals.css";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
 import Navbar from "@/components/Navbar/Navbar";
+import Modal from "@/components/Modal/Modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
 					<ClerkLoaded>
 						<Navbar />
 						{children}
+						<Modal />
 					</ClerkLoaded>
 				</body>
 			</html>
