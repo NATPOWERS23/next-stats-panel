@@ -3,32 +3,31 @@
 import { useState } from "react";
 
 export default function Releases() {
-  const [contentItems, setContentItems] = useState([
-    { title: "Show 1", body: "Show 1 body" },
-    { title: "Show 2", body: "Show 2 body" },
-    { title: "Show 3", body: "Show 3 body" },
-    { title: "Show 4", body: "Show 4 body" },
-    { title: "Show 5", body: "Show 5 body" },
-    { title: "Show 6", body: "Show 6 body" },
-  ]);
+	const [contentItems, setContentItems] = useState([
+		{ title: "Show 1", body: "Show 1 body" },
+		{ title: "Show 2", body: "Show 2 body" },
+		{ title: "Show 3", body: "Show 3 body" },
+		{ title: "Show 4", body: "Show 4 body" },
+		{ title: "Show 5", body: "Show 5 body" },
+		{ title: "Show 6", body: "Show 6 body" },
+	]);
 
-  return (
-    <div className="page-wrapper">
-      <h1>Show Realizes</h1>
+	return (
+		<div className="page-wrapper">
+			<h1>Show Realizes</h1>
+			<div className="grid-wrapper">
+				{contentItems.map((item, index) => (
+					<div className="card" key={index}>
+						<div className="card-title">{item.title}</div>
+						<div className="card-body">...</div>
+						<div className="card-actions" />
+					</div>
+				))}
+			</div>
 
-      <div className="grid-wrapper">
-        {contentItems.map((item, index) => (
-          <div className="card" key={index}>
-            <div className="card-title">{item.title}</div>
-            <div className="card-body">...</div>
-            <div className="card-actions" />
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <button type="button">+ Propose new content</button>
-      </div>
-    </div>
-  );
+			<div>
+				<button type="button">+ Propose new content</button>
+			</div>
+		</div>
+	);
 }

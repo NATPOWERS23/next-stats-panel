@@ -4,6 +4,7 @@ export interface IMenuItem {
   title: string;
   id: string;
   link: string;
+  icon?: string;
 }
 
 export interface SubMenuItems {
@@ -20,20 +21,20 @@ export interface SubMenuItem {
 export const crmPath = '/crm';
 
 export const menuItems: IMenuItem[] = [
-  { title: 'Home', id: 'menu_item_1', link: '/' },
-  { title: 'Finances', id: 'menu_item_2', link: '/finances' },
-  { title: 'Events calendar', id: 'menu_item_3', link: '/events' },
-  { title: 'Videos statistic', id: 'menu_item_4', link: '/videos-statistic' },
-  { title: 'Realeases', id: 'menu_item_5', link: '/releases' },
-  { title: 'Team', id: 'menu_item_6', link: '/team' },
-  { title: 'Team tasks', id: 'menu_item_7', link: '/tasks' },
-  { title: 'Contracts & Deals', id: 'menu_item_8', link: '/contracts' },
-  { title: 'Merch', id: 'menu_item_9', link: '/merch' },
-  { title: 'Dashboard', id: 'menu_item_10', link: '/dashboard' },
-  { title: 'Brain storm', id: 'menu_item_11', link: '/brain-storm' },
-  { title: 'Big goals', id: 'menu_item_12', link: '/goals' },
-  { title: 'Quick contacts', id: 'menu_item_13', link: '/contacts' },
-  { title: 'Website', id: 'menu_item_14', link: '/websites' },
+  { title: 'Home', id: 'menu_item_1', link: '/', icon: 'home' },
+  { title: 'Finances', id: 'menu_item_2', link: '/finances', icon: 'finances' },
+  { title: 'Events calendar', id: 'menu_item_3', link: '/events', icon: 'calendar' },
+  { title: 'Videos statistic', id: 'menu_item_4', link: '/videos-statistic', icon: 'video' },
+  { title: 'Realeases', id: 'menu_item_5', link: '/releases', icon: 'archive' },
+  { title: 'Team', id: 'menu_item_6', link: '/team', icon: 'users' },
+  { title: 'Team tasks', id: 'menu_item_7', link: '/tasks', icon: 'tasks' },
+  { title: 'Contracts & Deals', id: 'menu_item_8', link: '/contracts', icon: 'contract' },
+  { title: 'Merch', id: 'menu_item_9', link: '/merch', icon: 'shop' },
+  { title: 'Dashboard', id: 'menu_item_10', link: '/dashboard', icon: 'dashboard' },
+  { title: 'Brain storm', id: 'menu_item_11', link: '/brain-storm', icon: 'global' },
+  { title: 'Big goals', id: 'menu_item_12', link: '/goals', icon: 'goals' },
+  { title: 'Quick contacts', id: 'menu_item_13', link: '/contacts', icon: 'contacts' },
+  { title: 'Website', id: 'menu_item_14', link: '/websites', icon: 'website' },
 ];
 
 export const subMenuItems: SubMenuItems = {

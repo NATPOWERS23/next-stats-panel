@@ -16,7 +16,7 @@ export default function CrmLayout({
 		},
 	});
 
-	const [isSelected, setIsSelected] = useState(false);
+	const [isSelected, setIsSelected] = useState(true);
 	const [intervalId, setIntervalId] = useState<any>(null);
 
 	useEffect(() => {
@@ -37,6 +37,11 @@ export default function CrmLayout({
 	if (!isLoaded) {
 		return <p>Loading</p>;
 	}
+
+	const handleReloadButton = () => {
+		setIsSelected(false);
+		fetchUserMemberships();
+	};
 
 	const fetchUserMemberships = async () => {
 		console.log("fetching organizations...");
@@ -61,11 +66,9 @@ export default function CrmLayout({
 					<div
 						style={{
 							width: "100%",
-							paddingLeft: "240px",
 						}}
 					>
 						<p>You currently do not have access to the CRM tools.</p>
-						{/* <OrganizationSwitcher hidePersonal={true} defaultOpen={false} /> */}
 						<ul>
 							{userMemberships.data?.map((mem) => (
 								<li key={mem.id}>
@@ -82,7 +85,7 @@ export default function CrmLayout({
 							))}
 						</ul>
 
-						<button type="button" onClick={() => fetchUserMemberships()}>
+						<button type="button" onClick={() => handleReloadButton()}>
 							Reload organizations
 						</button>
 					</div>
