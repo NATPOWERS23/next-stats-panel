@@ -1,15 +1,22 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Protect, useAuth, useOrganizationList, useUser } from "@clerk/nextjs";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import styles from "./layout.module.css";
-import { Protect, useOrganizationList } from "@clerk/nextjs";
-import { useState, useEffect } from "react";
+import CustomLoader from "@/components/CustomLoader/CustomLoader";
 
 export default function CrmLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const { isLoaded: isLoadedAuth, has } = useAuth();
+	const isChannelOwner = isLoadedAuth
+		? has({ role: "org:channel_owner" })
+		: false;
+
 	const { isLoaded, setActive, userMemberships } = useOrganizationList({
 		userMemberships: {
 			infinite: true,
@@ -18,6 +25,8 @@ export default function CrmLayout({
 
 	const [isSelected, setIsSelected] = useState(true);
 	const [intervalId, setIntervalId] = useState<any>(null);
+	const [twitchToken, setTwitchToken] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		const interval = setInterval(fetchUserMemberships, 10000);
@@ -34,9 +43,70 @@ export default function CrmLayout({
 		}
 	}, [isSelected, intervalId]);
 
-	if (!isLoaded) {
-		return <p>Loading</p>;
+	useEffect(() => {
+		if (isChannelOwner) {
+			console.log("Connectin to Twitch channel...");
+			const url =
+				typeof window !== "undefined" && window.location.href
+					? window.location.href
+					: "";
+			const accessTokenRegex = /access_token=([^&]+)/;
+			const accessTokenMatch = url.match(accessTokenRegex);
+
+			if (accessTokenMatch) {
+				const accessToken = accessTokenMatch[1];
+				setTwitchToken(accessToken);
+			} else {
+				checkTwitchConnection();
+			}
+		}
+	}, [isChannelOwner]);
+
+	useEffect(() => {
+		setUserTwitchToken(twitchToken);
+	}, [twitchToken]);
+
+	if (!isLoaded || loading) {
+		return <CustomLoader />;
 	}
+
+	const checkTwitchConnection = async () => {
+		setLoading(true);
+
+		await axios
+			.get("/api/user/twitchConnect")
+			.then((response: { data: { isConnected: string } }) => {
+				localStorage.setItem("twitchConnect", response.data.isConnected);
+				console.log("Connection success");
+			})
+			.catch((err) =>
+				console.log(
+					`Error with setting channel owner twitch access data: ${err}`,
+				),
+			)
+			.finally(() => setLoading(false));
+	};
+
+	const setUserTwitchToken = async (twitchAccessToken: string) => {
+		if (!twitchAccessToken) return;
+
+		setLoading(true);
+
+		await axios
+			.patch("/api/user/twitchConnect", {
+				twitchAccessToken,
+			})
+			.then((response) => {
+				localStorage.setItem("twitchConnect", "true");
+				console.log("Connection success");
+			})
+			.catch((err) =>
+				console.log(
+					`Error with setting channel owner twitch access data: ${err}`,
+				),
+			)
+			.finally(() => setLoading(false));
+	};
 
 	const handleReloadButton = () => {
 		setIsSelected(false);

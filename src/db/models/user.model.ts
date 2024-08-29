@@ -33,6 +33,10 @@ const UserSchema = new Schema({
   twitchUserId: {
     type: String,
     unique: true,
+  },
+  twitchAccessToken: {
+    type: String,
+    unique: true,
   }
 })
 

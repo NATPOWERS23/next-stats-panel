@@ -1,40 +1,31 @@
-import { redirect } from "next/navigation";
-import type { FormEvent } from "react";
+"use client";
+
+import { useState } from "react";
 
 export default function ConnectTwitchModal() {
-	async function onSubmit(event: FormEvent<HTMLFormElement>) {
-		event.preventDefault();
+	const BASE_URL = process.env.NEXT_PUBLIC_TWITCH_REDIRECT_URI;
+	const SCOPE_CONFIG = "channel%3Amanage%3Apolls+channel%3Aread%3Apolls+openid";
 
-		const formData = new FormData(event.currentTarget);
-		console.log(formData);
-		const response = await fetch("/api/userTwitchCredentials", {
-			method: "POST",
-			body: formData,
-		});
-
-		const handleCloseModal = () => {
-			redirect("/crm/profile");
-		};
-
-		if (response.ok) {
-			handleCloseModal();
-		}
-	}
+	const [clientId, setClientId] = useState("");
 
 	return (
 		<>
 			<h3 className="modal-title">Channel Info</h3>
 			<div className="modal-body">
-				<form onSubmit={onSubmit}>
-					<input type="text" name="user_id" placeholder="User ID" required />
-					<input
-						type="text"
-						name="client_id"
-						placeholder="Client ID"
-						required
-					/>
-					<button type="submit">Submit</button>
-				</form>
+				<input
+					type="text"
+					name="client_id"
+					placeholder="Client ID"
+					onChange={(e) => setClientId(e.target.value)}
+				/>
+
+				{clientId && (
+					<a
+						href={`https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientId}&redirect_uri=${BASE_URL}&scope=${SCOPE_CONFIG}&force_verify=true`}
+					>
+						Connect with Twitch
+					</a>
+				)}
 			</div>
 		</>
 	);
