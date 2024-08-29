@@ -75,9 +75,9 @@ export default function CrmLayout({
 
 		await axios
 			.get("/api/user/twitchConnect")
-			.then((response: { data: { isConnected: string } }) => {
-				localStorage.setItem("twitchConnect", response.data.isConnected);
-				console.log("Connection success");
+			.then((response: { data: { isConnected: boolean } }) => {
+				const { isConnected } = response.data;
+				localStorage.setItem("twitchConnect", JSON.stringify(!!isConnected));
 			})
 			.catch((err) =>
 				console.log(
@@ -88,13 +88,16 @@ export default function CrmLayout({
 	};
 
 	const setUserTwitchToken = async (twitchAccessToken: string) => {
-		if (!twitchAccessToken) return;
+		const twitchClientId = localStorage.getItem("twitchClientId") as string;
+
+		if (!twitchAccessToken || !twitchClientId) return;
 
 		setLoading(true);
 
 		await axios
 			.patch("/api/user/twitchConnect", {
 				twitchAccessToken,
+				twitchClientId,
 			})
 			.then((response) => {
 				localStorage.setItem("twitchConnect", "true");

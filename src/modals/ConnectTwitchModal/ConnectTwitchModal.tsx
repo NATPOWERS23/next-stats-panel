@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 
 export default function ConnectTwitchModal() {
 	const BASE_URL = process.env.NEXT_PUBLIC_TWITCH_REDIRECT_URI;
 	const SCOPE_CONFIG = "channel%3Amanage%3Apolls+channel%3Aread%3Apolls+openid";
 
 	const [clientId, setClientId] = useState("");
+
+	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setClientId(e.target.value);
+		localStorage.setItem("twitchClientId", e.target.value);
+	};
 
 	return (
 		<>
@@ -16,7 +21,8 @@ export default function ConnectTwitchModal() {
 					type="text"
 					name="client_id"
 					placeholder="Client ID"
-					onChange={(e) => setClientId(e.target.value)}
+					onChange={(e) => handleInputChange(e)}
+					value={clientId}
 				/>
 
 				{clientId && (

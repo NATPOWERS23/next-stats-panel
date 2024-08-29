@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({
-      data: { isConnected: JSON.stringify(isConnected) },
+      data: { isConnected: isConnected },
     });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
@@ -38,13 +38,13 @@ export async function PATCH(request: NextRequest) {
   try {  
     const clerkCurrentUser = await currentUser();
     const req = await request.json();
-    const { twitchAccessToken } = req;
+    const { twitchAccessToken, twitchClientId } = req;
 
     if (!clerkCurrentUser) {
       return NextResponse.json({ message: 'Clerk user not found' }, { status: 404 });
     }
     
-    if (!twitchAccessToken) {
+    if (!twitchAccessToken || !twitchClientId) {
       return NextResponse.json({ message: 'Twitch access not found' }, { status: 404 });
     }
     
@@ -65,6 +65,7 @@ export async function PATCH(request: NextRequest) {
 
     // Update the user with the new twitchAccessToken
     user.twitchAccessToken = twitchAccessToken;
+    user.twitchClientId = twitchClientId;
     const userSaveRes = await user.save();
 
     console.log(userSaveRes)

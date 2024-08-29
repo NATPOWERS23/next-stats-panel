@@ -7,7 +7,8 @@ import { Protect } from "@clerk/nextjs";
 
 export default function TwitchButton() {
 	const pathname = usePathname();
-	const isTwitchConnected = localStorage.getItem("twitchConnect");
+	const twitchConnect = localStorage.getItem("twitchConnect");
+	const isTwitchConnected = twitchConnect && JSON.parse(twitchConnect);
 
 	return (
 		<>
