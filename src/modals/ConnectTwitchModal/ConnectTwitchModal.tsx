@@ -8,9 +8,8 @@ export default function ConnectTwitchModal() {
 
 	const [clientId, setClientId] = useState("");
 
-	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setClientId(e.target.value);
-		localStorage.setItem("twitchClientId", e.target.value);
+	const handleInputChange = () => {
+		localStorage.setItem("twitchClientId", clientId);
 	};
 
 	return (
@@ -21,7 +20,7 @@ export default function ConnectTwitchModal() {
 					type="text"
 					name="client_id"
 					placeholder="Client ID"
-					onChange={(e) => handleInputChange(e)}
+					onChange={(e) => setClientId(e.target.value)}
 					value={clientId}
 				/>
 
@@ -29,7 +28,9 @@ export default function ConnectTwitchModal() {
 					<a
 						href={`https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientId}&redirect_uri=${BASE_URL}&scope=${SCOPE_CONFIG}&force_verify=true`}
 					>
-						Connect with Twitch
+						<button type="button" onClick={() => handleInputChange()}>
+							Connect with Twitch
+						</button>
 					</a>
 				)}
 			</div>
