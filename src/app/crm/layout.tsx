@@ -110,7 +110,7 @@ export default function CrmLayout({
 			.then(() => {
 				localStorage.setItem("twitchConnect", JSON.stringify(true));
 				console.log("Connection success");
-				router.replace("/crm", undefined);
+				// router.replace("/crm", undefined);
 			})
 			.catch((err) =>
 				console.log(
