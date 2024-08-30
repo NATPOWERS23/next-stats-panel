@@ -50,7 +50,7 @@ const Profile = async () => {
 		<>
 			<div className={styles.container}>
 				{channel && (
-					<div className="card">
+					<div className={`card ${styles.card}`}>
 						<div className={styles.line}>CHANNEL OWNER DATA</div>
 						<div className={styles.channelInfo}>
 							<div>
@@ -84,7 +84,13 @@ const Profile = async () => {
 					</div>
 				)}
 
-				<UserProfile />
+				<UserProfile
+					appearance={{
+						elements: {
+							cardBox: styles.userProfileCard,
+						},
+					}}
+				/>
 			</div>
 		</>
 	);

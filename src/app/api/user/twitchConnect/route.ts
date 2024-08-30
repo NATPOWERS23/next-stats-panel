@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({
-      data: { isConnected: isConnected },
+      isConnected,
     });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });

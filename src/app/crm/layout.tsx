@@ -6,12 +6,14 @@ import { Protect, useAuth, useOrganizationList, useUser } from "@clerk/nextjs";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import styles from "./layout.module.css";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
+import { useRouter } from "next/navigation";
 
 export default function CrmLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const router = useRouter();
 	const { isLoaded: isLoadedAuth, has } = useAuth();
 	const isChannelOwner = isLoadedAuth
 		? has({ role: "org:channel_owner" })
@@ -75,9 +77,15 @@ export default function CrmLayout({
 
 		await axios
 			.get("/api/user/twitchConnect")
-			.then((response: { data: { isConnected: boolean } }) => {
-				const { isConnected } = response.data;
-				localStorage.setItem("twitchConnect", JSON.stringify(!!isConnected));
+			.then((response: any) => {
+				localStorage.setItem(
+					"twitchConnect",
+					JSON.stringify(response.data.isConnected),
+				);
+
+				console.log(
+					response.data.isConnected ? "Connection success" : "No connection",
+				);
 			})
 			.catch((err) =>
 				console.log(
@@ -99,9 +107,10 @@ export default function CrmLayout({
 				twitchAccessToken,
 				twitchClientId,
 			})
-			.then((response) => {
-				localStorage.setItem("twitchConnect", "true");
+			.then(() => {
+				localStorage.setItem("twitchConnect", JSON.stringify(true));
 				console.log("Connection success");
+				router.replace("/crm", undefined);
 			})
 			.catch((err) =>
 				console.log(
