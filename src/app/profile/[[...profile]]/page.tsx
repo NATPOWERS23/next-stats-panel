@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/components/Icon/Icon";
 
-export const getTwitchUser = async () => {
+const getTwitchUser = async () => {
 	//set middleware to allow only for channel owner role
 	const clerkUser = await currentUser(); // move to client axios interceptor
 	const twitchUserId = clerkUser?.publicMetadata?.twitchUserId;
