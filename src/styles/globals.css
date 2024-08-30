@@ -122,3 +122,15 @@ form {
   flex-direction: column;
   gap: 10px;
 }
+
+.back-button {
+  width: 10rem;
+  padding: 0.5rem 1rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+  }
+}

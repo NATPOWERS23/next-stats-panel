@@ -8,6 +8,7 @@ import axios from "axios";
 import User from "@/db/models/user.model";
 import Link from "next/link";
 import Image from "next/image";
+import Icon from "@/components/Icon/Icon";
 
 export const getTwitchUser = async () => {
 	//set middleware to allow only for channel owner role
@@ -48,6 +49,11 @@ const Profile = async () => {
 
 	return (
 		<>
+			<div className="back-button">
+				<Link href="/crm">
+					<Icon name="arrow_left" /> Back
+				</Link>
+			</div>
 			<div className={styles.container}>
 				{channel && (
 					<div className={`card ${styles.card}`}>
