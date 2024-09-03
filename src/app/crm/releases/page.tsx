@@ -1,6 +1,7 @@
 "use client";
 
 import PageTitle from "@/components/PageTitle/PageTitle";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import { useState } from "react";
 
 export default function Releases() {
@@ -13,8 +14,8 @@ export default function Releases() {
 		{ title: "Show 6", body: "Show 6 body" },
 	]);
 
-	return (
-		<div className="page-wrapper">
+	const pageContent = (
+		<>
 			<PageTitle title="Show Realizes" />
 			<div className="grid-wrapper">
 				{contentItems.map((item, index) => (
@@ -29,6 +30,8 @@ export default function Releases() {
 			<div>
 				<button type="button">+ Propose new content</button>
 			</div>
-		</div>
+		</>
 	);
+
+	return <PageWrapper content={pageContent} />;
 }

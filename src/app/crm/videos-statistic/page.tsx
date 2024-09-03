@@ -1,5 +1,7 @@
+import Card from "@/components/Card/Card";
 import InfoBox from "@/components/InfoBox/InfoBox";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 
 export default function VideosStatistic() {
 	const statCards = [
@@ -15,14 +17,13 @@ export default function VideosStatistic() {
 
 	const description = " from last stream";
 
-	return (
-		<div className="page-wrapper">
+	const cardBody = <>Patch Notes Episode 13: November 2024</>;
+
+	const pageContent = (
+		<>
 			<PageTitle title="Videos Statistic" />
 
-			<div className="card danger-card">
-				<div className="card-title">Top Clip of the Channel</div>
-				<div className="card-body">Patch Notes Episode 13: November 2024</div>
-			</div>
+			<Card title="Top Clip of the Channel" body={cardBody} />
 
 			<div className="grid-wrapper">
 				{statCards.map((card) => (
@@ -34,6 +35,8 @@ export default function VideosStatistic() {
 					/>
 				))}
 			</div>
-		</div>
+		</>
 	);
+
+	return <PageWrapper content={pageContent} />;
 }

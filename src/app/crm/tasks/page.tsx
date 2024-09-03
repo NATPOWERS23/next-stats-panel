@@ -1,9 +1,11 @@
+import Card from "@/components/Card/Card";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import Link from "next/link";
 
 export default function Tasks() {
-	return (
-		<div className="page-wrapper">
+	const pageContent = (
+		<>
 			<PageTitle title="Team tasks" />
 			<div className="grid-wrapper">
 				<div>
@@ -23,9 +25,9 @@ export default function Tasks() {
 				</div>
 			</div>
 
-			<div className="card">
-				<div className="card-title">Task list</div>
-			</div>
-		</div>
+			<Card title="Task list" />
+		</>
 	);
+
+	return <PageWrapper content={pageContent} />;
 }

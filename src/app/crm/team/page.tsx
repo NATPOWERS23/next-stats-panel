@@ -1,9 +1,13 @@
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import Card from "@/components/Card/Card";
 import styles from "./team.module.css";
 
 export default function Team() {
-	return (
-		<div className="page-wrapper">
+	const cardBody = <></>;
+
+	const pageContent = (
+		<>
 			<PageTitle title="Team" />
 			<div className={styles.membersLine}>
 				<div className="card">Members Line ...</div>
@@ -11,12 +15,10 @@ export default function Team() {
 
 			<h3>Dashboard</h3>
 			<div className={styles.dashboard}>
-				<div className="card" />
-				<div className="card" />
-				<div className="card">
-					<div className="card-title">Team chat</div>
-				</div>
+				<Card title="Team chat" body={cardBody} />
 			</div>
-		</div>
+		</>
 	);
+
+	return <PageWrapper content={pageContent} />;
 }
