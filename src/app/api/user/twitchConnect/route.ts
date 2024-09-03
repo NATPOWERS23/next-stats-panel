@@ -51,8 +51,6 @@ export async function PATCH(request: NextRequest) {
     const dbUserId = clerkCurrentUser.publicMetadata.userId;
     const user = await User.findOne({ _id: dbUserId });
 
-    console.log('Patch users: ', dbUserId, user)
-
     if (!user) {
       return NextResponse.json({ message: 'User not found' }, { status: 404 });
     }
@@ -68,9 +66,8 @@ export async function PATCH(request: NextRequest) {
     // Update the user with the new twitchAccessToken
     user.twitchAccessToken = twitchAccessToken;
     user.twitchClientId = twitchClientId;
-    const userSaveRes = await user.save();
 
-    console.log('Patch user saving: ', userSaveRes)
+    const userSaveRes = await user.save();
 
     if (!userSaveRes) {
       return NextResponse.json({ message: 'Twitch account connection failed' }, { status: 500 });
