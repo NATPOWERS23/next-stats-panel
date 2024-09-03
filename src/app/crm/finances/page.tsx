@@ -4,6 +4,7 @@ import InfoBox from "@/components/InfoBox/InfoBox";
 import styles from "./finances.module.css";
 import { Protect } from "@clerk/nextjs";
 import { roleList, ROLE } from "@/constants/roles";
+import PageTitle from "@/components/PageTitle/PageTitle";
 
 export default function FinancesPage() {
 	return (
@@ -13,7 +14,7 @@ export default function FinancesPage() {
 				fallback={<p>You do not have the permissions to access Finances.</p>}
 			>
 				<div className="page-wrapper">
-					<h1>Finances</h1>
+					<PageTitle title="Finances" />
 					<div className={styles.top}>
 						<InfoBox title="Income" numbers={100000} description={""} />
 						<InfoBox title="Outcome" numbers={1000} description={""} />

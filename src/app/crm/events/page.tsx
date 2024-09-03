@@ -1,6 +1,7 @@
 import { Protect } from "@clerk/nextjs";
 import Desk from "./desk/Desk";
 import { roleList, ROLE } from "@/constants/roles";
+import PageTitle from "@/components/PageTitle/PageTitle";
 
 export default function Events() {
 	return (
@@ -12,7 +13,7 @@ export default function Events() {
 				}
 			>
 				<div className="page-wrapper">
-					<h1>Events Calendar</h1>
+					<PageTitle title="Events Calendar" />
 					<Desk />
 
 					<div className="card">

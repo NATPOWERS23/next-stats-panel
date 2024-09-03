@@ -1,5 +1,6 @@
 "use client";
 
+import PageTitle from "@/components/PageTitle/PageTitle";
 import { useState } from "react";
 
 export default function Releases() {
@@ -14,7 +15,7 @@ export default function Releases() {
 
 	return (
 		<div className="page-wrapper">
-			<h1>Show Realizes</h1>
+			<PageTitle title="Show Realizes" />
 			<div className="grid-wrapper">
 				{contentItems.map((item, index) => (
 					<div className="card" key={index}>
