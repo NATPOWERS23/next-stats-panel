@@ -48,8 +48,6 @@ export default async function UserInfoBar() {
 					<div className={styles.channelInfo}>
 						<div>
 							<p>{channel.display_name || "No display name"}</p>
-							<p>{`Followers: ${channel.followers || 0}`}</p>
-							<p>{`Status: ${channel.status || "No status"}`}</p>
 						</div>
 
 						<div className={styles.avatarWrapper}>
