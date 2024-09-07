@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { getAllArticles } from "./(server)/api";
-import type { Article } from "./(components)/ArticleBrief/ArticleBrief";
-import styles from "./news.module.css";
+import type { Article } from "./(components)/ArticleBrief/ArticleBriefs";
+import ArticleBrief from "./(components)/ArticleBrief/ArticleBrief";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import styles from "./news.module.css";
 
 const ARTICLES_PER_PAGE = 5;
 
@@ -27,25 +28,29 @@ export default async function News({
 	return (
 		<>
 			<PageTitle title={`Home Page ${page}`} />
-			{/* {articles.map((article: Article) => (
-        <ArticleBrief article={article} key={article.id} />
-      ))}
-      <section className={styles.pagination}>
-        {page <= amountOfPages && (
-          <div>
-            <Link href={pageLink(prevPage)} className={page === 1 ? 'disabled' : ''} aria-disabled={page === 1}>
-              Previous Page
-            </Link>
-            <Link
-              href={pageLink(nextPage)}
-              className={page === amountOfPages ? 'disabled' : ''}
-              aria-disabled={page === amountOfPages}
-            >
-              Next Page
-            </Link>
-          </div>
-        )}
-      </section> */}
+			{articles.map((article: Article) => (
+				<ArticleBrief article={article} key={article.id} />
+			))}
+			<section className={styles.pagination}>
+				{page <= amountOfPages && (
+					<div>
+						<Link
+							href={pageLink(prevPage)}
+							className={page === 1 ? "disabled" : ""}
+							aria-disabled={page === 1}
+						>
+							Previous Page
+						</Link>
+						<Link
+							href={pageLink(nextPage)}
+							className={page === amountOfPages ? "disabled" : ""}
+							aria-disabled={page === amountOfPages}
+						>
+							Next Page
+						</Link>
+					</div>
+				)}
+			</section>
 		</>
 	);
 }

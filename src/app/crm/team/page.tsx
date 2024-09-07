@@ -9,9 +9,7 @@ export default function Team() {
 	const pageContent = (
 		<>
 			<PageTitle title="Team" />
-			<div className={styles.membersLine}>
-				<div className="card">Members Line ...</div>
-			</div>
+			<Card body={<>Members Line ...</>} />
 
 			<h3>Dashboard</h3>
 			<div className={styles.dashboard}>

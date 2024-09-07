@@ -1,34 +1,28 @@
-"use client";
-
 import { Protect } from "@clerk/nextjs";
 import { roleList, ROLE } from "@/constants/roles";
-import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import { ERRORS } from "@/constants/errors";
 import Card from "@/components/Card/Card";
 import InfoBox from "@/components/InfoBox/InfoBox";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import CustomList from "@/components/CustomList/CustomList";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import styles from "./finances.module.css";
 
 export default function FinancesPage() {
 	const cardBodies = {
 		first: (
-			<ul>
-				<li>1000</li>
-				<li>500</li>
-				<li>2000</li>
-			</ul>
+			<CustomList items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]} />
 		),
 		second: (
 			<>
-				<div className="card-title">Donats from Subscribers</div>
 				<div className="card-body">
 					<div className="card">
 						<div className="card-title">Donatello</div>
 						<div className="card-body">
-							<ul>
-								<li>1000</li>
-								<li>500</li>
-								<li>2000</li>
-							</ul>
+							<CustomList
+								items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]}
+							/>
 						</div>
 					</div>
 					<div className="card">
@@ -47,19 +41,9 @@ export default function FinancesPage() {
 			</>
 		),
 		third: (
-			<ul>
-				<li>1000</li>
-				<li>500</li>
-				<li>2000</li>
-			</ul>
+			<CustomList items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]} />
 		),
-		progressBar: (
-			<div className="progressBarWrapper">
-				<div className="progressBar">
-					<span className="progressBarFill" />
-				</div>
-			</div>
-		),
+		progressBar: <ProgressBar />,
 	};
 
 	const pageContent = (
@@ -84,7 +68,7 @@ export default function FinancesPage() {
 		<>
 			<Protect
 				role={roleList[ROLE.channel_owner]}
-				fallback={<p>You do not have the permissions to access Finances.</p>}
+				fallback={ERRORS.NO_ACCEESS_CRM}
 			>
 				<PageWrapper content={pageContent} />
 			</Protect>

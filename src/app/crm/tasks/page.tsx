@@ -1,3 +1,4 @@
+import Button from "@/components/Button/Button";
 import Card from "@/components/Card/Card";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
@@ -8,21 +9,15 @@ export default function Tasks() {
 		<>
 			<PageTitle title="Team tasks" />
 			<div className="grid-wrapper">
-				<div>
-					<button type="button">+ New Task</button>
-				</div>
-				<div>
-					<button type="button">Find task</button>
-				</div>
-				<div>
-					<button type="button">Assigned tasks</button>
-				</div>
-				<div>
-					<button type="button">Export tasks in CSV</button>
-				</div>
-				<div className="card">
-					<Link href="./team">Workflow statistic</Link>
-				</div>
+				<Button content="+ New Task" />
+
+				<Button content="Find task" />
+
+				<Button content="Assigned tasks" />
+
+				<Button content="Export tasks in CSV" />
+
+				<Card body={<Link href="./team">Workflow statistic</Link>} />
 			</div>
 
 			<Card title="Task list" />

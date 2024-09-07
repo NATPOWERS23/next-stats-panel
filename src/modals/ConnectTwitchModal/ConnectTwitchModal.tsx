@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/Button/Button";
 import { type ChangeEvent, useState } from "react";
 
 export default function ConnectTwitchModal() {
@@ -28,9 +29,10 @@ export default function ConnectTwitchModal() {
 					<a
 						href={`https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientId}&redirect_uri=${BASE_URL}&scope=${SCOPE_CONFIG}&force_verify=true`}
 					>
-						<button type="button" onClick={() => handleInputChange()}>
-							Connect with Twitch
-						</button>
+						<Button
+							content="Connect with Twitch"
+							handleClick={handleInputChange}
+						/>
 					</a>
 				)}
 			</div>

@@ -1,10 +1,13 @@
 "use client";
 
+import { useId, useState } from "react";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
-import { useState } from "react";
+import Button from "@/components/Button/Button";
+import Card from "@/components/Card/Card";
 
 export default function Releases() {
+	const id = useId();
 	const [contentItems, setContentItems] = useState([
 		{ title: "Show 1", body: "Show 1 body" },
 		{ title: "Show 2", body: "Show 2 body" },
@@ -18,18 +21,16 @@ export default function Releases() {
 		<>
 			<PageTitle title="Show Realizes" />
 			<div className="grid-wrapper">
-				{contentItems.map((item, index) => (
-					<div className="card" key={index}>
-						<div className="card-title">{item.title}</div>
-						<div className="card-body">...</div>
-						<div className="card-actions" />
-					</div>
+				{contentItems.map((item) => (
+					<Card
+						body={<>item.body</>}
+						title={item.title}
+						key={`release_card_${id}`}
+					/>
 				))}
 			</div>
 
-			<div>
-				<button type="button">+ Propose new content</button>
-			</div>
+			<Button content="+ Propose new content" />
 		</>
 	);
 
