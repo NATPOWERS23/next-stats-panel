@@ -1,11 +1,10 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-
 import { useSearchParams } from "next/navigation";
-import styles from "./Modal.module.css";
-import Icon from "../Icon/Icon";
 import { modals } from "@/constants/modals";
+import CloseButton from "../CloseButton/CloseButton";
+import styles from "./Modal.module.css";
 
 export default function Modal() {
 	const router = useRouter();
@@ -14,7 +13,7 @@ export default function Modal() {
 	const show = searchParams.get("show") ?? false;
 	const modalName = searchParams.get("modal") ?? undefined;
 
-	const handleCloseModal = () => {
+	const closeModal = () => {
 		router.push(pathname);
 	};
 
@@ -23,13 +22,7 @@ export default function Modal() {
 			{show && modalName && modals[modalName] && (
 				<div className={styles.container}>
 					<div className={styles.content}>
-						<button
-							type="button"
-							className={styles.close}
-							onClick={() => handleCloseModal()}
-						>
-							<Icon name="close" size={18} />
-						</button>
+						<CloseButton handleCloseModal={closeModal} />
 						{modals[modalName]}
 					</div>
 				</div>

@@ -1,22 +1,22 @@
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import PageTitle from "@/components/PageTitle/PageTitle";
+import Card from "@/components/Card/Card";
 import styles from "./team.module.css";
 
 export default function Team() {
-  return (
-    <div className="page-wrapper">
-      <h1>Team</h1>
+	const cardBody = <></>;
 
-      <div className={styles.membersLine}>
-        <div className="card">Members Line ...</div>
-      </div>
+	const pageContent = (
+		<>
+			<PageTitle title="Team" />
+			<Card body={<>Members Line ...</>} />
 
-      <h3>Dashboard</h3>
-      <div className={styles.dashboard}>
-        <div className="card" />
-        <div className="card" />
-        <div className="card">
-          <div className="card-title">Team chat</div>
-        </div>
-      </div>
-    </div>
-  );
+			<h3>Dashboard</h3>
+			<div className={styles.dashboard}>
+				<Card title="Team chat" body={cardBody} />
+			</div>
+		</>
+	);
+
+	return <PageWrapper content={pageContent} />;
 }

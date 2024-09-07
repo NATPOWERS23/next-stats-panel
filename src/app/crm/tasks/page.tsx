@@ -1,31 +1,28 @@
+import Button from "@/components/Button/Button";
+import Card from "@/components/Card/Card";
+import PageTitle from "@/components/PageTitle/PageTitle";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import Link from "next/link";
 
 export default function Tasks() {
-  return (
-    <div className="page-wrapper">
-      <h1>Team tasks</h1>
+	const pageContent = (
+		<>
+			<PageTitle title="Team tasks" />
+			<div className="grid-wrapper">
+				<Button content="+ New Task" />
 
-      <div className="grid-wrapper">
-        <div>
-          <button type="button">+ New Task</button>
-        </div>
-        <div>
-          <button type="button">Find task</button>
-        </div>
-        <div>
-          <button type="button">Assigned tasks</button>
-        </div>
-        <div>
-          <button type="button">Export tasks in CSV</button>
-        </div>
-        <div className="card">
-          <Link href="./team">Workflow statistic</Link>
-        </div>
-      </div>
+				<Button content="Find task" />
 
-      <div className="card">
-        <div className="card-title">Task list</div>
-      </div>
-    </div>
-  );
+				<Button content="Assigned tasks" />
+
+				<Button content="Export tasks in CSV" />
+
+				<Card body={<Link href="./team">Workflow statistic</Link>} />
+			</div>
+
+			<Card title="Task list" />
+		</>
+	);
+
+	return <PageWrapper content={pageContent} />;
 }

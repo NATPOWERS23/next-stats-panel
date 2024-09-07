@@ -14,15 +14,9 @@ export default function ClientLayout({
 	return (
 		<>
 			<header className={styles.header}>
-				{isSignedIn && (
-					<button type="button">
-						<Link href="/crm">Back to CRM</Link>
-					</button>
-				)}
+				{isSignedIn && <Link href="/crm">Back to CRM</Link>}
 
-				<button type="button">
-					<Link href="/client/news">News</Link>
-				</button>
+				<Link href="/client/news">News</Link>
 			</header>
 			<main className={styles.main}>{children}</main>
 		</>
