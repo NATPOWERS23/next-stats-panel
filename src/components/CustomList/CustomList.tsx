@@ -1,6 +1,8 @@
 import { useId } from "react";
 
-export default function CustomList({ items }: { items: { name: string }[] }) {
+export default function CustomList({
+	items,
+}: { items: { name?: string | number }[] }) {
 	const id = useId();
 
 	return (
