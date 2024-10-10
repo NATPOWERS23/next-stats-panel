@@ -53,7 +53,7 @@ export const subMenuItems: SubMenuItems = {
     { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_8', link: '/websites/landing' },
     { title: 'Other projects', menu_id: 'menu_item_14', id: 'sub_menu_item_9', link: '/websites/projects' },
     {
-      title: 'Comments & Propositions about CRM or Landing page',
+      title: 'Comments & QA',
       menu_id: 'menu_item_14',
       id: 'sub_menu_item_10',
       link: '/websites/projects',
@@ -64,5 +64,5 @@ export const subMenuItems: SubMenuItems = {
 
 export const blockedMenuItems = ['Contracts & Deals', 'Merch', 'Dashboard', 'Brain storm',
   'Big goals', 'Quick contacts', 'Website', 'Investments', 'Release dates', 'For future', 'Collaborations', 'Space', 'Twich',
-  'Landing page', 'Other projects', 'Comments & Propositions about CRM or Landing page', 'Bug Reports',
+  'Landing page', 'Other projects', 'Comments & QA', 'Bug Reports',
 ]
