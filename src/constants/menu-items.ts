@@ -30,7 +30,7 @@ export const menuItems: IMenuItem[] = [
   { title: 'Team tasks', id: 'menu_item_7', link: '/tasks', icon: 'tasks' },
   { title: 'Contracts & Deals', id: 'menu_item_8', link: '/contracts', icon: 'contract' },
   { title: 'Merch', id: 'menu_item_9', link: '/merch', icon: 'shop' },
-  { title: 'Dashboard', id: 'menu_item_10', link: '/dashboard', icon: 'dashboard' },
+  { title: 'Panels', id: 'menu_item_10', link: '/panels', icon: 'dashboard' },
   { title: 'Brain storm', id: 'menu_item_11', link: '/brain-storm', icon: 'global' },
   { title: 'Big goals', id: 'menu_item_12', link: '/goals', icon: 'goals' },
   { title: 'Quick contacts', id: 'menu_item_13', link: '/contacts', icon: 'contacts' },
@@ -45,8 +45,8 @@ export const subMenuItems: SubMenuItems = {
     { title: 'Collaborations', menu_id: 'menu_item_9', id: 'sub_menu_item_4', link: '/merch/collaborations' },
   ],
   menu_item_10: [
-    { title: 'Space', menu_id: 'menu_item_10', id: 'sub_menu_item_5', link: '/dashboard/space' },
-    { title: 'Twich', menu_id: 'menu_item_10', id: 'sub_menu_item_6', link: '/dashboard/twich-data' },
+    { title: 'Space', menu_id: 'menu_item_10', id: 'sub_menu_item_5', link: '/panels/space' },
+    { title: 'Twich', menu_id: 'menu_item_10', id: 'sub_menu_item_6', link: '/panels/twich-data' },
   ],
   menu_item_14: [
     { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_7', link: '/websites/landing' },
@@ -62,7 +62,7 @@ export const subMenuItems: SubMenuItems = {
   ],
 };
 
-export const blockedMenuItems = ['Contracts & Deals', 'Merch', 'Dashboard', 'Brain storm',
+export const blockedMenuItems = ['Contracts & Deals', 'Merch', 'Panels', 'Brain storm',
   'Big goals', 'Quick contacts', 'Website', 'Investments', 'Release dates', 'For future', 'Collaborations', 'Space', 'Twich',
   'Landing page', 'Other projects', 'Comments & QA', 'Bug Reports',
 ]
