@@ -8,7 +8,7 @@ export default function DashboardPage() {
 		<>
 			<PageTitle title="Dashboard" />
 			<div>
-				<CUpdate />
+				<CUpdate user={{}} />
 				<SpaceStatistic />
 			</div>
 		</>
