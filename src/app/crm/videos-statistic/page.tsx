@@ -25,7 +25,7 @@ export default function VideosStatistic() {
 
 			<Card title="Top Clip of the Channel" body={cardBody} />
 
-			<div className="grid-wrapper">
+			<div className="grid-wrapper mt-4">
 				{statCards.map((card) => (
 					<InfoBox
 						key={card.id}

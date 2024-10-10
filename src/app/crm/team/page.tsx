@@ -11,9 +11,11 @@ export default function Team() {
 			<PageTitle title="Team" />
 			<Card body={<>Members Line ...</>} />
 
-			<h3>Dashboard</h3>
-			<div className={styles.dashboard}>
-				<Card title="Team chat" body={cardBody} />
+			<div className="my-4">
+				<h3 className="text-lg">Dashboard</h3>
+				<div className="flex gap-5">
+					<Card title="Team chat" body={cardBody} />
+				</div>
 			</div>
 		</>
 	);

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
-
-import "../styles/globals.css";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
 import Navbar from "@/components/Navbar/Navbar";
 import Modal from "@/components/Modal/Modal";
+import "../styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const mainFont = localFont({
+	src: "../../public/assets/fonts/CoFoSans-Regular.woff2",
+});
 
 export const metadata: Metadata = {
 	title: "Stats App",
@@ -22,7 +23,7 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<html lang="en">
-				<body className={inter.className}>
+				<body className={mainFont.className}>
 					<ClerkLoading>
 						<CustomLoader />
 					</ClerkLoading>

@@ -1,29 +1,29 @@
-import type React from 'react';
+import type React from "react";
 
 const SkeletonLoader = ({
-  width = '100%',
-  height = '100%',
-  borderRadius = '0px',
-  backgroundColor = '#e0e0e0',
-  animationDuration = '1.5s',
+	width = "100%",
+	height = "100%",
+	borderRadius = "24px",
+	backgroundColor = "#e0e0e0",
+	animationDuration = "1.5s",
 }: {
-  width?: string;
-  height?: string;
-  borderRadius?: string;
-  backgroundColor?: string;
-  animationDuration?: string;
+	width?: string;
+	height?: string;
+	borderRadius?: string;
+	backgroundColor?: string;
+	animationDuration?: string;
 }) => {
-  return (
-    <div
-      style={{
-        width,
-        height,
-        borderRadius,
-        backgroundColor,
-        animation: `pulse ${animationDuration} ease-in-out infinite`,
-      }}
-    />
-  );
+	return (
+		<div
+			style={{
+				width,
+				height,
+				borderRadius,
+				backgroundColor,
+				animation: `pulse ${animationDuration} ease-in-out infinite`,
+			}}
+		/>
+	);
 };
 
 const keyframes = `
@@ -41,10 +41,10 @@ const keyframes = `
 `;
 
 const SkeletonLoaderWrapper = ({ children }: { children: React.ReactNode }) => (
-  <>
-    <style>{keyframes}</style>
-    {children}
-  </>
+	<>
+		<style>{keyframes}</style>
+		{children}
+	</>
 );
 
 export { SkeletonLoader, SkeletonLoaderWrapper };

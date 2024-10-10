@@ -145,11 +145,7 @@ export default function CrmLayout({
 					has({ role: "org:member" })
 				}
 				fallback={
-					<div
-						style={{
-							width: "100%",
-						}}
-					>
+					<div className="w-full">
 						<p>You currently do not have access to the CRM tools.</p>
 						<ul>
 							{userMemberships.data?.map((mem) => (

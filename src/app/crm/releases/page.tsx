@@ -20,7 +20,7 @@ export default function Releases() {
 	const pageContent = (
 		<>
 			<PageTitle title="Show Realizes" />
-			<div className="grid-wrapper">
+			<div className="grid-wrapper my-6">
 				{contentItems.map((item) => (
 					<Card
 						body={<>item.body</>}
@@ -29,7 +29,6 @@ export default function Releases() {
 					/>
 				))}
 			</div>
-
 			<Button content="+ Propose new content" />
 		</>
 	);

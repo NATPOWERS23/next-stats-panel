@@ -16,28 +16,18 @@ export default function FinancesPage() {
 		),
 		second: (
 			<>
-				<div className="card-body">
-					<div className="card">
-						<div className="card-title">Donatello</div>
-						<div className="card-body">
-							<CustomList
-								items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]}
-							/>
-						</div>
-					</div>
-					<div className="card">
-						<div className="card-title">Patreon</div>
-						<div className="card-body" />
-					</div>
-					<div className="card">
-						<div className="card-title">Youtube</div>
-						<div className="card-body" />
-					</div>
-					<div className="card">
-						<div className="card-title">Twich</div>
-						<div className="card-body" />
-					</div>
-				</div>
+				<Card
+					title="Donatello"
+					isInnerCard={true}
+					body={
+						<CustomList
+							items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]}
+						/>
+					}
+				/>
+				<Card title="Patreon" />
+				<Card title="Youtube" />
+				<Card title="Twich" />
 			</>
 		),
 		third: (
@@ -49,16 +39,16 @@ export default function FinancesPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Finances" />
-			<div className={styles.top}>
+			<div className="flex justify-between w-full gap-4">
 				<InfoBox title="Income" numbers={100000} description={""} />
 				<InfoBox title="Outcome" numbers={1000} description={""} />
 			</div>
-			<div className={styles.middle}>
+			<div className="flex justify-between width-full gap-4 my-4">
 				<Card title="Income from Integrations" body={cardBodies.first} />
 				<Card title="Donats from Subscribers" body={cardBodies.second} />
 				<Card title="Spends History" body={cardBodies.third} />
 			</div>
-			<div className={styles.bottom}>
+			<div className="flex justify-between width-full gap-4">
 				<Card title="Spends History" body={cardBodies.progressBar} />
 			</div>
 		</>
