@@ -19,9 +19,9 @@ export default function CUpdate({
 	};
 }) {
 	return (
-		<div className="card">
+		<div className={"card w-full p-4 pt-2 rounded-2large shadow-lg bg-blue"}>
 			<div className="card-body">
-				<div className="header flex">
+				<div className="header flex w-full justify-between">
 					<Avatar sizes={32} />
 					<div className="header-actions">
 						{user.actions?.map((action) => (
@@ -29,8 +29,8 @@ export default function CUpdate({
 						))}
 					</div>
 				</div>
-				<div className="main">
-					<div className="main-text">
+				<div className="main my-3">
+					<div className="main-text font-black text-xl">
 						Hello, {user.name} here`s an update on your channel.
 					</div>
 					<div className="main-chart" style={{ color: "red" }}>
@@ -41,9 +41,9 @@ export default function CUpdate({
 					<div className="footer-text">
 						This month has the highest deals of the year
 					</div>
-					<div className="flex">
-						<div className="footer-numbers">${user.totalAmount}</div>
-						<div className="footer-subtext">
+					<div className="flex gap-2">
+						<div className="footer-numbers font-black">${user.totalAmount}</div>
+						<div className="footer-subtext font-thin text-xs w-40">
 							which is ${user.diff} more than last month
 						</div>
 					</div>
