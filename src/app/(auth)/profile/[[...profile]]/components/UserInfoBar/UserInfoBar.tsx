@@ -7,6 +7,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import User from "@/db/models/user.model";
 import type { TwitchUserInfo } from "./UserInfoBar.interfaces";
 import styles from "./UserInfoBar.module.css";
+import Avatar from "@/components/Avatar/Avatar";
 
 const getTwitchUser = async () => {
 	//set middleware to allow only for channel owner role
@@ -51,17 +52,7 @@ export default async function UserInfoBar() {
 						</div>
 
 						<div className={styles.avatarWrapper}>
-							<div className={styles.avatar}>
-								{channel.profile_image_url && (
-									<Image
-										className={styles.image}
-										src={channel.profile_image_url}
-										alt="channel avatar"
-										width={100}
-										height={100}
-									/>
-								)}
-							</div>
+							<Avatar src={channel.profile_image_url} sizes={100} />
 							<Link href={twichLink} passHref={true}>
 								<button type="button">Change Profile Avatar</button>
 							</Link>

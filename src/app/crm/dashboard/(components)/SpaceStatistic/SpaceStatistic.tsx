@@ -9,13 +9,15 @@ import {
 	SkeletonLoader,
 	SkeletonLoaderWrapper,
 } from "@/components/Skeleton/Skeleton";
+import { Protect } from "@clerk/nextjs";
+import { roleList, ROLE } from "@/constants/roles";
 
 function SpaceStatistic() {
 	const { GSTData, FLRData, FLRClassData, isSpaceDataLoading } =
 		useSpaceDataApi();
 
 	return (
-		<>
+		<Protect role={roleList[ROLE.admin]}>
 			<h3 className="text-xl my-4">Space Weather</h3>
 			<div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 h-full min-h-52">
 				{isSpaceDataLoading ? (
@@ -48,7 +50,7 @@ function SpaceStatistic() {
 					</>
 				)}
 			</div>
-		</>
+		</Protect>
 	);
 }
 
