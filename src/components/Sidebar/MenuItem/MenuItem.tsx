@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import {
+	blockedMenuItems,
 	crmPath,
 	type IMenuItem,
 	subMenuItems,
@@ -26,7 +27,16 @@ export default function MenuItem({
 				</div>
 			) : (
 				<Link href={crmPath + item.link}>
-					{!isCollapsed ? item.title : <Icon name={item.icon} />}
+					{!isCollapsed ? (
+						<div className="flex gap-2 items-center">
+							<span>{item.title}</span>
+							{blockedMenuItems.includes(item.title) && (
+								<Icon name="blocked" color="grey" />
+							)}
+						</div>
+					) : (
+						<Icon name={item.icon} />
+					)}
 				</Link>
 			)}
 			{subMenuItems[item.id] && isSubMenuShow && (
@@ -50,7 +60,16 @@ const SubMenu = ({
 					return (
 						<li className={styles.subitem} key={item.id}>
 							<Link href={crmPath + item.link}>
-								{isCollapsed ? <Icon name="subitem" /> : item.title}
+								{isCollapsed ? (
+									<Icon name="subitem" />
+								) : (
+									<div className="flex gap-2 items-center">
+										<span> {item.title}</span>
+										{blockedMenuItems.includes(item.title) && (
+											<Icon name="blocked" color="grey" />
+										)}
+									</div>
+								)}
 							</Link>
 						</li>
 					);

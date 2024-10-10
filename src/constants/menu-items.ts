@@ -61,3 +61,8 @@ export const subMenuItems: SubMenuItems = {
     { title: 'Bug Reports', menu_id: 'menu_item_14', id: 'sub_menu_item_11', link: '/websites/reports' },
   ],
 };
+
+export const blockedMenuItems = ['Contracts & Deals', 'Merch', 'Dashboard', 'Brain storm',
+  'Big goals', 'Quick contacts', 'Website', 'Investments', 'Release dates', 'For future', 'Collaborations', 'Space', 'Twich',
+  'Landing page', 'Other projects', 'Comments & Propositions about CRM or Landing page', 'Bug Reports',
+]
