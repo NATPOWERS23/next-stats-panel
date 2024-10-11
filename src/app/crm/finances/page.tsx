@@ -39,16 +39,16 @@ export default function FinancesPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Finances" />
-			<div className="flex justify-between w-full gap-4">
+			<div className="flex justify-between w-full gap-4 flex-wrap">
 				<InfoBox title="Income" numbers={100000} description={""} />
 				<InfoBox title="Outcome" numbers={1000} description={""} />
 			</div>
-			<div className="flex justify-between width-full gap-4 my-4">
+			<div className="flex justify-between width-full gap-4 my-4 flex-wrap">
 				<Card title="Income from Integrations" body={cardBodies.first} />
 				<Card title="Donats from Subscribers" body={cardBodies.second} />
 				<Card title="Spends History" body={cardBodies.third} />
 			</div>
-			<div className="flex justify-between width-full gap-4">
+			<div className="flex justify-between width-full gap-4 flex-wrap">
 				<Card title="Spends History" body={cardBodies.progressBar} />
 			</div>
 		</>
