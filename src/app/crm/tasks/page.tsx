@@ -1,5 +1,6 @@
 import Button from "@/components/Button/Button";
 import Card from "@/components/Card/Card";
+import LinkButton from "@/components/LinkButton/LinkButton";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import Link from "next/link";
@@ -17,7 +18,9 @@ export default function Tasks() {
 
 				<Button content="Export tasks in CSV" />
 
-				<Card body={<Link href="./team">Workflow statistic</Link>} />
+				<Card
+					body={<LinkButton content="Workflow statistic" href="./team" />}
+				/>
 			</div>
 
 			<Card title="Task list" />

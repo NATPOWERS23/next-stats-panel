@@ -8,6 +8,7 @@ import User from "@/db/models/user.model";
 import type { TwitchUserInfo } from "./UserInfoBar.interfaces";
 import styles from "./UserInfoBar.module.css";
 import Avatar from "@/components/Avatar/Avatar";
+import LinkButton from "@/components/LinkButton/LinkButton";
 
 const getTwitchUser = async () => {
 	//set middleware to allow only for channel owner role
@@ -53,9 +54,7 @@ export default async function UserInfoBar() {
 
 						<div className={styles.avatarWrapper}>
 							<Avatar src={channel.profile_image_url} sizes={100} />
-							<Link href={twichLink} passHref={true}>
-								<button type="button">Change Profile Avatar</button>
-							</Link>
+							<LinkButton content="Change Profile Avatar" href={twichLink} />
 						</div>
 					</div>
 					<hr />
