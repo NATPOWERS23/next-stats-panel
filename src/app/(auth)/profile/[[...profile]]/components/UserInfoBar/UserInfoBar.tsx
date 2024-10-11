@@ -1,14 +1,12 @@
 import React from "react";
 import axios from "axios";
-import Image from "next/image";
-import Link from "next/link";
 import { currentUser } from "@clerk/nextjs/server";
 
 import User from "@/db/models/user.model";
-import type { TwitchUserInfo } from "./UserInfoBar.interfaces";
-import styles from "./UserInfoBar.module.css";
 import Avatar from "@/components/Avatar/Avatar";
 import LinkButton from "@/components/LinkButton/LinkButton";
+import type { TwitchUserInfo } from "./UserInfoBar.interfaces";
+import styles from "./UserInfoBar.module.css";
 
 const getTwitchUser = async () => {
 	//set middleware to allow only for channel owner role
@@ -45,20 +43,22 @@ export default async function UserInfoBar() {
 	return (
 		<>
 			{channel && (
-				<div className={`card ${styles.card}`}>
-					<div className={styles.line}>CHANNEL OWNER DATA</div>
-					<div className={styles.channelInfo}>
+				<div className="card max-w-full sm:max-w-96">
+					<div className="bg-twitch width-full text-center m-0 py-2">
+						CHANNEL OWNER DATA
+					</div>
+					<div className="flex justify-between items-center gap-2 p-2">
 						<div>
 							<p>{channel.display_name || "No display name"}</p>
 						</div>
 
-						<div className={styles.avatarWrapper}>
+						<div className="gap-2 flex items-center justify-center flex-col">
 							<Avatar src={channel.profile_image_url} sizes={100} />
 							<LinkButton content="Change Profile Avatar" href={twichLink} />
 						</div>
 					</div>
 					<hr />
-					<div>
+					<div className="p-2">
 						<p>{channel.description || "No description"}</p>
 					</div>
 					<hr />

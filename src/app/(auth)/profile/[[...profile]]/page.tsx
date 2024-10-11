@@ -1,13 +1,11 @@
 import React from "react";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { UserProfile } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 
 import UserInfoBar from "./components/UserInfoBar/UserInfoBar";
-import Icon from "@/components/Icon/Icon";
-import styles from "./profile.module.css";
 import LinkButton from "@/components/LinkButton/LinkButton";
+import styles from "./profile.module.css";
 
 const Profile = () => {
 	const { userId } = auth();
@@ -18,7 +16,7 @@ const Profile = () => {
 	return (
 		<>
 			<LinkButton content="Back" iconName="arrow_left" href="/crm" />
-			<div className={styles.container}>
+			<div className="container mx-auto lg:px-20 lg:py-10 flex flex-wrap flex-row-reverse align-middle justify-center gap-10">
 				<UserInfoBar />
 				<UserProfile
 					appearance={{
