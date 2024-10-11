@@ -2,14 +2,15 @@ import React from "react";
 import axios from "axios";
 import { currentUser } from "@clerk/nextjs/server";
 
+import { connect } from "@/db/mongo-db-config";
 import User from "@/db/models/user.model";
 import Avatar from "@/components/Avatar/Avatar";
 import LinkButton from "@/components/LinkButton/LinkButton";
 import type { TwitchUserInfo } from "./UserInfoBar.interfaces";
-import styles from "./UserInfoBar.module.css";
 
 const getTwitchUser = async () => {
 	//set middleware to allow only for channel owner role
+	await connect();
 	const clerkUser = await currentUser(); // move to client axios interceptor
 	const twitchUserId = clerkUser?.publicMetadata?.twitchUserId;
 	const dbUserId = clerkUser?.publicMetadata.userId;
