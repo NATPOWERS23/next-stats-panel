@@ -3,6 +3,10 @@
   min-width: 200px;
   border-right: white 2.5px solid;
   padding: 10px;
+
+  @media screen and (max-width: 510px) {
+    min-width: 80px;
+  }
 }
 
 .sidebar_collapsed {
