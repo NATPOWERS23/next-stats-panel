@@ -5,14 +5,14 @@ export default function LinkButton({
 	content,
 	iconName,
 	href,
-}: { content: string; iconName?: string; href: string }) {
+}: { content?: string; iconName?: string; href?: string }) {
 	return (
 		<div className="link-button">
 			<Link
-				href={href}
+				href={href ?? "/"}
 				style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
 			>
-				{iconName && <Icon name={iconName} />} {content ?? "Submit"}
+				{iconName && <Icon name={iconName} />} {content ?? ""}
 			</Link>
 		</div>
 	);
