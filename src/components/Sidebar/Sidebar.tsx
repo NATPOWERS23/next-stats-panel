@@ -5,7 +5,7 @@ import styles from "./Sidebar.module.css";
 import Icon from "../Icon/Icon";
 
 export default function Sidebar() {
-	const [isCollapsed, setIsCollapsed] = useState(false);
+	const [isCollapsed, setIsCollapsed] = useState(true);
 
 	const toggleCollapse = () => {
 		setIsCollapsed(!isCollapsed);

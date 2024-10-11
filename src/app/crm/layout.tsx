@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Protect, useAuth, useOrganizationList, useUser } from "@clerk/nextjs";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import styles from "./layout.module.css";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
-import { useRouter } from "next/navigation";
+import styles from "./layout.module.css";
 
 export default function CrmLayout({
 	children,

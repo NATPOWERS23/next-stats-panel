@@ -33,8 +33,12 @@ export default function CUpdate({
 					<div className="main-text">
 						Hello, {user.name} here`s an update on your channel.
 					</div>
-					<div className="main-chart" style={{ color: "red" }}>
-						<Image src={chartImage} alt="update chart" />
+					<div className="main-chart">
+						<Image
+							src={chartImage}
+							alt="update chart"
+							style={{ width: "100%", height: "auto" }}
+						/>
 					</div>
 				</div>
 				<div className="footer">
