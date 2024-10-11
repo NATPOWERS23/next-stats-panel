@@ -1,9 +1,8 @@
 import Button from "@/components/Button/Button";
 import Card from "@/components/Card/Card";
-import Icon from "@/components/Icon/Icon";
+import LinkButton from "@/components/LinkButton/LinkButton";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
-import Link from "next/link";
 
 export default function Tasks() {
 	const pageContent = (
@@ -18,9 +17,9 @@ export default function Tasks() {
 
 				<Button content="Export tasks in CSV" fullWidth={true} />
 
-				<Link href="./team" className="flex gap-1">
-					Workflow statistic <Icon name="arrow_right" />
-				</Link>
+				<Card
+					body={<LinkButton content="Workflow statistic" href="./team" />}
+				/>
 			</div>
 
 			<Card title="Task list" />

@@ -7,6 +7,7 @@ import { auth } from "@clerk/nextjs/server";
 import UserInfoBar from "./components/UserInfoBar/UserInfoBar";
 import Icon from "@/components/Icon/Icon";
 import styles from "./profile.module.css";
+import LinkButton from "@/components/LinkButton/LinkButton";
 
 const Profile = () => {
 	const { userId } = auth();
@@ -16,11 +17,7 @@ const Profile = () => {
 
 	return (
 		<>
-			<div className="back-button">
-				<Link href="/crm">
-					<Icon name="arrow_left" /> Back
-				</Link>
-			</div>
+			<LinkButton content="Back" iconName="arrow_left" href="/crm" />
 			<div className={styles.container}>
 				<UserInfoBar />
 				<UserProfile
