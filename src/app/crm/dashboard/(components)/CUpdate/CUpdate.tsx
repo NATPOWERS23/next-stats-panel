@@ -3,6 +3,8 @@ import chartImage from "@public/assets/images/update-chart.png";
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
+import { UpdateBar } from "@/components/Charts/UpdateBar";
+import { nivoUpdateBarChartData } from "@/mocks/charts-mockdata";
 
 export default function CUpdate({
 	user = {
@@ -33,12 +35,11 @@ export default function CUpdate({
 					<div className="main-text font-black text-xl">
 						Hello, {user.name} here`s an update on your channel.
 					</div>
-					<div className="main-chart">
-						<Image
-							src={chartImage}
-							alt="update chart"
-							style={{ width: "100%", height: "auto" }}
-						/>
+					<div
+						className="main-chart"
+						style={{ display: "block", height: "400px", width: "860px" }}
+					>
+						<UpdateBar data={nivoUpdateBarChartData} />
 					</div>
 				</div>
 				<div className="footer">
