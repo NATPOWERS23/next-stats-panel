@@ -169,7 +169,7 @@ export default function CrmLayout({
 					</div>
 				}
 			>
-				<main className={styles.main}>{children}</main>
+				<main className={`${styles.main} px-2 sm:px-8`}>{children}</main>
 			</Protect>
 		</div>
 	);

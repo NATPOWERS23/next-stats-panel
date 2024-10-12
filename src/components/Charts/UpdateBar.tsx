@@ -2,6 +2,14 @@
 
 import { ResponsiveBar } from "@nivo/bar";
 
+export const nivoUpdateBarSizes = {
+	default: 1,
+	sm: 2,
+	md: 3,
+	lg: 4,
+	xl: 5,
+};
+
 export const UpdateBar = ({ data }: { data: any[] }) => (
 	<>
 		<ResponsiveBar
@@ -52,9 +60,9 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "space-between",
-				padding: "0 4.25rem",
-				marginTop: "-3.5rem",
-				font: "bold 24px sans-serif",
+				padding: "0 2.15em",
+				marginTop: "-2.5em",
+				font: "bold 1.2em sans-serif",
 			}}
 		>
 			{data?.map((item) => (
