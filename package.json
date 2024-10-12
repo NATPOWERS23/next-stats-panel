@@ -13,6 +13,8 @@
     "@babel/plugin-transform-react-jsx": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "@clerk/nextjs": "^5.3.5",
+    "@nivo/bar": "^0.87.0",
+    "@nivo/core": "^0.87.0",
     "axios": "^1.7.2",
     "identity-obj-proxy": "^3.0.0",
     "lodash": "^4.17.21",
