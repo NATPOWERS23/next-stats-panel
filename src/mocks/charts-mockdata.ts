@@ -11378,3 +11378,49 @@ export const otherChartsData: ChartData[] = [
     ],
   },
 ];
+
+
+export const nivoUpdateBarChartData = [
+  {
+    "month": "feb",
+    "fries": 54,
+    "friesColor": "hsl(239, 70%, 50%)",
+    "donut": 96,
+    "donutColor": "hsl(288, 70%, 50%)"
+  },
+  {
+    "month": "may",
+    "fries": 54,
+    "friesColor": "hsl(182, 70%, 50%)",
+    "donut": 130,
+    "donutColor": "hsl(38, 70%, 50%)"
+  },
+  {
+    "month": "jun",
+    "fries": 57,
+    "friesColor": "hsl(172, 70%, 50%)",
+    "donut": 140,
+    "donutColor": "hsl(171, 70%, 50%)"
+  },
+  {
+    "month": "jul",
+    "fries": 1,
+    "friesColor": "hsl(175, 70%, 50%)",
+    "donut": 128,
+    "donutColor": "hsl(37, 70%, 50%)"
+  },
+  {
+    "month": "aug",
+    "fries": 127,
+    "friesColor": "hsl(243, 70%, 50%)",
+    "donut": 186,
+    "donutColor": "hsl(325, 70%, 50%)"
+  },
+  {
+    "month": "sep",
+    "fries": 160,
+    "friesColor": "hsl(259, 70%, 50%)",
+    "donut": 193,
+    "donutColor": "hsl(287, 70%, 50%)"
+  },
+]
