@@ -7,13 +7,16 @@ export default function Avatar({
 	sizes = 32,
 }: { src?: string; sizes?: number }) {
 	return (
-		<div className={styles.avatar}>
+		<div
+			className={styles.avatar}
+			style={{ width: `${sizes}px`, height: `${sizes}px` }}
+		>
 			<Image
 				className={styles.image}
 				src={src}
 				alt="user avatar"
-				width={sizes}
-				height={sizes}
+				width={100}
+				height={100}
 			/>
 		</div>
 	);
