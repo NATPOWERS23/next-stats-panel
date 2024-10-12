@@ -7,11 +7,7 @@ import { UpdateBar } from "@/components/Charts/UpdateBar";
 import { nivoUpdateBarChartData } from "@/mocks/charts-mockdata";
 
 export default function CUpdate({
-	user = {
-		name: "Kim",
-		totalAmount: "66,557.98",
-		diff: "14,400.11",
-	},
+	user,
 }: {
 	user: {
 		name?: string;

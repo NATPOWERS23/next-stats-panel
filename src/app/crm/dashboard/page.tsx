@@ -7,8 +7,14 @@ export default function DashboardPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Dashboard" />
-			<div>
-				<CUpdate user={{}} />
+			<div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+				<CUpdate
+					user={{
+						name: "Kim",
+						totalAmount: "66,557.98",
+						diff: "14,400.11",
+					}}
+				/>
 				<SpaceStatistic />
 			</div>
 		</>
