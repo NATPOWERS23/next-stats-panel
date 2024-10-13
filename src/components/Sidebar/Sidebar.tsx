@@ -24,7 +24,7 @@ export default function Sidebar() {
 					{!isCollapsed && <h3>Menu</h3>}
 					<button
 						type="button"
-						className={styles.collapseButton}
+						className={`${styles.collapseButton} hidden sm:flex`}
 						onClick={toggleCollapse}
 					>
 						{isCollapsed ? (

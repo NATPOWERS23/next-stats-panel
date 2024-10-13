@@ -33,7 +33,7 @@ export default function CUpdate({
 					<div className="main-text font-black text-sm sm:text-xl">
 						Hello, {user.name} here`s an update on your channel.
 					</div>
-					<div className="main-chart w-[180px] h-[120px] sm:w-[400px] sm:h-[230px] lg:w-[480px] lg:h-[260px] text-[6px] sm:text-[14px] lg:text-[16px]">
+					<div className="main-chart w-[240px] h-[120px] sm:w-[400px] sm:h-[230px] lg:w-[480px] lg:h-[260px] text-[6px] sm:text-[14px] lg:text-[16px]">
 						<UpdateBar data={nivoUpdateBarChartData} />
 					</div>
 				</div>

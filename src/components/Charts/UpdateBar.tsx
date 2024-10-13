@@ -16,11 +16,19 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 			data={data}
 			keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
 			indexBy="month"
-			margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+			margin={{ top: 20, right: 5, bottom: 20, left: 5 }}
 			padding={0}
 			valueScale={{ type: "linear" }}
 			indexScale={{ type: "band", round: true }}
-			colors={["Transparent", "Transparent"]}
+			colors={[
+				"Transparent",
+				"Transparent",
+				"Transparent",
+				"Transparent",
+				"Transparent",
+				"#1c9b56",
+			]}
+			colorBy="indexValue"
 			enableGridY={false}
 			defs={[
 				{
@@ -29,8 +37,8 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 					background: "inherit",
 					color: "#fff",
 					rotation: -45,
-					lineWidth: 8,
-					spacing: 20,
+					lineWidth: 5,
+					spacing: 10,
 				},
 			]}
 			fill={[
@@ -41,9 +49,9 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 					id: "lines",
 				},
 			]}
-			borderWidth={2}
+			borderWidth={1}
 			borderColor="#fff"
-			borderRadius={15}
+			borderRadius={7}
 			axisTop={null}
 			axisRight={null}
 			axisLeft={null}
@@ -61,7 +69,7 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 				alignItems: "center",
 				justifyContent: "space-between",
 				padding: "0 2.15em",
-				marginTop: "-2.5em",
+				marginTop: "-1em",
 				font: "bold 1.2em sans-serif",
 			}}
 		>
