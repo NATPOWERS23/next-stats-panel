@@ -43,7 +43,7 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 			]}
 			borderWidth={2}
 			borderColor="#fff"
-			borderRadius={25}
+			borderRadius={15}
 			axisTop={null}
 			axisRight={null}
 			axisLeft={null}

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { dark, neobrutalism } from "@clerk/themes";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
 import Navbar from "@/components/Navbar/Navbar";
 import Modal from "@/components/Modal/Modal";
+
 import "../styles/globals.css";
 
 const mainFont = localFont({
@@ -21,7 +23,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ClerkProvider>
+		<ClerkProvider
+			appearance={{
+				baseTheme: [dark, neobrutalism],
+				variables: { colorPrimary: "#1d9a56" },
+			}}
+		>
 			<html lang="en">
 				<body className={mainFont.className}>
 					<ClerkLoading>

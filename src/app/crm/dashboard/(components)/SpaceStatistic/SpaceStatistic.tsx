@@ -11,44 +11,40 @@ import {
 } from "@/components/Skeleton/Skeleton";
 import { Protect } from "@clerk/nextjs";
 import { roleList, ROLE } from "@/constants/roles";
+import styles from "./SpaceStatistic.module.css";
 
 function SpaceStatistic() {
 	const { GSTData, FLRData, FLRClassData, isSpaceDataLoading } =
 		useSpaceDataApi();
 
+	const chartWrapper = (chart: JSX.Element) => {
+		return isSpaceDataLoading ? (
+			<SkeletonLoaderWrapper>
+				<SkeletonLoader />
+			</SkeletonLoaderWrapper>
+		) : (
+			<ClientOnly>{chart}</ClientOnly>
+		);
+	};
+
 	return (
 		<Protect role={roleList[ROLE.admin]}>
-			<h3 className="text-xl my-4">Space Weather</h3>
-			<div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 h-full min-h-52">
-				{isSpaceDataLoading ? (
-					<>
-						<SkeletonLoaderWrapper>
-							<div className="grid grid-cols-3 gap-4 h-full">
-								<SkeletonLoader />
-								<SkeletonLoader />
-								<SkeletonLoader />
-							</div>
-						</SkeletonLoaderWrapper>
-					</>
-				) : (
-					<>
-						<ClientOnly>
-							<ChartStream
-								chartData={GSTData}
-								title="Geomagnetic Storm (GST)"
-							/>
-						</ClientOnly>
-						<ClientOnly>
-							<ChartDots chartData={FLRData} title="Solar Flare (FLR)" />
-						</ClientOnly>
-						<ClientOnly>
-							<ChartHistogram
-								chartData={FLRClassData}
-								title="Number of C, M and X-class of solar flares per month"
-							/>
-						</ClientOnly>
-					</>
-				)}
+			<div className={styles.section}>
+				<h3>Space Weather</h3>
+				<div className={styles.charts}>
+					{chartWrapper(
+						<ChartStream chartData={GSTData} title="Geomagnetic Storm (GST)" />,
+					)}
+					{chartWrapper(
+						<ChartDots chartData={FLRData} title="Solar Flare (FLR)" />,
+					)}
+					{chartWrapper(
+						<ChartHistogram
+							chartData={FLRClassData}
+							title="Number of C, M and X-class of solar flares per month"
+						/>,
+					)}
+				</div>
 			</div>
 		</Protect>
 	);

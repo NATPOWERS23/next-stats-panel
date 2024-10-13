@@ -28,22 +28,25 @@ export default function Navbar() {
 			) : (
 				<>
 					<Protect role={roleList[ROLE.channel_owner]}>
-						<div className={styles.item}>
-							<TwitchButton />
-						</div>
+						<TwitchButton />
 					</Protect>
+
+					<li>
+						<UserButton />
+					</li>
 
 					<div className={styles.item}>
 						<Link href="/profile">
 							<li>Profile</li>
 						</Link>
 					</div>
-
-					<li>
-						<UserButton />
-					</li>
 				</>
 			)}
+			<div className={styles.item}>
+				<Link href="/client">
+					<li>Client</li>
+				</Link>
+			</div>
 		</ul>
 	);
 
