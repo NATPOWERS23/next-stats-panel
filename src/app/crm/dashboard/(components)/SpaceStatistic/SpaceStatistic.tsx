@@ -11,7 +11,6 @@ import {
 } from "@/components/Skeleton/Skeleton";
 import { Protect } from "@clerk/nextjs";
 import { roleList, ROLE } from "@/constants/roles";
-import styles from "./SpaceStatistic.module.css";
 
 function SpaceStatistic() {
 	const { GSTData, FLRData, FLRClassData, isSpaceDataLoading } =
@@ -29,9 +28,9 @@ function SpaceStatistic() {
 
 	return (
 		<Protect role={roleList[ROLE.admin]}>
-			<div className={styles.section}>
+			<div>
 				<h3>Space Weather</h3>
-				<div className={styles.charts}>
+				<div>
 					{chartWrapper(
 						<ChartStream chartData={GSTData} title="Geomagnetic Storm (GST)" />,
 					)}

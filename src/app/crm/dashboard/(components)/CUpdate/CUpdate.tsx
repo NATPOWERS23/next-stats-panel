@@ -1,5 +1,3 @@
-import Image from "next/image";
-import chartImage from "@public/assets/images/update-chart.png";
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
@@ -32,7 +30,7 @@ export default function CUpdate({
 					</div>
 				</div>
 				<div className="main my-3 flex flex-col items-center justify-center">
-					<div className="main-text font-black text-xl">
+					<div className="main-text font-black text-sm sm:text-xl">
 						Hello, {user.name} here`s an update on your channel.
 					</div>
 					<div className="main-chart w-[180px] h-[120px] sm:w-[400px] sm:h-[230px] lg:w-[480px] lg:h-[260px] text-[6px] sm:text-[14px] lg:text-[16px]">
@@ -40,12 +38,14 @@ export default function CUpdate({
 					</div>
 				</div>
 				<div className="footer">
-					<div className="footer-text">
+					<div className="footer-text text-xs sm:text-sm">
 						This month has the highest deals of the year
 					</div>
 					<div className="flex gap-2">
-						<div className="footer-numbers font-black">${user.totalAmount}</div>
-						<div className="footer-subtext font-thin text-xs w-40">
+						<div className="footer-numbers font-black text-xs sm:text-xl">
+							${user.totalAmount}
+						</div>
+						<div className="footer-subtext font-thin text-xs w-40 ">
 							which is ${user.diff} more than last month
 						</div>
 					</div>
