@@ -29,10 +29,7 @@ export default function ConnectTwitchModal() {
 					<a
 						href={`https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${clientId}&redirect_uri=${BASE_URL}&scope=${SCOPE_CONFIG}&force_verify=true`}
 					>
-						<Button
-							content="Connect with Twitch"
-							handleClick={handleInputChange}
-						/>
+						<Button content="Connect with Twitch" onClick={handleInputChange} />
 					</a>
 				)}
 			</div>
