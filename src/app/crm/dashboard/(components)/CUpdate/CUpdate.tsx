@@ -15,8 +15,8 @@ export default function CUpdate({
 		diff?: string;
 	};
 }) {
-	const handleClick = () => {
-		alert("Button clicked!");
+	const openShareModal = () => {
+		console.log("Share modal opened");
 	};
 
 	return (
@@ -25,7 +25,7 @@ export default function CUpdate({
 				<div className="header flex">
 					<Avatar sizes={32} />
 					<div className="header-actions">
-						<Button content={<Icon name="share" />} onClick={handleClick} />
+						<Button content={<Icon name="share" />} onClick={openShareModal} />
 					</div>
 				</div>
 				<div className="main">
