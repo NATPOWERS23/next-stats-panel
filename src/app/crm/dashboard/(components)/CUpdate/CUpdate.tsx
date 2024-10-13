@@ -1,3 +1,5 @@
+"use client";
+
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
@@ -11,9 +13,12 @@ export default function CUpdate({
 		name?: string;
 		totalAmount?: string;
 		diff?: string;
-		actions?: { name: string }[];
 	};
 }) {
+	const handleClick = () => {
+		alert("Button clicked!");
+	};
+
 	return (
 		<div
 			className={
@@ -24,9 +29,7 @@ export default function CUpdate({
 				<div className="header flex w-full justify-between">
 					<Avatar sizes={32} />
 					<div className="header-actions">
-						{user.actions?.map((action) => (
-							<Button content={<Icon name={action.name} />} key={action.name} />
-						))}
+						<Button content={<Icon name="share" />} onClick={handleClick} />
 					</div>
 				</div>
 				<div className="main my-3 flex flex-col items-center justify-center">

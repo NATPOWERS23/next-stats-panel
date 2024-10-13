@@ -2,7 +2,7 @@
 
 export default function Button({
 	content = "",
-	handleClick = () => {
+	onClick = () => {
 		console.log("Button clicked");
 	},
 	type = "button",
@@ -11,7 +11,7 @@ export default function Button({
 	fullWidth = false,
 }: {
 	content?: string | JSX.Element;
-	handleClick?: () => void;
+	onClick?: () => void;
 	type?: "button" | "submit" | "reset" | undefined;
 	buttonType?: "primary" | "secondary";
 	size?: "small" | "medium" | "large";
@@ -34,7 +34,7 @@ export default function Button({
 			className={`${buttonTypeClass} ${sizeClass} rounded-full transition duration-500`}
 			type={type}
 			style={{ width: fullWidth ? "100%" : "fit-content" }}
-			onClick={() => handleClick()}
+			onClick={onClick}
 		>
 			{content ?? "Submit"}
 		</button>
