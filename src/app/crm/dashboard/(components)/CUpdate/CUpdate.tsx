@@ -15,8 +15,8 @@ export default function CUpdate({
 		diff?: string;
 	};
 }) {
-	const handleClick = () => {
-		alert("Button clicked!");
+	const openShareModal = () => {
+		console.log("Share modal opened");
 	};
 
 	return (
@@ -31,7 +31,7 @@ export default function CUpdate({
 					<div className="header-actions">
 						<Button
 							content={<Icon name="share" />}
-							onClick={handleClick}
+							onClick={openShareModal}
 							size="small"
 							buttonType="outlined"
 						/>
