@@ -1,5 +1,5 @@
-import Image from "next/image";
-import chartImage from "@public/assets/images/update-chart.png";
+"use client";
+
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
@@ -7,28 +7,25 @@ import { UpdateBar } from "@/components/Charts/UpdateBar";
 import { nivoUpdateBarChartData } from "@/mocks/charts-mockdata";
 
 export default function CUpdate({
-	user = {
-		name: "Kim",
-		totalAmount: "66,557.98",
-		diff: "14,400.11",
-	},
+	user,
 }: {
 	user: {
 		name?: string;
 		totalAmount?: string;
 		diff?: string;
-		actions?: { name: string }[];
 	};
 }) {
+	const handleClick = () => {
+		alert("Button clicked!");
+	};
+
 	return (
 		<div className="card">
 			<div className="card-body">
 				<div className="header flex">
 					<Avatar sizes={32} />
 					<div className="header-actions">
-						{user.actions?.map((action) => (
-							<Button content={<Icon name={action.name} />} key={action.name} />
-						))}
+						<Button content={<Icon name="share" />} onClick={handleClick} />
 					</div>
 				</div>
 				<div className="main">
