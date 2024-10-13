@@ -6,7 +6,7 @@
 
 .navbarList {
   display: flex;
-  padding: 5px;
+  padding: 5px 5px 5px 15px;
   background-color: #1c1c1e;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;

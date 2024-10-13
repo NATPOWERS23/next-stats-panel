@@ -107,7 +107,7 @@ button {
   padding: 0.5em 1em;
   font-size: 16px;
   cursor: pointer;
-  color: white;
+  color: white !important;
   display: flex;
   align-items: center;
   gap: 5px;

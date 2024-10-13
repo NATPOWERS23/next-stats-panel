@@ -9,53 +9,40 @@ import {
 	SkeletonLoader,
 	SkeletonLoaderWrapper,
 } from "@/components/Skeleton/Skeleton";
-import styles from "./SpaceStatistic.module.css";
 import { Protect } from "@clerk/nextjs";
 import { roleList, ROLE } from "@/constants/roles";
+import styles from "./SpaceStatistic.module.css";
 
 function SpaceStatistic() {
 	const { GSTData, FLRData, FLRClassData, isSpaceDataLoading } =
 		useSpaceDataApi();
+
+	const chartWrapper = (chart: JSX.Element) => {
+		return isSpaceDataLoading ? (
+			<SkeletonLoaderWrapper>
+				<SkeletonLoader />
+			</SkeletonLoaderWrapper>
+		) : (
+			<ClientOnly>{chart}</ClientOnly>
+		);
+	};
 
 	return (
 		<Protect role={roleList[ROLE.admin]}>
 			<div className={styles.section}>
 				<h3>Space Weather</h3>
 				<div className={styles.charts}>
-					{isSpaceDataLoading ? (
-						<>
-							<SkeletonLoaderWrapper>
-								<div
-									style={{
-										display: "grid",
-										gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-										gap: "1rem",
-									}}
-								>
-									<SkeletonLoader />
-									<SkeletonLoader />
-									<SkeletonLoader />
-								</div>
-							</SkeletonLoaderWrapper>
-						</>
-					) : (
-						<>
-							<ClientOnly>
-								<ChartStream
-									chartData={GSTData}
-									title="Geomagnetic Storm (GST)"
-								/>
-							</ClientOnly>
-							<ClientOnly>
-								<ChartDots chartData={FLRData} title="Solar Flare (FLR)" />
-							</ClientOnly>
-							<ClientOnly>
-								<ChartHistogram
-									chartData={FLRClassData}
-									title="Number of C, M and X-class of solar flares per month"
-								/>
-							</ClientOnly>
-						</>
+					{chartWrapper(
+						<ChartStream chartData={GSTData} title="Geomagnetic Storm (GST)" />,
+					)}
+					{chartWrapper(
+						<ChartDots chartData={FLRData} title="Solar Flare (FLR)" />,
+					)}
+					{chartWrapper(
+						<ChartHistogram
+							chartData={FLRClassData}
+							title="Number of C, M and X-class of solar flares per month"
+						/>,
 					)}
 				</div>
 			</div>

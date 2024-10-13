@@ -28,7 +28,7 @@ const Icon: FC<IconProps> = ({
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			stroke-width="1.5"
+			strokeWidth="1.5"
 			stroke={color}
 			role="img"
 			aria-label={`${name}-label`}
@@ -38,7 +38,7 @@ const Icon: FC<IconProps> = ({
 			fill="none"
 			className={className}
 		>
-			<path stroke-linecap="round" stroke-linejoin="round" d={iconPath} />
+			<path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
 		</svg>
 	);
 };
