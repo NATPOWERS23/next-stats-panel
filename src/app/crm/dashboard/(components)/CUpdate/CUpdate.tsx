@@ -29,7 +29,12 @@ export default function CUpdate({
 				<div className="header flex w-full justify-between">
 					<Avatar sizes={32} />
 					<div className="header-actions">
-						<Button content={<Icon name="share" />} onClick={handleClick} />
+						<Button
+							content={<Icon name="share" />}
+							onClick={handleClick}
+							size="small"
+							buttonType="outlined"
+						/>
 					</div>
 				</div>
 				<div className="main my-3 flex flex-col items-center justify-center">
