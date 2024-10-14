@@ -49,6 +49,7 @@ export default function CUpdate({
 							patternMatchId="donut"
 							indexBy="month"
 							monthsAbrr={true}
+							colors={[]}
 						/>
 					</div>
 				</div>
