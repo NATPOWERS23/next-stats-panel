@@ -8,7 +8,7 @@ export default function DashboardPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Dashboard" />
-			<div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+			<div className="grid grid-flow-col auto-cols-max gap-4">
 				<CUpdate
 					user={{
 						name: "Kim",

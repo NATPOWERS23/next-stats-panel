@@ -30,7 +30,7 @@ export default function CUpdate({
 	return (
 		<div
 			className={
-				"card w-full p-4 pt-2 rounded-2large shadow-lg bg-blue flex flex-col items-center justify-center"
+				"card w-full p-4 pt-2 rounded-2large shadow-lg bg-blue flex flex-col items-center"
 			}
 		>
 			<div className="card-body">
@@ -45,7 +45,7 @@ export default function CUpdate({
 					</div>
 				</div>
 				<div className="main my-3 flex flex-col items-center justify-center">
-					<div className="main-text font-black text-sm sm:text-xl">
+					<div className="main-text font-black text-sm sm:text-xl w-full">
 						Hello, {user.name} here`s an update on your channel.
 					</div>
 					<div className="main-chart w-[240px] h-[120px] sm:w-[400px] sm:h-[230px] lg:w-[480px] lg:h-[260px] text-[6px] sm:text-[14px] lg:text-[16px]">

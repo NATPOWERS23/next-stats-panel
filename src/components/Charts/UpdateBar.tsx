@@ -80,8 +80,8 @@ export const UpdateBar = ({
 					display: "flex",
 					alignItems: "center",
 					justifyContent: "space-between",
-					padding: "0 4.25rem",
-					marginTop: "-3.5rem",
+					padding: "0 2.25rem",
+					marginTop: "-1rem",
 					font: "bold 24px sans-serif",
 				}}
 			>
