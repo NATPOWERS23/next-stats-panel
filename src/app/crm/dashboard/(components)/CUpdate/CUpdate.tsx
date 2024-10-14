@@ -42,8 +42,11 @@ export default function CUpdate({
 				"card w-full p-4 pt-2 rounded-2large shadow-lg bg-blue flex flex-col items-center"
 			}
 		>
-			<div className="card-body">
+			<div className="card-body w-full">
 				<div className="header flex w-full justify-end">
+					<div className="header-title py-4 font-black text-sm sm:text-xl w-full">
+						Hello, {user.name} here`s an update on your channel.
+					</div>
 					<div className="header-actions">
 						<Button
 							content={<Icon name="share" />}
@@ -54,9 +57,6 @@ export default function CUpdate({
 					</div>
 				</div>
 				<div className="main my-3 flex flex-col items-center justify-center">
-					<div className="main-text font-black text-sm sm:text-xl w-full">
-						Hello, {user.name} here`s an update on your channel.
-					</div>
 					<div className="main-chart w-[240px] h-[120px] sm:w-[400px] sm:h-[230px] lg:w-[480px] lg:h-[260px] text-[6px] sm:text-[14px] lg:text-[16px]">
 						<UpdateBar
 							data={nivoUpdateBarChartData}
@@ -73,7 +73,7 @@ export default function CUpdate({
 					<div className="footer-text text-xs sm:text-sm">
 						This month has the highest deals of the year
 					</div>
-					<div className="flex gap-2">
+					<div className="flex gap-2 justify-between">
 						<div className="footer-numbers font-black text-xs sm:text-xl">
 							${user.totalAmount}
 						</div>
