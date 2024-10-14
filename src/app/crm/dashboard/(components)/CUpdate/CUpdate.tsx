@@ -1,6 +1,5 @@
 "use client";
 
-import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
 import { UpdateBar } from "@/components/Charts/UpdateBar";
@@ -18,6 +17,15 @@ export default function CUpdate({
 	const openShareModal = () => {
 		console.log("Share modal opened");
 	};
+
+	const chartKeys = [
+		"hot dog",
+		"burger",
+		"sandwich",
+		"kebab",
+		"fries",
+		"donut",
+	];
 
 	return (
 		<div
@@ -41,7 +49,13 @@ export default function CUpdate({
 						Hello, {user.name} here`s an update on your channel.
 					</div>
 					<div className="main-chart w-[240px] h-[120px] sm:w-[400px] sm:h-[230px] lg:w-[480px] lg:h-[260px] text-[6px] sm:text-[14px] lg:text-[16px]">
-						<UpdateBar data={nivoUpdateBarChartData} />
+						<UpdateBar
+							data={nivoUpdateBarChartData}
+							keys={chartKeys}
+							patternMatchId="donut"
+							indexBy="month"
+							monthsAbrr={true}
+						/>
 					</div>
 				</div>
 				<div className="footer">
