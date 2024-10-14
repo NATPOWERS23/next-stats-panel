@@ -27,6 +27,15 @@ export default function CUpdate({
 		"donut",
 	];
 
+	const barsColors = [
+		"Transparent",
+		"Transparent",
+		"Transparent",
+		"Transparent",
+		"Transparent",
+		"#1c9b56",
+	];
+
 	return (
 		<div
 			className={
@@ -55,7 +64,7 @@ export default function CUpdate({
 							patternMatchId="donut"
 							indexBy="month"
 							monthsAbrr={true}
-							colors={[]}
+							colors={barsColors}
 						/>
 					</div>
 				</div>
