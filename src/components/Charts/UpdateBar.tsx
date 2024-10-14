@@ -2,12 +2,27 @@
 
 import { ResponsiveBar } from "@nivo/bar";
 
-export const UpdateBar = ({ data }: { data: any[] }) => (
+export const UpdateBar = ({
+	data,
+	keys,
+	patternMatchId,
+	indexBy,
+	minValue = 0,
+	monthsAbrr = false,
+}: {
+	data: any[];
+	keys: string[];
+	patternMatchId: string;
+	indexBy: string;
+	minValue?: number | "auto";
+	monthsAbrr?: boolean;
+}) => (
 	<>
 		<ResponsiveBar
 			data={data}
-			keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
-			indexBy="month"
+			keys={keys}
+			indexBy={indexBy}
+			minValue={minValue}
 			margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
 			padding={0}
 			valueScale={{ type: "linear" }}
@@ -28,7 +43,7 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 			fill={[
 				{
 					match: {
-						id: "donut",
+						id: patternMatchId,
 					},
 					id: "lines",
 				},
@@ -39,27 +54,32 @@ export const UpdateBar = ({ data }: { data: any[] }) => (
 			axisTop={null}
 			axisRight={null}
 			axisLeft={null}
-			axisBottom={null}
+			axisBottom={
+				monthsAbrr
+					? null
+					: {
+							tickSize: 5,
+						}
+			}
 			enableLabel={false}
 			role="application"
-			ariaLabel="Nivo bar chart demo"
-			barAriaLabel={(e) =>
-				`${e.id}: ${e.formattedValue} in month: ${e.indexValue}`
-			}
+			ariaLabel="Update Bar Chart"
 		/>
-		<ul
-			style={{
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "space-between",
-				padding: "0 4.25rem",
-				marginTop: "-3.5rem",
-				font: "bold 24px sans-serif",
-			}}
-		>
-			{data?.map((item) => (
-				<li key={item.month}>{item.month}</li>
-			))}
-		</ul>
+		{monthsAbrr && (
+			<ul
+				style={{
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "space-between",
+					padding: "0 4.25rem",
+					marginTop: "-3.5rem",
+					font: "bold 24px sans-serif",
+				}}
+			>
+				{data?.map((item) => (
+					<li key={item[indexBy]}>{item[indexBy]}</li>
+				))}
+			</ul>
+		)}
 	</>
 );

@@ -11424,3 +11424,17 @@ export const nivoUpdateBarChartData = [
     "donutColor": "hsl(287, 70%, 50%)"
   },
 ]
+
+export const nivoSubsBarChartData = [] as unknown as { day: string; subscribes: number; unsubscribes: number }[];
+
+for (let day = 1; day <= 30; day++) {
+  const month = '09'
+  const subscribes = Math.floor(Math.random() * 100); // Random subscribes between 0 and 99
+  const unsubscribes = -(Math.floor(Math.random() * 100)); // Random unsubscribes between -10 and 9
+
+  nivoSubsBarChartData.push({
+    day: `${day}.${month}`,
+    subscribes,
+    unsubscribes,
+  });
+}
