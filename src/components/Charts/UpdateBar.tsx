@@ -1,6 +1,7 @@
 "use client";
 
 import { ResponsiveBar } from "@nivo/bar";
+import type { ColorSchemeId } from "@nivo/colors";
 
 export const UpdateBar = ({
 	data,
@@ -20,7 +21,7 @@ export const UpdateBar = ({
 	minValue?: number | "auto";
 	monthsAbrr?: boolean;
 	colorBy?: "id" | "indexValue";
-	colors: string[] | { scheme: string };
+	colors: string[] | { scheme: ColorSchemeId };
 	space?: number;
 }) => (
 	<>
