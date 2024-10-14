@@ -26,8 +26,7 @@ export default function CUpdate({
 			}
 		>
 			<div className="card-body">
-				<div className="header flex w-full justify-between">
-					<Avatar sizes={32} />
+				<div className="header flex w-full justify-end">
 					<div className="header-actions">
 						<Button
 							content={<Icon name="share" />}
