@@ -9,6 +9,7 @@ export const UpdateBar = ({
 	indexBy,
 	minValue = 0,
 	monthsAbrr = false,
+	colors,
 }: {
 	data: any[];
 	keys: string[];
@@ -16,6 +17,7 @@ export const UpdateBar = ({
 	indexBy: string;
 	minValue?: number | "auto";
 	monthsAbrr?: boolean;
+	colors: string[];
 }) => (
 	<>
 		<ResponsiveBar
@@ -27,15 +29,7 @@ export const UpdateBar = ({
 			padding={0}
 			valueScale={{ type: "linear" }}
 			indexScale={{ type: "band", round: true }}
-			colors={[
-				"Transparent",
-				"Transparent",
-				"Transparent",
-				"Transparent",
-				"Transparent",
-				"#1c9b56",
-			]}
-			colorBy="indexValue"
+			colors={colors}
 			enableGridY={false}
 			defs={[
 				{

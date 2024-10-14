@@ -41,6 +41,7 @@ export default function Subscribers({
 							patternMatchId="unsubscribes"
 							indexBy="day"
 							minValue={-110}
+							colors={[]}
 						/>
 					</div>
 				</div>
