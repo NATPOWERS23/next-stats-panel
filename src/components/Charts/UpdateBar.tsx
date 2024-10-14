@@ -9,7 +9,9 @@ export const UpdateBar = ({
 	indexBy,
 	minValue = 0,
 	monthsAbrr = false,
+	colorBy = "indexValue",
 	colors,
+	space = 0,
 }: {
 	data: any[];
 	keys: string[];
@@ -17,7 +19,9 @@ export const UpdateBar = ({
 	indexBy: string;
 	minValue?: number | "auto";
 	monthsAbrr?: boolean;
-	colors: string[];
+	colorBy?: "id" | "indexValue";
+	colors: string[] | { scheme: string };
+	space?: number;
 }) => (
 	<>
 		<ResponsiveBar
@@ -26,11 +30,11 @@ export const UpdateBar = ({
 			indexBy={indexBy}
 			minValue={minValue}
 			margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-			padding={0}
+			padding={space}
 			valueScale={{ type: "linear" }}
 			indexScale={{ type: "band", round: true }}
 			colors={colors}
-			colorBy="indexValue"
+			colorBy={colorBy}
 			enableGridY={false}
 			defs={[
 				{
@@ -75,9 +79,9 @@ export const UpdateBar = ({
 					display: "flex",
 					alignItems: "center",
 					justifyContent: "space-between",
-					padding: "0 2.25rem",
-					marginTop: "-1rem",
-					font: "bold 24px sans-serif",
+					padding: "0 1.625em",
+					marginTop: "-0.75em",
+					font: "bold 1.5em sans-serif",
 				}}
 			>
 				{data?.map((item) => (

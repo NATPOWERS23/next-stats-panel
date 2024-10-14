@@ -8,7 +8,7 @@ export default function DashboardPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Dashboard" />
-			<div className="grid grid-flow-col auto-cols-max gap-4">
+			<div className="grid grid-cols-[repeat(auto-fill,minmax(240px,2fr))] sm:grid-cols-[repeat(auto-fill,minmax(480px,2fr))]  gap-4">
 				<CUpdate
 					user={{
 						name: "Kim",
@@ -19,7 +19,7 @@ export default function DashboardPage() {
 				<Subscribers
 					user={{
 						totalAmount: "2,300,001",
-						diff: "50,000",
+						diff: "50k+",
 					}}
 				/>
 				<SpaceStatistic />

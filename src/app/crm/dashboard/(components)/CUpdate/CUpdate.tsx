@@ -65,6 +65,7 @@ export default function CUpdate({
 							indexBy="month"
 							monthsAbrr={true}
 							colors={barsColors}
+							space={0.05}
 						/>
 					</div>
 				</div>
