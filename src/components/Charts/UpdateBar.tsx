@@ -30,6 +30,7 @@ export const UpdateBar = ({
 			valueScale={{ type: "linear" }}
 			indexScale={{ type: "band", round: true }}
 			colors={colors}
+			colorBy="indexValue"
 			enableGridY={false}
 			defs={[
 				{
