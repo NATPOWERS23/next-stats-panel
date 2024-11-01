@@ -30,7 +30,7 @@ export default function Releases() {
 				))}
 			</div>
 
-			<Button content="+ Propose new content" />
+			<Button content="+ Propose new content" onClick={undefined} />
 		</>
 	);
 

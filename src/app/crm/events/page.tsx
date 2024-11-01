@@ -23,7 +23,7 @@ export default function Events() {
 			<PageTitle title="Events Calendar" />
 			<Desk />
 			<Card title="Comming Soon" body={CommingSoonBody} />
-			<Button content="+ Add Event" />
+			<Button content="+ Add Event" onClick={undefined} />
 		</>
 	);
 
