@@ -4,13 +4,10 @@ import Link from "next/link";
 
 import styles from "./Navbar.module.css";
 import { ROLE, roleList } from "@/constants/roles";
-import Icon from "../Icon/Icon";
 import TwitchButton from "../TwitchButton/TwitchButton";
 
 export default function Navbar() {
 	const { userId } = auth();
-
-	const openTwitchFormModal = () => {};
 
 	return (
 		<nav className={styles.navbar}>

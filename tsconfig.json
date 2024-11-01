@@ -26,6 +26,6 @@
       "@/styles/*": ["./src/styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/mongo/mongodb.ts", "middleware.ts", "src/app/client/page.spec.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/mongo/mongodb.ts", "src/middleware.ts", "src/app/client/page.spec.jsx"],
   "exclude": ["node_modules"]
 }
