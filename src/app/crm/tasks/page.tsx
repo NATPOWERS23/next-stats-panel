@@ -9,13 +9,17 @@ export default function Tasks() {
 		<>
 			<PageTitle title="Team tasks" />
 			<div className="grid-wrapper mb-4">
-				<Button content="+ New Task" fullWidth={true} />
+				<Button content="+ New Task" onClick={undefined} fullWidth={true} />
 
-				<Button content="Find task" fullWidth={true} />
+				<Button content="Find task" onClick={undefined} fullWidth={true} />
 
-				<Button content="Assigned tasks" fullWidth={true} />
+				<Button content="Assigned tasks" onClick={undefined} fullWidth={true} />
 
-				<Button content="Export tasks in CSV" fullWidth={true} />
+				<Button
+					content="Export tasks in CSV"
+					onClick={undefined}
+					fullWidth={true}
+				/>
 
 				<Card
 					body={<LinkButton content="Workflow statistic" href="./team" />}
