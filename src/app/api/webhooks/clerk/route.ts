@@ -70,8 +70,10 @@ export async function POST(req: Request) {
       photo: image_url,
       firstName: first_name,
       lastName: last_name,
-      username: username,
+      username: username || null,
       twitchUserId: twitchUserId || null,
+      twitchAccessToken: null,
+      twitchClientId: null
     }
     
     try {
