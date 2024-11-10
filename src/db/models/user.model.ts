@@ -14,7 +14,7 @@ const UserSchema = new Schema({
   },
   username: {
     type: String,
-    unique: true, 
+    default: '',
   },
   photo: {
     type: String,
@@ -32,15 +32,24 @@ const UserSchema = new Schema({
   },
   twitchUserId: {
     type: String,
-    unique: true,
+    index: {
+      unique: true,
+      partialFilterExpression: { twitchUserId: { $exists: true, $ne: null } }
+    }
   },
   twitchAccessToken: {
     type: String,
-    unique: true,
+    index: {
+      unique: true,
+      partialFilterExpression: { twitchUserId: { $exists: true, $ne: null } }
+    }
   },
   twitchClientId: {
     type: String,
-    unique: true,
+    index: {
+      unique: true,
+      partialFilterExpression: { twitchUserId: { $exists: true, $ne: null } }
+    }
   }
 })
 
