@@ -26,7 +26,9 @@ export default function CrmLayout({
 	});
 
 	const [isSelected, setIsSelected] = useState(true);
-	const [intervalId, setIntervalId] = useState<any>(null);
+	const [intervalId, setIntervalId] = useState<
+		NodeJS.Timeout | string | number | undefined
+	>(undefined);
 	const [twitchToken, setTwitchToken] = useState("");
 	const [loading, setLoading] = useState(false);
 
@@ -95,7 +97,7 @@ export default function CrmLayout({
 			.finally(() => setLoading(false));
 	};
 
-	const setUserTwitchToken = async (twitchAccessToken: string) => {
+	async function setUserTwitchToken(twitchAccessToken: string) {
 		const twitchClientId = localStorage.getItem("twitchClientId") as string;
 
 		if (!twitchAccessToken || !twitchClientId) return;
@@ -118,16 +120,18 @@ export default function CrmLayout({
 				),
 			)
 			.finally(() => setLoading(false));
-	};
+	}
+
+	function fetchUserMemberships() {
+		console.log("fetching organizations...");
+		if (userMemberships) {
+			(userMemberships as any).fetchPage(userMemberships?.page || 1);
+		}
+	}
 
 	const handleReloadButton = () => {
 		setIsSelected(false);
 		fetchUserMemberships();
-	};
-
-	const fetchUserMemberships = async () => {
-		console.log("fetching organizations...");
-		userMemberships.fetchPage(userMemberships.page);
 	};
 
 	const handleSelectOrganization = (organization: string) => {
@@ -145,11 +149,7 @@ export default function CrmLayout({
 					has({ role: "org:member" })
 				}
 				fallback={
-					<div
-						style={{
-							width: "100%",
-						}}
-					>
+					<div className="w-full">
 						<p>You currently do not have access to the CRM tools.</p>
 						<ul>
 							{userMemberships.data?.map((mem) => (
@@ -173,7 +173,7 @@ export default function CrmLayout({
 					</div>
 				}
 			>
-				<main className={styles.main}>{children}</main>
+				<main className={`${styles.main} px-2 sm:px-8`}>{children}</main>
 			</Protect>
 		</div>
 	);
