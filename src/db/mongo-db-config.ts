@@ -17,7 +17,10 @@ if (!cached) {
 }
 
 export const connect = async () => {
+  console.log('starting connection. err')
   if(cached.conn) return cached.conn;
+
+  console.log('without cache conn')
 
   cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
     dbName: 'next-space',

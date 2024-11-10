@@ -58,14 +58,11 @@ export async function POST(req: Request) {
   const eventType = evt.type
 
   // CREATE User in mongodb
-  console.log('Start creating user in mongoDB. Clerk ewvent type: ', eventType)
   if (eventType === "user.created") {
-    console.log('user.created')
-
     const {id, email_addresses, image_url, first_name, last_name, username} = evt.data;
     const twitchUserId = evt.data.external_accounts.find(account => account.provider === "oauth_twitch")?.provider_user_id;
 
-    console.log('External connection with User twitchUserId: exist')
+    console.log('External connection with User twitchUserId: ', twitchUserId ? 'id exist' : 'id not exist')
 
     const user = {
       clerkId: id,
@@ -76,14 +73,10 @@ export async function POST(req: Request) {
       username: username,
       twitchUserId
     }
-
-    console.log('user: ', user)
     
     const newUser = await createUser(user);
     
-
     if (newUser) {
-      console.log('New user created')
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
           userId: newUser._id,
