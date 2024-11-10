@@ -32,15 +32,24 @@ const UserSchema = new Schema({
   },
   twitchUserId: {
     type: String,
-    default: '',
+    index: {
+      unique: true,
+      partialFilterExpression: { twitchUserId: { $exists: true, $ne: null } }
+    }
   },
   twitchAccessToken: {
     type: String,
-    default: '',
+    index: {
+      unique: true,
+      partialFilterExpression: { twitchUserId: { $exists: true, $ne: null } }
+    }
   },
   twitchClientId: {
     type: String,
-    default: '',
+    index: {
+      unique: true,
+      partialFilterExpression: { twitchUserId: { $exists: true, $ne: null } }
+    }
   }
 })
 

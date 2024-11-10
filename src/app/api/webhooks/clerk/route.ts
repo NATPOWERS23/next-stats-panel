@@ -60,9 +60,9 @@ export async function POST(req: Request) {
   // CREATE User in mongodb
   if (eventType === "user.created") {
     const {id, email_addresses, image_url, first_name, last_name, username} = evt.data;
-    const twitchUserId = evt.data.external_accounts.find(account => account.provider === "oauth_twitch")?.provider_user_id;
+    const twitchUserId = evt.data.external_accounts?.find(account => account.provider === "oauth_twitch")?.provider_user_id;
 
-    console.log('External connection with User twitchUserId: ', twitchUserId ? 'id exist' : 'id not exist')
+    console.log('External connection with User twitchUserId: ', twitchUserId)
 
     const user = {
       clerkId: id,
@@ -71,22 +71,29 @@ export async function POST(req: Request) {
       firstName: first_name,
       lastName: last_name,
       username: username,
-      twitchUserId
+      twitchUserId: twitchUserId || null,
     }
     
-    const newUser = await createUser(user);
+    try {
+      const newUser = await createUser(user);
     
-    if (newUser) {
-      await clerkClient.users.updateUserMetadata(id, {
-        publicMetadata: {
-          userId: newUser._id,
-          twitchUserId
-        }
-      })
-
-      console.log(`New user created: ${JSON.stringify(newUser)}`);
-    } else {
-      console.log(`User already exists - sign in: ${JSON.stringify(user)}`);
+      if (newUser) {
+        console.log('Creating new user on Clerk...')
+  
+        await clerkClient.users.updateUserMetadata(id, {
+          publicMetadata: {
+            userId: newUser._id,
+            twitchUserId: twitchUserId || null,
+          }
+        })
+  
+        console.log(`New user created: ${JSON.stringify(newUser)}`);
+      } else {
+        console.log(`User already exists - sign in: ${JSON.stringify(user)}`);
+      }
+    } catch (error) {
+      console.log('Error on user creation: ', error)
+      return NextResponse.json({ success: false })
     }
 
     return NextResponse.json({ success: true })
