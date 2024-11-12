@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+import { dark, neobrutalism } from "@clerk/themes";
 
-import "../styles/globals.css";
+import TwitchProvider from "@/contexts/useTwitch";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
 import Navbar from "@/components/Navbar/Navbar";
 import Modal from "@/components/Modal/Modal";
-import { dark, neobrutalism } from "@clerk/themes";
+import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,9 +34,11 @@ export default function RootLayout({
 						<CustomLoader />
 					</ClerkLoading>
 					<ClerkLoaded>
-						<Navbar />
-						{children}
-						<Modal />
+						<TwitchProvider>
+							<Navbar />
+							{children}
+							<Modal />
+						</TwitchProvider>
 					</ClerkLoaded>
 				</body>
 			</html>

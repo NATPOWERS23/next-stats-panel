@@ -1,16 +1,19 @@
 "use client";
 
+import axios from "axios";
+import { useState } from "react";
 import Button from "@/components/Button/Button";
-import { type ChangeEvent, useState } from "react";
 
 export default function ConnectTwitchModal() {
 	const BASE_URL = process.env.NEXT_PUBLIC_TWITCH_REDIRECT_URI;
 	const SCOPE_CONFIG = "channel%3Amanage%3Apolls+channel%3Aread%3Apolls+openid";
 
 	const [clientId, setClientId] = useState("");
+	const [channelID, setChannelID] = useState("");
 
-	const handleInputChange = () => {
+	const handleInputChange = async () => {
 		localStorage.setItem("twitchClientId", clientId);
+		localStorage.setItem("twitchChannelId", channelID);
 	};
 
 	return (
@@ -19,8 +22,16 @@ export default function ConnectTwitchModal() {
 			<div className="modal-body">
 				<input
 					type="text"
+					name="channel_id"
+					placeholder="Channel ID"
+					onChange={(e) => setChannelID(e.target.value)}
+					value={channelID}
+				/>
+
+				<input
+					type="text"
 					name="client_id"
-					placeholder="Client ID"
+					placeholder="Twitch Client ID"
 					onChange={(e) => setClientId(e.target.value)}
 					value={clientId}
 				/>
