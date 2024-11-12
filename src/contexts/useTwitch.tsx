@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useState, useEffect, useContext } from "react";
+import type React from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/nextjs";
 
@@ -8,7 +9,9 @@ const TwitchContext = createContext({
 	twitchChannelConnected: false,
 });
 
-const TwitchProvider = ({ children }) => {
+const TwitchProvider = <T extends React.ReactNode>({
+	children,
+}: { children: T }) => {
 	const [twitchChannelConnected, setTwitchChannelConnected] = useState(false);
 	const { user } = useUser();
 
