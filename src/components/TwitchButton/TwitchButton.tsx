@@ -13,14 +13,10 @@ export default function TwitchButton() {
 		<>
 			{!twitchChannelConnected && (
 				<Link href={`${pathname}/?modal=connectTwitch&show=true`}>
-					<li
-						style={{
-							backgroundColor: "#a970ff",
-						}}
-					>
+					<div className="bg-twitch flex gap-2 px-2 py-1 items-center rounded">
 						<Icon name="wrench" size={16} />
 						Connect Twitch
-					</li>
+					</div>
 				</Link>
 			)}
 		</>

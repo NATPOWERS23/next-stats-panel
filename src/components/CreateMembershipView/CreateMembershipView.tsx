@@ -38,7 +38,13 @@ export default function CreateMembershipView() {
 	const createOrgView = (
 		<ul>
 			<li>1. Create Twitch connection</li>
-			{twitchChannelConnected ? <p>DONE!</p> : <TwitchButton />}
+			{twitchChannelConnected ? (
+				<p>DONE!</p>
+			) : (
+				<div className="w-40">
+					<TwitchButton />
+				</div>
+			)}
 			<li>2. Fill the form to create new organization</li>
 			{twitchChannelConnected && <OrganizationList />}
 		</ul>
