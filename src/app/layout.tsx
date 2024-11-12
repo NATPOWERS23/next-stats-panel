@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { dark, neobrutalism } from "@clerk/themes";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+import TwitchProvider from "@/contexts/useTwitch";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
 import Navbar from "@/components/Navbar/Navbar";
 import Modal from "@/components/Modal/Modal";
+import "../styles/globals.css";
 
 import "../styles/globals.css";
 
@@ -35,9 +37,11 @@ export default function RootLayout({
 						<CustomLoader />
 					</ClerkLoading>
 					<ClerkLoaded>
-						<Navbar />
-						{children}
-						<Modal />
+						<TwitchProvider>
+							<Navbar />
+							{children}
+							<Modal />
+						</TwitchProvider>
 					</ClerkLoaded>
 				</body>
 			</html>

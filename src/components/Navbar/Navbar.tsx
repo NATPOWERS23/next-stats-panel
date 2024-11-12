@@ -1,13 +1,16 @@
-import { Protect, UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-
-import { ROLE, roleList } from "@/constants/roles";
 import TwitchButton from "../TwitchButton/TwitchButton";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-	const { userId } = auth();
+	const { userId, has } = auth();
+
+	const userHasRole =
+		has({ role: "org:member" }) ||
+		has({ role: "org:channel_owner" }) ||
+		has({ role: "org:adminr" });
 
 	const list = (
 		<ul className={styles.navbarList}>
@@ -27,9 +30,7 @@ export default function Navbar() {
 				</>
 			) : (
 				<>
-					<Protect role={roleList[ROLE.channel_owner]}>
-						<TwitchButton />
-					</Protect>
+					{!userHasRole && <TwitchButton />}
 
 					<li>
 						<UserButton />
