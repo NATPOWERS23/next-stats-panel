@@ -34,14 +34,14 @@ a:hover {
   pointer-events: none
 }
 
-/* .page-wrapper {
+.page-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 20px;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-} */
+}
 
 .form-wrapper {
   display: flex;

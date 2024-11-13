@@ -15,7 +15,7 @@ export default function ClientLayout({
 
 	return (
 		<>
-			<header className={styles.header}>
+			<header className={`${styles.header} font-bold text-md`}>
 				{isSignedIn && (
 					<LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
 				)}

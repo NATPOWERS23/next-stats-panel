@@ -27,9 +27,5 @@ export default function DashboardPage() {
 		</>
 	);
 
-	return (
-		<>
-			<PageWrapper content={pageContent} />
-		</>
-	);
+	return <PageWrapper content={pageContent} />;
 }

@@ -5,33 +5,37 @@ import twitchLogo from "@public/assets/logos/twitch.svg";
 import githubLogo from "@public/assets/logos/github.svg";
 import slackLogo from "@public/assets/logos/slack.svg";
 import styles from "./client.module.css";
+import Button from "@/components/Button/Button";
 
 export default async function ClientPage() {
 	const welcomePageContent = (
-		<div className={styles.main}>
-			<div className="announcement">
-				<a href="https://sentry.io/events/launch-week/">
+		<div
+			className={`${styles.main} flex flex-col items-center justify-center gap-8`}
+		>
+			<div className="announcement font-bold text-xl rounded-lg bg-grey-light hover:bg-grey mt-18">
+				<a
+					href="https://sentry.io/events/launch-week/"
+					className="flex px-4 py-2"
+				>
 					New products are coming. Join us for Paw Launch Week, Nov 18-21.
 				</a>
 			</div>
-			<h1>
+			<h1 className="text-8xl font-bold text-center">
 				Your <span>channel,</span> your control
 			</h1>
-			<p>
+			<p className="text-center text-2xl">
 				Application monitoring software considered "not bad" by 4 million
 				developers.
 			</p>
-			<div className="buttons">
-				<a className="btn-primary" href="/signup">
-					Try Paw for Free
-				</a>
-				<a className="btn-secondary" href="/demo">
-					Get a Demo
-				</a>
+			<div className="buttons flex gap-4 justify-center">
+				<Button content="Try Paw for Free" buttonType="secondary" />
+				<Button content="Get a Demo" />
 			</div>
 
-			<p>100,000+ Growing Teams Use Paw to Manage Problems Fast</p>
-			<div className="logos flex gap-3 items-center justify-center">
+			<p className="font-bold text-xl">
+				100,000+ Growing Teams Use Paw to Manage Problems Fast
+			</p>
+			<div className="logos flex items-center justify-center gap-8">
 				<Image src={twitchLogo} alt="twitch logo" width={154} />
 				<Image src={githubLogo} alt="github logo" width={154} />
 				<Image src={slackLogo} alt="slack logo" width={154} />
