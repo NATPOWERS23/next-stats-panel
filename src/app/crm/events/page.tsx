@@ -29,7 +29,10 @@ export default function Events() {
 
 	return (
 		<>
-			<Protect role={roleList[ROLE.admin]} fallback={ERRORS.NO_ACCEESS_CRM}>
+			<Protect
+				role={roleList[ROLE.channel_owner]}
+				fallback={ERRORS.NO_ACCEESS_CRM}
+			>
 				<PageWrapper content={pageContent} />
 			</Protect>
 		</>
