@@ -12,7 +12,7 @@ export default async function ClientPage() {
 		<div
 			className={`${styles.main} flex flex-col items-center justify-center gap-8`}
 		>
-			<div className="announcement font-bold text-xl rounded-lg bg-grey-light hover:bg-grey mt-18">
+			<div className="announcement font-bold text-xl rounded-lg border hover:border-transparent hover:bg-white mt-18">
 				<a href="/" className="flex px-4 py-2">
 					New products are coming. Join us for Paw Launch Week, Nov 18-21.
 				</a>

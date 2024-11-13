@@ -20,6 +20,7 @@ module.exports = {
       'red': '#d3454b',
       'blue': '#3a79d8',
       'sky': '#00399b',
+      'dark-blue': '#08162d',
       'twitch': '#5c16c5'
     },
     borderRadius: {

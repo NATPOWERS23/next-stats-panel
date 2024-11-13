@@ -19,7 +19,7 @@ export default function Button({
 }) {
 	const buttonTypeClass =
 		buttonType === "primary"
-			? "bg-black hover:bg-white text-white hover:text-black border border-white"
+			? "bg-transparent hover:bg-white text-white hover:text-black border border-white"
 			: buttonType === "secondary"
 				? "bg-green hover:bg-white text-white hover:text-black border border-transparent hover:border-white"
 				: "bg-white/20";
