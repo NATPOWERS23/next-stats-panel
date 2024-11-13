@@ -35,6 +35,10 @@ export default function CreateMembershipView() {
 
 	return (
 		<div className="flex flex-col gap-4">
+			<div className="flex items-center">
+				<span>Please select the organization</span>
+				<Icon name="arrow_right" size={16} />
+			</div>
 			<div className="w-96 flex flex-col gap-2 bg-grey m-3 p-3 rounded-large">
 				<p>The list of available organizations</p>
 				<CustomList items={getListItems()} noItemsText="No invites" />
