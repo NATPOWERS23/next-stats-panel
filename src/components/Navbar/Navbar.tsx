@@ -2,6 +2,7 @@ import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import TwitchButton from "../TwitchButton/TwitchButton";
+import ClerkLogoutButton from "../ClerkLogoutButton/ClerkLogoutButton";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -32,7 +33,7 @@ export default function Navbar() {
 				<>
 					{!userHasRole && <TwitchButton />}
 
-					<li className="flex items-center">
+					<li>
 						<UserButton />
 					</li>
 
@@ -48,6 +49,10 @@ export default function Navbar() {
 					<li>Client</li>
 				</Link>
 			</div>
+
+			<li>
+				<ClerkLogoutButton />
+			</li>
 		</ul>
 	);
 
