@@ -5,6 +5,8 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 import styles from "./layout.module.css";
 import { AccessDenied } from "@/components/AccessDenied/AccessDenied";
 import CreateMembershipView from "@/components/CreateMembershipView/CreateMembershipView";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import PageTitle from "@/components/PageTitle/PageTitle";
 
 export default function CrmLayout({
 	children,
@@ -19,18 +21,21 @@ export default function CrmLayout({
 		);
 	};
 
+	const fallbackContent = (
+		<>
+			<PageTitle title="Terms of use" />
+			<AccessDenied />
+			<CreateMembershipView />
+		</>
+	);
+
 	return (
 		<div style={{ display: "flex" }}>
 			<Sidebar />
 			<main className={`${styles.main} px-2 sm:px-8`}>
 				<Protect
 					condition={hasRequiredRole}
-					fallback={
-						<>
-							<AccessDenied />
-							<CreateMembershipView />
-						</>
-					}
+					fallback={<PageWrapper content={fallbackContent} />}
 				>
 					{children}
 				</Protect>

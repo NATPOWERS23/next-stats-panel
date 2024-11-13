@@ -32,7 +32,7 @@ export default function Navbar() {
 				<>
 					{!userHasRole && <TwitchButton />}
 
-					<li>
+					<li className="flex items-center">
 						<UserButton />
 					</li>
 
