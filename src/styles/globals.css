@@ -143,3 +143,7 @@ form {
   align-items: stretch;
   width: 100%;
 }
+
+.cl-internal-p0waue:nth-child(2) {
+  display: none;
+}

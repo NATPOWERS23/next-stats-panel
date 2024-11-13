@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import styles from "./Navbar.module.css";
 import TwitchButton from "../TwitchButton/TwitchButton";
+import ClerkLogoutButton from "../ClerkLogoutButton/ClerkLogoutButton";
 
 export default function Navbar() {
 	const { userId, has } = auth();
@@ -50,6 +51,10 @@ export default function Navbar() {
 						<li>Client</li>
 					</Link>
 				</div>
+
+				<li>
+					<ClerkLogoutButton />
+				</li>
 			</ul>
 		</nav>
 	);
