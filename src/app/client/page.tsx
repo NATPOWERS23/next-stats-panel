@@ -13,10 +13,7 @@ export default async function ClientPage() {
 			className={`${styles.main} flex flex-col items-center justify-center gap-8`}
 		>
 			<div className="announcement font-bold text-xl rounded-lg bg-grey-light hover:bg-grey mt-18">
-				<a
-					href="https://sentry.io/events/launch-week/"
-					className="flex px-4 py-2"
-				>
+				<a href="/" className="flex px-4 py-2">
 					New products are coming. Join us for Paw Launch Week, Nov 18-21.
 				</a>
 			</div>
@@ -24,8 +21,8 @@ export default async function ClientPage() {
 				Your <span>channel,</span> your control
 			</h1>
 			<p className="text-center text-2xl">
-				Application monitoring software considered "not bad" by 4 million
-				developers.
+				Application monitoring software considered &ldquo;not bad&rdquo; by 4
+				million developers.
 			</p>
 			<div className="buttons flex gap-4 justify-center">
 				<Button content="Try Paw for Free" buttonType="secondary" />
