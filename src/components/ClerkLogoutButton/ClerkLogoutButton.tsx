@@ -1,18 +1,15 @@
 "use client";
 
 import { useClerk } from "@clerk/nextjs";
+import Button from "../Button/Button";
 
 export default function ClerkUserButoon() {
-	const { signOut } = useClerk();
+	const { signOut, user } = useClerk();
 
 	const handleSignOut = () => {
 		localStorage.clear();
 		signOut({ redirectUrl: "/" });
 	};
 
-	return (
-		<button type="button" onClick={handleSignOut}>
-			Sign out
-		</button>
-	);
+	return <>{user && <Button content="Sign out" onClick={handleSignOut} />}</>;
 }
