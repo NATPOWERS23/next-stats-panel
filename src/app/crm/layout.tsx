@@ -4,7 +4,7 @@ import { Protect } from "@clerk/nextjs";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import styles from "./layout.module.css";
 import { AccessDenied } from "@/components/AccessDenied/AccessDenied";
-import CreateMembershipView from "@/components/CreateMembershipView/CreateMembershipView";
+import CreateMembershipView from "@/features/crm/CreateMembershipView/CreateMembershipView";
 
 export default function CrmLayout({
 	children,
