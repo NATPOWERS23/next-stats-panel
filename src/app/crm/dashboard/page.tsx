@@ -9,7 +9,7 @@ export default function DashboardPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Dashboard" />
-			<div className="grid grid-cols-[repeat(auto-fill,minmax(240px,2fr))] sm:grid-cols-[repeat(auto-fill,minmax(480px,2fr))]  gap-4">
+			<div className="grid grid-cols-[repeat(auto-fill,minmax(240px,2fr))] sm:grid-cols-[repeat(auto-fill,minmax(480px,2fr))] gap-4">
 				<CUpdate
 					user={{
 						name: "Kim",
@@ -23,26 +23,28 @@ export default function DashboardPage() {
 						diff: "50k+",
 					}}
 				/>
-				<ManagerRating
-					data={{
-						rating: [
-							{
-								name: "Alex Martinez",
-								dealsAmount: 27,
-								profit: "206,783.70",
-								avatarSrc: null,
-							},
-							{
-								name: "Emily Zhang",
-								dealsAmount: 27,
-								profit: "206,783.70",
-								avatarSrc: null,
-							},
-						],
-						totalAmount: "662,449.48",
-						avarageRevenue: "7,443.25",
-					}}
-				/>
+				<div className="col-span-2">
+					<ManagerRating
+						data={{
+							rating: [
+								{
+									name: "Alex Martinez",
+									dealsAmount: 27,
+									profit: "206,783.70",
+									avatarSrc: null,
+								},
+								{
+									name: "Emily Zhang",
+									dealsAmount: 27,
+									profit: "206,783.70",
+									avatarSrc: null,
+								},
+							],
+							totalAmount: "662,449.48",
+							avarageRevenue: "7,443.25",
+						}}
+					/>
+				</div>
 				<SpaceStatistic />
 			</div>
 		</>
