@@ -58,9 +58,9 @@ export default function Navbar() {
 
 	return (
 		<>
-			<nav className="right-0 hidden sm:flex fixed z-10">{list}</nav>
+			<nav className="right-0 hidden lg:flex fixed z-10">{list}</nav>
 			{/* mobile navbar */}
-			<nav className="sm:hidden left-0 bottom-0 w-full fixed z-10">{list}</nav>
+			<nav className="lg:hidden left-0 bottom-0 w-full fixed z-10">{list}</nav>
 		</>
 	);
 }

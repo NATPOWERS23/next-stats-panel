@@ -2,8 +2,8 @@ import { OrganizationList, useOrganizationList } from "@clerk/nextjs";
 import CustomLoader from "../../../components/CustomLoader/CustomLoader";
 import TwitchButton from "../../../components/TwitchButton/TwitchButton";
 import { useTwitch } from "@/contexts/useTwitch";
-import CustomList from "../CustomList/CustomList";
-import Icon from "../Icon/Icon";
+import Icon from "@/components/Icon/Icon";
+import CustomList from "@/components/CustomList/CustomList";
 
 export default function CreateMembershipView() {
 	const { twitchChannelConnected } = useTwitch();

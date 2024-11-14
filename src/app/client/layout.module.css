@@ -3,14 +3,13 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   padding: .25rem 1rem;
-  height: 3.5rem;
+  min-height: 3.5rem;
   column-gap: 2rem;
 }
 
 .list {
-  display: flex;
+  /* display: flex; */
   column-gap: 0.5rem;
   list-style: none;
   gap: 2rem;

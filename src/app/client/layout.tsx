@@ -3,6 +3,7 @@ import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 import LinkButton from "@/components/LinkButton/LinkButton";
 import pawLogo from "@public/assets/logos/pawlogo.svg";
+import MobileMenu from "@/features/client/MobileMenu";
 import styles from "./layout.module.css";
 
 export default function ClientLayout({
@@ -15,7 +16,9 @@ export default function ClientLayout({
 
 	return (
 		<>
-			<header className={`${styles.header} font-bold text-md`}>
+			<header
+				className={`${styles.header} font-bold text-md items-center relative`}
+			>
 				{isSignedIn && (
 					<LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
 				)}
@@ -24,13 +27,13 @@ export default function ClientLayout({
 					<Image src={pawLogo} alt="app logo" width={160} />
 				</Link>
 
-				<LinkButton content="Menu" />
-
-				<ul className={styles.list}>
+				<ul className={`${styles.list} hidden md:flex `}>
 					<LinkButton content="News" href="/client/news" />
 					<LinkButton content="Blog" href="/client/blogs" />
 					<LinkButton content="Docs" href="/client/docs" />
 				</ul>
+
+				<MobileMenu />
 			</header>
 
 			<main className={styles.main}>{children}</main>
