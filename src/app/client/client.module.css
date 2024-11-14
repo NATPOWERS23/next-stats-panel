@@ -23,3 +23,27 @@
   #032560 52.26%,
   #08162d 100%);
 }
+
+.swing {
+  display: inline-block;
+  -webkit-animation-name: swingDown;
+  animation-name: swingDown;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-transform: rotate(-7.5deg);
+  -moz-transform: rotate(-7.5deg);
+  -ms-transform: rotate(-7.5deg);
+  transform: rotate(-7.5deg);
+  transform-origin: bottom right;
+
+  &:hover {
+    -webkit-animation: pushUp 0.5s;
+    animation: pushUp 0.5s;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}

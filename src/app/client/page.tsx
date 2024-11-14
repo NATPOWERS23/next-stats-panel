@@ -17,8 +17,8 @@ export default async function ClientPage() {
 					New products are coming. Join us for Paw Launch Week, Nov 18-21.
 				</a>
 			</div>
-			<h1 className="text-8xl font-bold text-center">
-				Your <span>channel,</span> your control
+			<h1 className="text-8xl font-bold text-center pb-2">
+				Your <span className={styles.swing}>channel,</span> your control
 			</h1>
 			<p className="text-center text-2xl">
 				Application monitoring software considered &ldquo;not bad&rdquo; by 4
