@@ -1,6 +1,6 @@
 import { OrganizationList, useOrganizationList } from "@clerk/nextjs";
-import CustomLoader from "../CustomLoader/CustomLoader";
-import TwitchButton from "../TwitchButton/TwitchButton";
+import CustomLoader from "../../../components/CustomLoader/CustomLoader";
+import TwitchButton from "../../../components/TwitchButton/TwitchButton";
 import { useTwitch } from "@/contexts/useTwitch";
 import CustomList from "../CustomList/CustomList";
 import Icon from "../Icon/Icon";

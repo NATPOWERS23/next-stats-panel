@@ -4,7 +4,7 @@ import { Protect } from "@clerk/nextjs";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import styles from "./layout.module.css";
 import { AccessDenied } from "@/components/AccessDenied/AccessDenied";
-import CreateMembershipView from "@/components/CreateMembershipView/CreateMembershipView";
+import CreateMembershipView from "@/features/crm/CreateMembershipView/CreateMembershipView";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
