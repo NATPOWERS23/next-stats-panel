@@ -32,10 +32,15 @@ export default async function ClientPage() {
 			<p className="font-bold text-xl">
 				100,000+ Growing Teams Use Paw to Manage Problems Fast
 			</p>
-			<div className="logos flex items-center justify-center gap-8">
+			<div className="logos flex-col items-center justify-center gap-0 sm:flex sm:gap-8">
 				<Image src={twitchLogo} alt="twitch logo" width={154} />
 				<Image src={githubLogo} alt="github logo" width={154} />
-				<Image src={slackLogo} alt="slack logo" width={154} />
+				<Image
+					src={slackLogo}
+					alt="slack logo"
+					width={154}
+					className="sm:py-0 py-12"
+				/>
 			</div>
 		</div>
 	);
