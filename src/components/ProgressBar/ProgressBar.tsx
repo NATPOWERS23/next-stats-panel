@@ -4,12 +4,12 @@ export default function ProgressBar({
 	totalAmount,
 	progressValue,
 	pin = false,
-	color,
+	color = "#1c9b56",
 }: {
 	totalAmount: number;
 	progressValue: number;
 	pin?: boolean;
-	color: string;
+	color?: string;
 }) {
 	const value = ((progressValue * 100) / totalAmount).toFixed();
 

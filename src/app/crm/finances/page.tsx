@@ -7,7 +7,6 @@ import PageTitle from "@/components/PageTitle/PageTitle";
 import CustomList from "@/components/CustomList/CustomList";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
-import styles from "./finances.module.css";
 
 export default function FinancesPage() {
 	const cardBodies = {
@@ -33,7 +32,7 @@ export default function FinancesPage() {
 		third: (
 			<CustomList items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]} />
 		),
-		progressBar: <ProgressBar />,
+		progressBar: <ProgressBar totalAmount={60} progressValue={100} />,
 	};
 
 	const pageContent = (
