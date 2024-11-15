@@ -4,6 +4,8 @@ import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import CUpdate from "./(components)/CUpdate/CUpdate";
 import Subscribers from "./(components)/Subscribers/Subscribers";
 import ManagerRating from "@/features/crm/ManagerRating/ManagerRating";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import ProgressLineBox from "@/features/crm/ProgressLineBox/ProgressLineBox";
 
 export default function DashboardPage() {
 	const pageContent = (
@@ -45,6 +47,14 @@ export default function DashboardPage() {
 						}}
 					/>
 				</div>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={71050000}
+					progressValue={40000000}
+					footerAmount={"$ 710,500,00"}
+					footerText="that`s 12% from last month"
+					color="#ec6816"
+				/>
 				<SpaceStatistic />
 			</div>
 		</>
