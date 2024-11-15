@@ -32,7 +32,7 @@ export default async function ClientPage() {
 			<p className="font-bold text-xl">
 				100,000+ Growing Teams Use Paw to Manage Problems Fast
 			</p>
-			<div className="logos flex-col items-center justify-center gap-0 sm:flex sm:gap-8">
+			<div className="logos flexflex-col items-center justify-center gap-0 sm:flex-row sm:gap-8">
 				<Image src={twitchLogo} alt="twitch logo" width={154} />
 				<Image src={githubLogo} alt="github logo" width={154} />
 				<Image
