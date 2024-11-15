@@ -23,7 +23,7 @@ export default function DashboardPage() {
 						diff: "50k+",
 					}}
 				/>
-				<div className="col-span-2">
+				<div>
 					<ManagerRating
 						data={{
 							rating: [
