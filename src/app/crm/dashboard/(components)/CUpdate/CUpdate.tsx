@@ -39,7 +39,7 @@ export default function CUpdate({
 	return (
 		<div
 			className={
-				"card w-full p-4 pt-2 rounded-2large shadow-lg bg-blue flex flex-col items-center"
+				"card w-full p-4 pt-2 rounded-2large shadow-lg bg-blue flex flex-col items-center  row-span-2"
 			}
 		>
 			<div className="card-body w-full">

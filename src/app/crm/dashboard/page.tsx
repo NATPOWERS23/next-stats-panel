@@ -11,7 +11,7 @@ export default function DashboardPage() {
 	const pageContent = (
 		<>
 			<PageTitle title="Dashboard" />
-			<div className="grid grid-cols-[repeat(auto-fill,minmax(240px,2fr))] sm:grid-cols-[repeat(auto-fill,minmax(480px,2fr))] gap-4">
+			<div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
 				<CUpdate
 					user={{
 						name: "Kim",
@@ -25,28 +25,52 @@ export default function DashboardPage() {
 						diff: "50k+",
 					}}
 				/>
-				<div>
-					<ManagerRating
-						data={{
-							rating: [
-								{
-									name: "Alex Martinez",
-									dealsAmount: 27,
-									profit: "206,783.70",
-									avatarSrc: null,
-								},
-								{
-									name: "Emily Zhang",
-									dealsAmount: 27,
-									profit: "206,783.70",
-									avatarSrc: null,
-								},
-							],
-							totalAmount: "662,449.48",
-							avarageRevenue: "7,443.25",
-						}}
-					/>
-				</div>
+				<ManagerRating
+					data={{
+						rating: [
+							{
+								id: 3,
+								name: "Alex Martinez",
+								dealsAmount: 27,
+								profit: "206,783.70",
+								avatarSrc: null,
+							},
+							{
+								id: 4,
+								name: "Emily Zhang",
+								dealsAmount: 27,
+								profit: "206,783.70",
+								avatarSrc: null,
+							},
+						],
+						totalAmount: "662,449.48",
+						avarageRevenue: "7,443.25",
+					}}
+				/>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={33350000}
+					progressValue={20000000}
+					footerAmount={"$ 333,500,00"}
+					footerText="that`s 12% from last month"
+					color="#d3454b"
+				/>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={71050000}
+					progressValue={20000000}
+					footerAmount={"$ 210,500,00"}
+					footerText="that`s 12% from last month"
+					color="#cb59d5"
+				/>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={71050000}
+					progressValue={40000000}
+					footerAmount={"$ 710,500,00"}
+					footerText="that`s 12% from last month"
+					color="#baff68"
+				/>
 				<ProgressLineBox
 					title="Sales target"
 					totalAmount={71050000}
@@ -55,7 +79,59 @@ export default function DashboardPage() {
 					footerText="that`s 12% from last month"
 					color="#ec6816"
 				/>
-				<SpaceStatistic />
+				<ManagerRating
+					data={{
+						rating: [
+							{
+								id: 1,
+								name: "Alex Martinez",
+								dealsAmount: 27,
+								profit: "206,783.70",
+								avatarSrc: null,
+							},
+							{
+								id: 2,
+								name: "Emily Zhang",
+								dealsAmount: 27,
+								profit: "206,783.70",
+								avatarSrc: null,
+							},
+						],
+						totalAmount: "662,449.48",
+						avarageRevenue: "7,443.25",
+					}}
+				/>
+				<Subscribers
+					user={{
+						totalAmount: "2,300,001",
+						diff: "50k+",
+					}}
+				/>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={71050000}
+					progressValue={40000000}
+					footerAmount={"$ 710,500,00"}
+					footerText="that`s 12% from last month"
+					color="#cb59d5"
+				/>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={71050000}
+					progressValue={40000000}
+					footerAmount={"$ 710,500,00"}
+					footerText="that`s 12% from last month"
+					color="#ec6816"
+				/>
+				<ProgressLineBox
+					title="Sales target"
+					totalAmount={71050000}
+					progressValue={40000000}
+					footerAmount={"$ 710,500,00"}
+					footerText="that`s 12% from last month"
+					color="#baff68"
+				/>
+				{/* <SpaceStatistic /> */}
 			</div>
 		</>
 	);

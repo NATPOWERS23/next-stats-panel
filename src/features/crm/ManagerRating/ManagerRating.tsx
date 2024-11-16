@@ -3,9 +3,10 @@
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
-import React from "react";
+import React, { Fragment } from "react";
 
 interface Rating {
+	id: number;
 	name: string;
 	dealsAmount: number;
 	profit: string;
@@ -21,12 +22,14 @@ export default function ManagerRating({
 		avarageRevenue?: string;
 	};
 }) {
+	const rating = data.rating;
+
 	const openShareModal = () => {
 		console.log("Share modal opened");
 	};
 
 	return (
-		<div className="card w-full px-6 pt-2 pb-4 rounded-2large shadow-lg bg-green flex flex-col items-center">
+		<div className="card w-full px-6 pt-2 pb-4 rounded-2large shadow-lg bg-green flex flex-col items-center row-span-auto">
 			<div className="card-body w-full">
 				<div className="header flex w-full justify-end">
 					<div className="header-title py-4 font-black text-sm sm:text-xl w-full">
@@ -42,40 +45,37 @@ export default function ManagerRating({
 					</div>
 				</div>
 				<div className="main">
-					<div className="grid grid-cols-[repeat(5_minmax(0,_auto))] items-center">
+					<div className="flex flex-col gap-1 sm:gap-0 sm:grid sm:grid-cols-[repeat(5_minmax(0,_auto))] items-center">
 						<>
-							<span className="col-start-3">Deals</span>
-							<span>Profit</span>
+							<span className="sm:col-start-3 hidden sm:flex">Deals</span>
+							<span className="hidden sm:flex">Profit</span>
 							<span> </span>
 						</>
-						{data.rating.length &&
-							data.rating.map((item, index) => (
-								<>
-									{item.avatarSrc ? (
-										<Avatar key={item.name} sizes={24} src={item.avatarSrc} />
-									) : (
-										<Avatar key={item.name} sizes={24} />
-									)}
-									<span key={item.name}>{item.name}</span>
-									<Button
-										key={item.name}
-										content={item.dealsAmount.toString()}
-										onClick={undefined}
-										size="small"
-									/>
-									<Button
-										key={item.name}
-										content={`$${item.profit}`}
-										onClick={undefined}
-										fullWidth={true}
-										size="small"
-									/>
-									<span key={item.name} className="flex justify-end">
-										#{index + 1}
-									</span>
-									<hr key={item.name} className="col-start-1 col-end-6 my-2" />
-								</>
-							))}
+						{rating?.map((item, index) => (
+							<Fragment key={item.id}>
+								{item.avatarSrc ? (
+									<Avatar sizes={24} src={item.avatarSrc} />
+								) : (
+									<Avatar sizes={24} />
+								)}
+								<span>{item.name}</span>
+								<span className="flex sm:hidden">Deals: </span>
+								<Button
+									content={item.dealsAmount.toString()}
+									onClick={undefined}
+									size="small"
+								/>
+								<span className="flex sm:hidden">Profit: </span>
+								<Button
+									content={`$${item.profit}`}
+									onClick={undefined}
+									fullWidth={true}
+									size="small"
+								/>
+								<span className="flex justify-end">#{index + 1}</span>
+								<hr className="block w-full sm:col-start-1 sm:col-end-6 my-2" />
+							</Fragment>
+						))}
 					</div>
 				</div>
 				<div className="footer">

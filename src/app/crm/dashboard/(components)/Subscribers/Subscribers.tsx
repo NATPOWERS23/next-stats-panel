@@ -18,7 +18,7 @@ export default function Subscribers({
 	};
 
 	return (
-		<div className="card w-full p-4 pt-2 rounded-2large shadow-lg bg-grey flex flex-col">
+		<div className="card w-full p-4 pt-2 rounded-2large shadow-lg bg-grey flex flex-col row-span-2">
 			<div className="card-body">
 				<div className="header flex w-full justify-end">
 					<div className="header-title py-4 font-black text-sm sm:text-xl w-full">
