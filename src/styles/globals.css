@@ -9,6 +9,19 @@
   box-sizing: border-box;
 }
 
+html {
+  animation: fadeIn .5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
 body {
   font-family: sans-serif;
   color: var(--text-main-color, white);
