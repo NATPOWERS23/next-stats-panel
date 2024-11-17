@@ -16,6 +16,7 @@ export interface SubMenuItem {
   menu_id: string;
   id: string;
   link: string;
+  icon?: string;
 }
 
 export const crmPath = '/crm';
@@ -39,19 +40,19 @@ export const menuItems: IMenuItem[] = [
 
 export const subMenuItems: SubMenuItems = {
   menu_item_9: [
-    { title: 'Investments', menu_id: 'menu_item_9', id: 'sub_menu_item_1', link: '/merch/investments' },
-    { title: 'Release dates', menu_id: 'menu_item_9', id: 'sub_menu_item_2', link: '/merch/dates' },
-    { title: 'For future', menu_id: 'menu_item_9', id: 'sub_menu_item_3', link: '/merch/future' },
-    { title: 'Collaborations', menu_id: 'menu_item_9', id: 'sub_menu_item_4', link: '/merch/collaborations' },
+    { title: 'Investments', menu_id: 'menu_item_9', id: 'sub_menu_item_1', link: '/merch/investments', icon: 'investments' },
+    { title: 'Release dates', menu_id: 'menu_item_9', id: 'sub_menu_item_2', link: '/merch/dates', icon: 'dates' },
+    { title: 'For future', menu_id: 'menu_item_9', id: 'sub_menu_item_3', link: '/merch/future', icon: 'forward' },
+    { title: 'Collaborations', menu_id: 'menu_item_9', id: 'sub_menu_item_4', link: '/merch/collaborations', icon: 'paint' },
   ],
   menu_item_10: [
-    { title: 'Space', menu_id: 'menu_item_10', id: 'sub_menu_item_5', link: '/panels/space' },
-    { title: 'Twich', menu_id: 'menu_item_10', id: 'sub_menu_item_6', link: '/panels/twich-data' },
+    { title: 'Space', menu_id: 'menu_item_10', id: 'sub_menu_item_5', link: '/panels/space', icon: 'space' },
+    { title: 'Twich', menu_id: 'menu_item_10', id: 'sub_menu_item_6', link: '/panels/twich-data', icon: 'cursor' },
   ],
   menu_item_14: [
-    { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_7', link: '/websites/landing' },
-    { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_8', link: '/websites/landing' },
-    { title: 'Other projects', menu_id: 'menu_item_14', id: 'sub_menu_item_9', link: '/websites/projects' },
+    { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_7', link: '/websites/landing', icon: 'landing' },
+    { title: 'Landing page', menu_id: 'menu_item_14', id: 'sub_menu_item_8', link: '/websites/landing', icon: 'landing' },
+    { title: 'Other projects', menu_id: 'menu_item_14', id: 'sub_menu_item_9', link: '/websites/projects', icon: 'projects' },
     {
       title: 'Comments & QA',
       menu_id: 'menu_item_14',

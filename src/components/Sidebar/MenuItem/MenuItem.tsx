@@ -23,7 +23,15 @@ export default function MenuItem({
 			{subMenuItems[item.id] ? (
 				// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 				<div onClick={() => setIsSubMenuShow(!isSubMenuShow)}>
-					{!isCollapsed ? item.title : <Icon name={item.icon} />}
+					{!isCollapsed ? (
+						<div className="flex gap-2 items-center">
+							<span>{item.title}</span> <Icon name="arrow_go" size={20} />
+						</div>
+					) : (
+						<div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white p-2">
+							<Icon name={item.icon} />
+						</div>
+					)}
 				</div>
 			) : (
 				<Link href={crmPath + item.link}>
@@ -35,7 +43,9 @@ export default function MenuItem({
 							)}
 						</div>
 					) : (
-						<Icon name={item.icon} />
+						<div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white p-2">
+							<Icon name={item.icon} />
+						</div>
 					)}
 				</Link>
 			)}
@@ -55,16 +65,18 @@ const SubMenu = ({
 }: { dropDownItem: IMenuItem[]; isCollapsed: boolean }) => {
 	return (
 		<div className={styles.dropdown}>
-			<ul>
+			<ul className="flex flex-col pt-2">
 				{dropDownItem.map((item) => {
 					return (
 						<li className={styles.subitem} key={item.id}>
 							<Link href={crmPath + item.link}>
 								{isCollapsed ? (
-									<Icon name="subitem" />
+									<div className="rounded-2large backdrop-blur-sm hover:bg-white hover:text-black p-2">
+										<Icon name={item.icon} />
+									</div>
 								) : (
 									<div className="flex gap-2 items-center">
-										<span> {item.title}</span>
+										<span>{item.title}</span>
 										{blockedMenuItems.includes(item.title) && (
 											<Icon name="blocked" color="grey" />
 										)}

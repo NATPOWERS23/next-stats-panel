@@ -16,7 +16,7 @@ export default function CustomList({
 	return (
 		<ul>
 			{items.length ? (
-				items.map((item, index) => (
+				items.map((item) => (
 					<li key={`item_${id}`} className="flex gap-2 items-center">
 						{item.name || "-"}
 						{item.innerButtonText && (

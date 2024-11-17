@@ -14,27 +14,23 @@ export default function Sidebar() {
 	return (
 		<div className={isCollapsed ? styles.sidebar_collapsed : styles.sidebar}>
 			<section>
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "space-between",
-						alignItems: "flex-start",
-					}}
-				>
-					{!isCollapsed && <h3>Menu</h3>}
+				<div className="flex items-center justify-between">
+					{!isCollapsed && <h3 className="font-bold">Menu</h3>}
 					<button
 						type="button"
-						className={`${styles.collapseButton} hidden sm:flex`}
+						className="my-2 hidden sm:flex"
 						onClick={toggleCollapse}
 					>
-						{isCollapsed ? (
-							<Icon name="arrow_right" />
-						) : (
-							<Icon name="arrow_left" />
-						)}
+						<div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2">
+							{isCollapsed ? (
+								<Icon name="arrow_right" />
+							) : (
+								<Icon name="arrow_left" />
+							)}
+						</div>
 					</button>
 				</div>
-				<div>
+				<div className="flex flex-col gap-2">
 					{menuItems.map((item: IMenuItem) => (
 						<MenuItem item={item} key={item.id} isCollapsed={isCollapsed} />
 					))}

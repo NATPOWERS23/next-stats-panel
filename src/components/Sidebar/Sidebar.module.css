@@ -1,8 +1,10 @@
 .sidebar {
   min-height: 100vh;
   min-width: 200px;
-  border-right: white 2.5px solid;
+  /* border-right: white 2.5px solid; */
   padding: 10px;
+  display: block;
+  background-color: #232323;
 
   @media screen and (max-width: 510px) {
     min-width: 80px;
@@ -12,8 +14,10 @@
 .sidebar_collapsed {
   min-height: 100vh;
   min-width: 3.5rem;
-  border-right: white 2.5px solid;
+  /* border-right: white 2.5px solid; */
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu {
@@ -47,9 +51,4 @@
 
 .menu {
   padding: 0;
-}
-
-.collapseButton {
-  border-color: transparent;
-  padding: 0.25rem 0.35rem;
 }
