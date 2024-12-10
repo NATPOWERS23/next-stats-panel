@@ -126,3 +126,23 @@ form {
 .clickable {
   cursor: pointer;
 }
+
+/* Event Calendar styling */
+:root {
+  --fc-border-color: black;
+  --fc-button-bg-color: transparent;
+  --fc-button-border-color: white;
+  --fc-button-hover-bg-color: white;
+  --fc-button-text-color: #1c9b56;
+  --fc-daygrid-event-dot-width: 5px;
+}
+
+.fc .fc-toolbar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+  }
+}

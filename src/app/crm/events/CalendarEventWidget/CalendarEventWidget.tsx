@@ -1,12 +1,14 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
-const CalendarEventWidget = ({ events }) => {
+const CalendarEventWidget = ({
+	events,
+}: { events: { title: string; date: string; id: string } }) => {
 	const pathname = usePathname();
 	const router = useRouter();
 
