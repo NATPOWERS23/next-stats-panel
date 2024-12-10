@@ -27,9 +27,9 @@ export default function Events() {
 		/>
 	);
 
-	const handleAddEvent = (info: { dateStr: string }) => {
+	const handleAddEvent = (arg: { dateStr: string }) => {
 		router.push(
-			`${pathname}?modal=addCalendarEvent&show=true&date=${info.dateStr}`,
+			`${pathname}?modal=addCalendarEvent&show=true&date=${arg.dateStr}`,
 		);
 	};
 

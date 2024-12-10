@@ -8,7 +8,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 
 const CalendarEventWidget = ({
 	events,
-}: { events: { title: string; date: string; id: string } }) => {
+}: { events: { title?: string; date?: string; id?: string }[] }) => {
 	const pathname = usePathname();
 	const router = useRouter();
 

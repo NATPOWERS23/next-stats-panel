@@ -11,7 +11,7 @@ export default function Button({
 	fullWidth = false,
 }: {
 	content?: string | JSX.Element;
-	onClick?: () => void;
+	onClick?: (arg?: any) => void;
 	type?: "button" | "submit" | "reset" | undefined;
 	buttonType?: "primary" | "secondary" | "outlined";
 	size?: "small" | "medium" | "large";
