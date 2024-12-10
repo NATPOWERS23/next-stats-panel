@@ -1,29 +1,44 @@
+"use client";
+
+import { useState } from "react";
 import { Protect } from "@clerk/nextjs";
-import Desk from "./desk/Desk";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import Card from "@/components/Card/Card";
-import Button from "@/components/Button/Button";
 import CustomList from "@/components/CustomList/CustomList";
 import { roleList, ROLE } from "@/constants/roles";
 import { ERRORS } from "@/constants/errors";
+import CalendarEventWidget from "./CalendarEventWidget/CalendarEventWidget";
+import { usePathname, useRouter } from "next/navigation";
+import Button from "@/components/Button/Button";
 
 export default function Events() {
-	const CommingSoonBody = (
+	const pathname = usePathname();
+	const router = useRouter();
+
+	const [events, setEvents] = useState([
+		{ title: "Team Meeting", date: "2024-02-15", id: "1" },
+		{ title: "Product Launch", date: "2024-03-01", id: "2" },
+	]);
+
+	const ComingSoonBody = (
 		<CustomList
-			items={[
-				{ name: "Charity Saturday 12/12 14:00" },
-				{ name: "After Party 14/12 22:00" },
-			]}
+			items={events.map((event) => ({ name: event.title, ...event }))}
 		/>
 	);
+
+	const handleAddEvent = (info: { dateStr: string }) => {
+		router.push(
+			`${pathname}?modal=addCalendarEvent&show=true&date=${info.dateStr}`,
+		);
+	};
 
 	const pageContent = (
 		<>
 			<PageTitle title="Events Calendar" />
-			<Desk />
-			<Card title="Comming Soon" body={CommingSoonBody} />
-			<Button content="+ Add Event" onClick={undefined} />
+			<CalendarEventWidget events={events} />
+			<Card title="Coming Soon" body={ComingSoonBody} />
+			<Button content="+ Add Event" onClick={handleAddEvent} />
 		</>
 	);
 
@@ -31,7 +46,7 @@ export default function Events() {
 		<>
 			<Protect
 				role={roleList[ROLE.channel_owner]}
-				fallback={ERRORS.NO_ACCEESS_CRM}
+				fallback={ERRORS.NO_ACCESS_CRM}
 			>
 				<PageWrapper content={pageContent} />
 			</Protect>

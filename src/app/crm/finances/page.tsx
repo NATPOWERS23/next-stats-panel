@@ -57,7 +57,7 @@ export default function FinancesPage() {
 		<>
 			<Protect
 				role={roleList[ROLE.channel_owner]}
-				fallback={ERRORS.NO_ACCEESS_CRM}
+				fallback={ERRORS.NO_ACCESS_CRM}
 			>
 				<PageWrapper content={pageContent} />
 			</Protect>
