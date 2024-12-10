@@ -17,20 +17,17 @@ const CalendarEventWidget = ({ events }) => {
 	};
 
 	return (
-		<div className="p-6 bg-gray min-h-screen">
-			<div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
-				<section style={{ height: "55vh" }}>
-					<FullCalendar
-						plugins={[dayGridPlugin, interactionPlugin]}
-						initialView="dayGridMonth"
-						events={events}
-						dateClick={handleDateClick}
-						editable={true}
-						height="100%"
-						className="rounded-lg border"
-					/>
-				</section>
-			</div>
+		<div className="w-full bg-grey shadow-lg rounded-2large p-6">
+			<section style={{ height: "55vh" }}>
+				<FullCalendar
+					plugins={[dayGridPlugin, interactionPlugin]}
+					initialView="dayGridMonth"
+					events={events}
+					dateClick={handleDateClick}
+					editable={true}
+					height="100%"
+				/>
+			</section>
 		</div>
 	);
 };
