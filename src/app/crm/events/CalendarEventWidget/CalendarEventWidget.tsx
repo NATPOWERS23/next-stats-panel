@@ -1,12 +1,14 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
-const CalendarEventWidget = ({ events }) => {
+const CalendarEventWidget = ({
+	events,
+}: { events: { title: string; date: string; id: string }[] }) => {
 	const pathname = usePathname();
 	const router = useRouter();
 
@@ -17,7 +19,7 @@ const CalendarEventWidget = ({ events }) => {
 	};
 
 	return (
-		<div className="w-full bg-grey shadow-lg rounded-2large p-6">
+		<div>
 			<section style={{ height: "55vh" }}>
 				<FullCalendar
 					plugins={[dayGridPlugin, interactionPlugin]}
