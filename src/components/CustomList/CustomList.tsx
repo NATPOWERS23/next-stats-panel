@@ -21,26 +21,30 @@ export default function CustomList({
 			style={{
 				display: gridList ? "grid" : "block",
 				gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+				gap: "0.5rem",
 			}}
 		>
 			{items.length ? (
 				items.map((item, index) => (
 					<li
 						key={`item_${item._id || index}`}
-						className="flex gap-2 items-center"
+						className="flex gap-2 items-center w-full"
 					>
-						<p>{item.name || "-"}</p>
-						<span>
-							{item.startDate
-								? `Start: ${formatEventDate(item.startDate)}`
-								: ""}
-						</span>
-						<br />
-						<span>
-							{item.endDate && item.startDate
-								? `Duration: ${calculateDuration(item.startDate, item.endDate)}`
-								: ""}
-						</span>
+						<div className="flex gap-2 flex-col bg-grey-light rounded-2large p-3 w-full">
+							<p>{item.name || "-"}</p>
+							<p className="flex gap-1 text-xs text-blue">
+								<span>
+									{item.startDate
+										? `Start: ${formatEventDate(item.startDate)}`
+										: ""}
+								</span>
+								<span>
+									{item.endDate && item.startDate
+										? `Duration: ${calculateDuration(item.startDate, item.endDate)}`
+										: ""}
+								</span>
+							</p>
+						</div>
 						{item.innerButtonText && (
 							<button
 								className="border-white border-2 rounded-2large px-2 text-white hover:border-grey-light hover:text-grey-light"

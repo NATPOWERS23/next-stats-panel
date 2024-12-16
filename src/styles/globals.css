@@ -15,10 +15,11 @@ html {
 
 @keyframes fadeIn {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
+
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -129,7 +130,7 @@ form {
 
 /* Event Calendar styling */
 :root {
-  --fc-border-color: black;
+  --fc-border-color: #232323;
   --fc-button-bg-color: transparent;
   --fc-button-border-color: white;
   --fc-button-hover-bg-color: white;
