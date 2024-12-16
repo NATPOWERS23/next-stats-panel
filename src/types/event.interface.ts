@@ -4,8 +4,8 @@ export interface UserEvent {
 	userId: string;
 	title: string;
 	description?: string;
-	startDate: Date;
-	endDate?: Date;
+	startDate: string;
+	endDate?: string;
 	// location?: string | null;
 	// type?: 'personal' | 'professional' | 'other';
 	// isAllDay?: boolean;
