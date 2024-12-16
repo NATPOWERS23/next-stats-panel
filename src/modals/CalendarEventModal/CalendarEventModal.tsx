@@ -1,66 +1,89 @@
 "use client";
 
-import { useState } from "react";
-import Button from "@/components/Button/Button";
 import { useSearchParams } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
+import { useEventManagement } from "@/hooks/useEventManagement";
 
 export default function CalendarEventModal() {
+	const { user } = useUser();
 	const searchParams = useSearchParams();
-	const eventDate = searchParams.get("date") ?? undefined;
+	const dateParam = searchParams.get("date");
+	const eventDate = dateParam ? new Date(dateParam) : new Date();
 
-	const [newEvent, setNewEvent] = useState({
-		title: "",
-		date: eventDate ?? "",
-	});
+	const dbUserId = user?.publicMetadata.userId as string | undefined;
 
-	const handleAddEvent = () => {
-		if (newEvent.title && newEvent.date) {
-			const eventToAdd = {
-				...newEvent,
-				id: Math.random().toString(36).substring(2, 9),
-			};
-			// setEvents([...events, eventToAdd]);
-			setNewEvent({ title: "", date: "" });
-		}
+	const { newEvent, isLoading, error, handleEventChange, addEvent } =
+		useEventManagement(dbUserId);
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		await addEvent(eventDate);
+		if (!error) closeModal();
+	};
+
+	const closeModal = () => {
+		// TODO: get rid off hard reload, implement mechanism to refetch data on modal submit action close
+		window.location.href = "/crm/events";
 	};
 
 	return (
 		<>
 			<h3 className="modal-title">Create New Event</h3>
 			<div className="modal-body">
-				<div className="grid gap-4 py-4">
-					<div className="grid grid-cols-4 items-center gap-4">
-						<label htmlFor="title" className="text-right">
-							Event Title
-						</label>
+				<div>
+					<form onSubmit={handleSubmit}>
 						<input
 							type="text"
-							name="event_title"
-							placeholder="Event Title"
+							name="title"
 							value={newEvent.title}
-							onChange={(e) =>
-								setNewEvent({ ...newEvent, title: e.target.value })
-							}
-							className="col-span-3"
+							onChange={handleEventChange}
+							placeholder="Event Title"
+							disabled={isLoading}
 						/>
-					</div>
-					<div className="grid grid-cols-4 items-center gap-4">
-						<label htmlFor="date" className="text-right">
-							Date
-						</label>
-						<input
-							id="date"
-							type="date"
-							value={newEvent.date}
-							onChange={(e) =>
-								setNewEvent({ ...newEvent, date: e.target.value })
-							}
-							className="col-span-3"
+						<section className="event-start">
+							<input
+								type="date"
+								name="startDate"
+								value={dateParam ? dateParam : newEvent.startDate}
+								onChange={handleEventChange}
+								disabled={isLoading}
+							/>
+							<input
+								type="time"
+								name="startTime"
+								value={newEvent.startTime}
+								onChange={handleEventChange}
+								disabled={isLoading}
+							/>
+						</section>
+						<section className="event-end">
+							<input
+								type="date"
+								name="endDate"
+								value={newEvent.endDate}
+								onChange={handleEventChange}
+								disabled={isLoading}
+							/>
+							<input
+								type="time"
+								name="endTime"
+								value={newEvent.endTime}
+								onChange={handleEventChange}
+								disabled={isLoading}
+							/>
+						</section>
+						<textarea
+							name="description"
+							value={newEvent.description}
+							onChange={handleEventChange}
+							placeholder="Event Description"
+							disabled={isLoading}
 						/>
-					</div>
-				</div>
-				<div className="flex justify-end">
-					<Button onClick={handleAddEvent} content="Create Event" />
+						{error && <div className="error">{error}</div>}
+						<button type="submit" disabled={isLoading}>
+							{isLoading ? "Adding..." : "Add Event"}
+						</button>
+					</form>
 				</div>
 			</div>
 		</>
