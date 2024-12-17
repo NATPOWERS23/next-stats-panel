@@ -32,7 +32,7 @@ export default function FinancesPage() {
 		third: (
 			<CustomList items={[{ name: 1000 }, { name: 500 }, { name: 2000 }]} />
 		),
-		progressBar: <ProgressBar totalAmount={60} progressValue={100} />,
+		progressBar: <ProgressBar totalAmount={100} progressValue={60} />,
 	};
 
 	const pageContent = (

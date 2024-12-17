@@ -19,10 +19,11 @@ export default function CustomList({
 	return (
 		<ul
 			style={{
-				display: gridList ? "grid" : "block",
+				display: gridList ? "grid" : "flex",
 				gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
 				gap: "0.5rem",
 			}}
+			className="flex-col gap-2"
 		>
 			{items.length ? (
 				items.map((item, index) => (
