@@ -21,6 +21,7 @@
     "@nivo/bar": "^0.87.0",
     "@nivo/core": "^0.87.0",
     "axios": "^1.7.2",
+    "cross-spawn": "^7.0.6",
     "identity-obj-proxy": "^3.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
