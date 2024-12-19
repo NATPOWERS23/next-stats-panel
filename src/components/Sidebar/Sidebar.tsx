@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { type IMenuItem, menuItems } from "../../constants/menu-items";
+import { type IMenuItem, menuItems } from "@/constants/menu-items";
 import MenuItem from "./MenuItem/MenuItem";
-import styles from "./Sidebar.module.css";
 import Icon from "../Icon/Icon";
 
 export default function Sidebar() {
@@ -12,21 +11,17 @@ export default function Sidebar() {
 	};
 
 	return (
-		<div className={isCollapsed ? styles.sidebar_collapsed : styles.sidebar}>
+		<div className="sidebar">
 			<section>
 				<div className="flex items-center justify-between">
-					{!isCollapsed && <h3 className="font-bold">Menu</h3>}
+					{!isCollapsed && <h3 className="font-bold max-sm:hidden">Menu</h3>}
 					<button
 						type="button"
 						className="my-2 hidden sm:flex"
 						onClick={toggleCollapse}
 					>
 						<div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2">
-							{isCollapsed ? (
-								<Icon name="arrow_right" />
-							) : (
-								<Icon name="arrow_left" />
-							)}
+							<Icon name={`arrow_${isCollapsed ? "right" : "left"}`} />
 						</div>
 					</button>
 				</div>
