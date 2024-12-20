@@ -1,58 +1,28 @@
-import Link from "next/link";
-import { getAllArticles } from "./(server)/api";
-import type { Article } from "./(components)/ArticleBrief/ArticleBriefs";
-import ArticleBrief from "./(components)/ArticleBrief/ArticleBrief";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
+import { Pagination } from "@/components/Pagination/Pagination";
+import { PaginateResponse } from "@/types/response.interface";
+import { getAllArticles } from "./(server)/api";
+import { ArticleList } from "./(components)/ArticleList/ArticleList";
+import type { Article } from "./(components)/ArticleBrief/ArticleBriefs";
 
-const ARTICLES_PER_PAGE = 5;
 
-export default async function News({
-	searchParams,
-}: { searchParams: Record<string, string> }) {
-	const allArticles: Article[] | [] = await getAllArticles();
-	const page = Number.parseInt(searchParams.page) || 1;
-	const articles = allArticles.slice(
-		(page - 1) * ARTICLES_PER_PAGE,
-		page * ARTICLES_PER_PAGE,
-	);
-	const amountOfPages = allArticles.length / ARTICLES_PER_PAGE;
+export default async function NewsPage({
+  searchParams,
+}: {
+  searchParams: Record<string, string>;
+  }) {
+  const articlesResponse: PaginateResponse<Article[]> = await getAllArticles();
+  const articles: Article[] = articlesResponse.data;
+  const {total_pages, current_page} = articlesResponse.pagination;
 
-	const prevPage = page - 1;
-	const nextPage = page + 1;
+  const content = (
+    <>
+      <PageTitle title='News' />
+      <ArticleList articles={articles} />
+      <Pagination currentPage={current_page} totalPages={total_pages} />
+    </>
+  );
 
-	const pageLink = (page: number) => ({
-		search: new URLSearchParams({ page: page.toString() }).toString(),
-	});
-
-	const content = (
-		<>
-			<PageTitle title={`Home Page ${page}`} />
-			{articles.map((article: Article) => (
-				<ArticleBrief article={article} key={article.id} />
-			))}
-			<section>
-				{page <= amountOfPages && (
-					<div>
-						<Link
-							href={pageLink(prevPage)}
-							className={page === 1 ? "disabled" : ""}
-							aria-disabled={page === 1}
-						>
-							Previous Page
-						</Link>
-						<Link
-							href={pageLink(nextPage)}
-							className={page === amountOfPages ? "disabled" : ""}
-							aria-disabled={page === amountOfPages}
-						>
-							Next Page
-						</Link>
-					</div>
-				)}
-			</section>
-		</>
-	);
-
-	return <PageWrapper content={content} />;
+  return <PageWrapper content={content} />;
 }
