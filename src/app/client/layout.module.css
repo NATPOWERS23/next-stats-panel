@@ -16,6 +16,7 @@
 }
 
 .main {
+  background-color: #08162d;
   width: 100%;
   min-height: calc(100vh - 3.5rem);
   display: flex;

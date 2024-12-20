@@ -7,36 +7,36 @@ import MobileMenu from "@/features/client/MobileMenu";
 import styles from "./layout.module.css";
 
 export default function ClientLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	const { userId }: { userId: string | null } = auth();
-	const isSignedIn = Boolean(userId);
+  const { userId }: { userId: string | null } = auth();
+  const isSignedIn = Boolean(userId);
 
-	return (
-		<>
-			<header
-				className={`${styles.header} font-bold text-md items-center relative`}
-			>
-				{isSignedIn && (
-					<LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
-				)}
+  return (
+    <>
+      <header
+        className={`${styles.header} font-bold text-md items-center relative`}
+      >
+        {isSignedIn && (
+          <LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
+        )}
 
-				<Link href="/client" aria-label="Welcome Page">
-					<Image src={pawLogo} alt="app logo" width={160} />
-				</Link>
+        <Link href="/client" aria-label="Welcome Page">
+          <Image src={pawLogo} alt="app logo" width={160} />
+        </Link>
 
-				<ul className={`${styles.list} hidden md:flex `}>
-					<LinkButton content="News" href="/client/news" />
-					<LinkButton content="Blog" href="/client/blogs" />
-					<LinkButton content="Docs" href="/client/docs" />
-				</ul>
+        <ul className={`${styles.list} hidden md:flex `}>
+          <LinkButton content="News" href="/client/news" />
+          <LinkButton content="Blog" href="/client/blogs" />
+          <LinkButton content="Docs" href="/client/docs" />
+        </ul>
 
-				<MobileMenu />
-			</header>
+        <MobileMenu />
+      </header>
 
-			<main className={styles.main}>{children}</main>
-		</>
-	);
+      <main className={styles.main}>{children}</main>
+    </>
+  );
 }
