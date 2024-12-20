@@ -3,6 +3,7 @@ export interface Article {
   featured: boolean;
   id: number;
   imageUrl: string;
+  altText?: string;
   launches: Launch[];
   newsSite: string;
   publishedAt: string;
@@ -10,6 +11,10 @@ export interface Article {
   title: string;
   updatedAt: string;
   url: string;
+  author?: string;
+  tags?: string[];
+  date?: string;
+  avatarSrc?: string;
 }
 
 export interface Launch {
