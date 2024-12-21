@@ -1,6 +1,5 @@
 import Card from "@/components/Card/Card";
 import CustomList from "@/components/CustomList/CustomList";
-import styles from "./PlatformCard.module.css";
 
 interface Platform {
   name: string;
@@ -19,11 +18,11 @@ export const PlatformCard = () => {
     <Card
       title="Donuts from Subscribers"
       body={
-        <div className={styles.platforms}>
+        <div className="grid gap-3">
           {platforms.map((platform) => (
-            <div key={platform.name} className={styles.platform}>
-              <div className={styles.platformTitle}>{platform.name}</div>
-              <div className={styles.platformBody}>
+            <div key={platform.name} className="rounded-2large p-3 ">
+              <div className="mb-2 font-black text-sm">{platform.name}</div>
+              <div>
                 {platform.data && <CustomList items={platform.data} />}
               </div>
             </div>

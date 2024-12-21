@@ -1,6 +1,12 @@
+
 * {
   box-sizing: border-box;
 }
+
+html {
+  animation: fadeIn .5s ease-in-out;
+}
+
 
 body {
   font-family: sans-serif;
@@ -23,7 +29,9 @@ a:hover {
   color: rgb(96, 91, 91);
 }
 
-button {
+
+
+/* button {
   outline: none;
   background-color: transparent;
   border: 2px solid white;
@@ -38,10 +46,22 @@ button {
 
 button:hover {
   color: rgb(112, 108, 108);
-}
+} */
 
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
+/* .back-button {
+  width: 10rem;
+  padding: 0.5rem 1rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+  }
+} */

@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('./normalize.css');
-@import url('./variables.css');
-
 @import 'base/_reset.css';
 @import 'base/_variables.css';
+@import 'base/_animation.css';
 @import 'layout/_grid.css';
 @import 'components/_card.css';
 @import 'components/_progress-bar.css';
@@ -14,127 +12,8 @@
 @import 'components/_buttons.css';
 @import 'utilities/_helpers.css';
 @import 'vendors/_clerk.css';
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  animation: fadeIn .5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-body {
-  font-family: sans-serif;
-  color: var(--text-main-color, white);
-  background-color: var(--bg-color, black);
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
-  color: rgb(96, 91, 91);
-}
-
-
-
-/* button {
-  outline: none;
-  background-color: transparent;
-  border: 2px solid white;
-  padding: 0.5em 1em;
-  font-size: 16px;
-  cursor: pointer;
-  color: white !important;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-button:hover {
-  color: rgb(112, 108, 108);
-} */
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* .back-button {
-  width: 10rem;
-  padding: 0.5rem 1rem;
-
-  a {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-  }
-} */
-
-/* .modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: stretch;
-  width: 100%;
-} */
-
-.cl-internal-pesne5 {
-  color: white;
-
-}
-
-.cl-internal-p0waue:nth-child(2) {
-  display: none;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
-/* Event Calendar styling */
-:root {
-  --fc-border-color: #232323;
-  --fc-button-bg-color: transparent;
-  --fc-button-border-color: white;
-  --fc-button-hover-bg-color: white;
-  --fc-button-text-color: #1c9b56;
-  --fc-daygrid-event-dot-width: 5px;
-}
-
-.fc .fc-toolbar {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-
-  @media screen and (max-width: 420px) {
-    flex-direction: column;
-  }
-}
-
+@import 'vendors/_fullcalendar.css';
 
 .sidebar {
   @apply min-h-full min-w-min p-2 bg-grey block
 }
-
-
