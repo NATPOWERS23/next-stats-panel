@@ -4,6 +4,6 @@ import ProgressBar from "@/components/ProgressBar/ProgressBar";
 export const SpendsProgressCard = () => (
   <Card
     title="Spends History"
-    body={<ProgressBar />}
+    body={<ProgressBar totalAmount={100} progressValue={60} />}
   />
 );
