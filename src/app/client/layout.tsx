@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
-import LinkButton from "@/components/LinkButton/LinkButton";
 import pawLogo from "@public/assets/logos/pawlogo.svg";
 import MobileMenu from "@/features/client/MobileMenu";
+import LinkButton from "@/components/LinkButton/LinkButton";
 import styles from "./layout.module.css";
 
 export default function ClientLayout({
@@ -19,6 +19,7 @@ export default function ClientLayout({
       <header
         className={`${styles.header} font-bold text-md items-center relative`}
       >
+
         {isSignedIn && (
           <LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
         )}

@@ -9,7 +9,7 @@ import type {
   StreamFLRClassData,
   StreamFLRData,
   StreamGSTData,
-} from '../app/crm/dashboard/charts-interfaces';
+} from '../types/charts-interfaces';
 import { formatGST, formatFLR, formatFLRClass } from '../utils/chartApiDataFormatter';
 
 export function useSpaceDataApi(): {

@@ -1,0 +1,11 @@
+.back-button {
+  width: 10rem;
+  padding: 0.5rem 1rem;
+}
+
+.back-button a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
