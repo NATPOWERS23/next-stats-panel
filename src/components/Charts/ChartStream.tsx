@@ -3,7 +3,7 @@
 import moment from "moment";
 import { VictoryChart, VictoryAxis, VictoryArea, VictoryLine, VictoryLabel, VictoryLegend } from "victory";
 
-import type { StreamGSTData } from "@/app/crm/dashboard/charts-interfaces";
+import type { StreamGSTData } from "@/types/charts-interfaces";
 
 export function ChartStream({ chartData, title }: { chartData: StreamGSTData[]; title: string }) {
   const streamData: StreamGSTData[] = chartData;

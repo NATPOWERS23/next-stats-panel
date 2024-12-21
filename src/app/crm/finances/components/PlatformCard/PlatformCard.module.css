@@ -1,0 +1,15 @@
+.platforms {
+  display: grid;
+  gap: 1rem;
+}
+
+.platform {
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.platformTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}

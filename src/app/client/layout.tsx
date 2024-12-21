@@ -1,39 +1,39 @@
 import Link from "next/link";
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
-import LinkButton from "@/components/LinkButton/LinkButton";
 import pawLogo from "@public/assets/logos/pawlogo.svg";
+import LinkButton from "@/components/LinkButton/LinkButton";
 import styles from "./layout.module.css";
 
 export default function ClientLayout({
-	children,
+  children,
 }: Readonly<{
-	children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-	const { userId }: { userId: string | null } = auth();
-	const isSignedIn = Boolean(userId);
+  const { userId }: { userId: string | null } = auth();
+  const isSignedIn = Boolean(userId);
 
-	return (
-		<>
-			<header className={styles.header}>
-				{isSignedIn && (
-					<LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
-				)}
+  return (
+    <>
+      <header className={styles.header}>
+        {isSignedIn && (
+          <LinkButton content="Back to CRM" iconName="arrow_left" href="/crm" />
+        )}
 
-				<Link href="/client" aria-label="Welcome Page">
-					<Image src={pawLogo} alt="app logo" width={160} />
-				</Link>
+        <Link href="/client" aria-label="Welcome Page">
+          <Image src={pawLogo} alt="app logo" width={160} />
+        </Link>
 
-				<LinkButton content="Menu" />
+        <LinkButton content="Menu" />
 
-				<ul className={styles.list}>
-					<LinkButton content="News" href="/client/news" />
-					<LinkButton content="Blog" href="/client/blogs" />
-					<LinkButton content="Docs" href="/client/docs" />
-				</ul>
-			</header>
+        <ul className={styles.list}>
+          <LinkButton content="News" href="/client/news" />
+          <LinkButton content="Blog" href="/client/blogs" />
+          <LinkButton content="Docs" href="/client/docs" />
+        </ul>
+      </header>
 
-			<main className={styles.main}>{children}</main>
-		</>
-	);
+      <main className={styles.main}>{children}</main>
+    </>
+  );
 }

@@ -10,7 +10,7 @@ import {
   VictoryVoronoiContainer,
 } from "victory";
 
-import type { StreamFLRData } from "@/app/crm/dashboard/charts-interfaces";
+import type { StreamFLRData } from "@/types/charts-interfaces";
 import { timeLabels } from "@/utils/chartApiDataFormatter";
 
 export function ChartDots({ chartData, title }: { chartData: StreamFLRData[]; title: string }) {

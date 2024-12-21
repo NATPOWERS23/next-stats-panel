@@ -11,7 +11,7 @@ import {
   VictoryVoronoiContainer,
 } from "victory";
 
-import type { StreamFLRClassData } from "@/app/crm/dashboard/charts-interfaces";
+import type { StreamFLRClassData } from "@/types/charts-interfaces";
 
 export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClassData; title: string }) {
   const colors = ["#f95d6a", "#ff7c43", "#ffa600"];
@@ -26,15 +26,15 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
         scale={{ x: "time" }}
         containerComponent={
           <VictoryVoronoiContainer
-            // labels={({ datum }) =>
-            //   datum.binnedData[0]
-            //     ? `${datum.binnedData[0].classType}: ${
-            //         datum.binnedData.length
-            //       } (${datum.binnedData[0].day.toLocaleString("default", {
-            //         month: "long",
-            //       })})`
-            //     : null
-            // }
+          // labels={({ datum }) =>
+          //   datum.binnedData[0]
+          //     ? `${datum.binnedData[0].classType}: ${
+          //         datum.binnedData.length
+          //       } (${datum.binnedData[0].day.toLocaleString("default", {
+          //         month: "long",
+          //       })})`
+          //     : null
+          // }
           />
         }
       >

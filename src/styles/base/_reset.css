@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: var(--text-main-color, white);
+  background-color: var(--bg-color, black);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(96, 91, 91);
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  cursor: pointer;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+button:hover {
+  color: rgb(112, 108, 108);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

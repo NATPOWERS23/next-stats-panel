@@ -11,3 +11,9 @@ export const roleList = [
   'org:member',
   'org:unauthenticated',
 ]
+
+export const authenticatedRoles = [
+  'org:admin',
+  'org:channel_owner',
+  'org:member',
+]
