@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 import pawLogo from "@public/assets/logos/pawlogo.svg";
-import MobileMenu from "@/features/client/MobileMenu";
+import MobileMenu from "@/features/client/MobileMenu/MobileMenu";
 import LinkButton from "@/components/LinkButton/LinkButton";
 import styles from "./layout.module.css";
 

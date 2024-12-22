@@ -1,32 +1,43 @@
 import Link from "next/link";
+import './Pagination.css'
 
-interface PaginationProps {
+
+export interface PaginationProps {
   currentPage: number;
   totalPages: number;
 }
 
-export function Pagination({ currentPage, totalPages }: PaginationProps) {
+export function Pagination({ pagination, mode }: { pagination: PaginationProps, mode: string }) {
   const pageLink = (page: number) => ({
     search: new URLSearchParams({ page: page.toString() }).toString(),
   });
 
-  return (
-    <section >
-      {currentPage <= totalPages && (
-        <div>
-          <Link
-            href={pageLink(currentPage - 1)}
-            aria-disabled={currentPage === 1}
-          >
-            Previous Page
-          </Link>
-          <Link
-            href={pageLink(currentPage + 1)}
 
-            aria-disabled={currentPage === totalPages}
-          >
-            Next Page
-          </Link>
+  const { currentPage, totalPages } = pagination;
+
+  return (
+    <section className={mode + " w-full flex"}>
+      {currentPage <= totalPages && (
+        <div className="pagination-container w-full flex gap-4 justify-center items-center">
+          <div className="prev-page">
+            <Link
+              href={pageLink(currentPage - 1)}
+              aria-disabled={currentPage === 1}
+            >
+              Prev
+            </Link>
+          </div>
+
+          <div className="rest-pages">...</div>
+
+          <div className="next-page">
+            <Link
+              href={pageLink(currentPage + 1)}
+              aria-disabled={currentPage === totalPages}
+            >
+              Next
+            </Link>
+          </div>
         </div>
       )}
     </section>

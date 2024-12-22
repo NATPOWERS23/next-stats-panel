@@ -5,6 +5,7 @@ import { PaginateResponse } from "@/types/response.interface";
 import { getAllArticles } from "./(server)/api";
 import { ArticleList } from "./components/ArticleList/ArticleList";
 import type { Article } from "./components/ArticleBrief/ArticleBriefs";
+import PaginationWrapper from "@/features/client/PaginationWrapper/PaginationWrapper";
 
 
 export default async function NewsPage({
@@ -20,7 +21,7 @@ export default async function NewsPage({
     <>
       <PageTitle title='News' />
       <ArticleList articles={articles} />
-      <Pagination currentPage={current_page} totalPages={total_pages} />
+      <PaginationWrapper currentPage={current_page} totalPages={total_pages} />
     </>
   );
 
