@@ -22,22 +22,24 @@ const MenuItemContent = ({
 }: MenuItemProps & { hasBlockedIcon?: boolean }) => {
 	if (isCollapsed) {
 		return (
-			<div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2 gap-2">
+			<div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2 gap-2 transition-all duration-200 flex items-center justify-center">
 				<Icon name={item.icon} />
 			</div>
 		);
 	}
 
 	return (
-		<div>
-			<div className="max-sm:hidden flex gap-2 items-center px-3">
-				<span>{item.title}</span>
+		<div className="transition-all duration-300 ease-in-out">
+			<div className={`max-sm:hidden flex gap-2 items-center px-3 transition-opacity duration-300 ${
+				isCollapsed ? 'opacity-0' : 'opacity-100'
+			}`}>
+				<span className="whitespace-nowrap">{item.title}</span>
 				{hasBlockedIcon && <Icon name="arrow_go" size={20} />}
 				{blockedMenuItems.includes(item.title) && (
 					<Icon name="blocked" color="grey" />
 				)}
 			</div>
-			<div className="sm:hidden rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2 gap-2">
+			<div className="sm:hidden rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2 gap-2 transition-all duration-200 flex items-center justify-center">
 				<Icon name={item.icon} />
 			</div>
 		</div>
@@ -46,21 +48,23 @@ const MenuItemContent = ({
 
 const SubMenuItem = ({ item, isCollapsed }: MenuItemProps) => {
 	return (
-		<li className="hover:bg-gray-100 rounded-md">
+		<li className="hover:bg-gray-100 rounded-md transition-all duration-200">
 			<Link href={crmPath + item.link}>
 				{isCollapsed ? (
-					<div className="rounded-2large backdrop-blur-sm hover:bg-white hover:text-black p-2">
+					<div className="rounded-2large backdrop-blur-sm hover:bg-white hover:text-black p-2 transition-all duration-200 flex items-center justify-center">
 						<Icon name={item.icon} />
 					</div>
 				) : (
-					<div>
-						<div className="max-sm:hidden flex items-center px-3">
-							<span className="mx-2">{item.title}</span>
+					<div className="transition-all duration-300 ease-in-out">
+						<div className={`max-sm:hidden flex items-center px-3 transition-opacity duration-300 ${
+							isCollapsed ? 'opacity-0' : 'opacity-100'
+						}`}>
+							<span className="mx-2 whitespace-nowrap">{item.title}</span>
 							{blockedMenuItems.includes(item.title) && (
 								<Icon name="blocked" color="grey" />
 							)}
 						</div>
-						<div className="sm:hidden rounded-2large backdrop-blur-sm hover:bg-white hover:text-black p-2">
+						<div className="sm:hidden rounded-2large backdrop-blur-sm hover:bg-white hover:text-black p-2 transition-all duration-200 flex items-center justify-center">
 							<Icon name={item.icon} />
 						</div>
 					</div>

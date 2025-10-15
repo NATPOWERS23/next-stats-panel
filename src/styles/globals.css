@@ -15,5 +15,5 @@
 @import 'vendors/_fullcalendar.css';
 
 .sidebar {
-  @apply min-h-full min-w-min p-2 bg-grey block
+  @apply min-h-full p-2 bg-grey block rounded-br-lg
 }
