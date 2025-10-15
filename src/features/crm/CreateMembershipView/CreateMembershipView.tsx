@@ -49,9 +49,9 @@ export default function CreateMembershipView() {
 				<br />
 				Try to do recheck later or Create your own organization:
 			</p>
-			<div className="grid grid-cols-2">
+			<div className="grid grid-cols-2 gap-2">
 				<CustomList items={getStepsItems()} />
-				<div className="w-44">
+				<div className="w-44 flex justify-center">
 					{twitchChannelConnected ? (
 						<Icon name="success" color="green" size={20} />
 					) : (

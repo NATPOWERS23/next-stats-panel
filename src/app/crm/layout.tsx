@@ -18,18 +18,20 @@ export default function CrmLayout({
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
-      <main className={`${styles.main} px-2 sm:px-8`}>
-        <Protect
-          condition={hasRequiredRole}
-          fallback={
-            <>
-              <AccessDenied />
-              <CreateMembershipView />
-            </>
-          }
-        >
-          {children}
-        </Protect>
+      <main className={`${styles.main} px-2 sm:px-8 flex justify-center items-start pt-8`}>
+        <div className="w-full max-w-4xl">
+          <Protect
+            condition={hasRequiredRole}
+            fallback={
+              <>
+                <AccessDenied />
+                <CreateMembershipView />
+              </>
+            }
+          >
+            {children}
+          </Protect>
+        </div>
       </main>
     </div>
   );
