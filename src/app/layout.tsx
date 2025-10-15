@@ -27,7 +27,18 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         baseTheme: [dark, neobrutalism],
-        variables: { colorPrimary: "#1d9a56" },
+        variables: { 
+          colorPrimary: "var(--green)",
+          colorText: "var(--white)",
+        },
+        elements: {
+          socialButtonsBlockButton: {
+            color: "var(--white)",
+          },
+          socialButtonsBlockButtonText: {
+            color: "var(--white)",
+          },
+        },
       }}
     >
       <html lang="en">
