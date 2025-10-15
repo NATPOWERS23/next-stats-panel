@@ -132,6 +132,121 @@ ComponentName/
 @import 'utilities/_helpers.css';
 ```
 
+## Navigation & Layout Patterns
+
+### Branching Strategy for Sidebar Implementation
+
+#### Master Branch - Structure Only
+The sidebar on master branch contains only structural implementation without styling:
+
+```tsx
+<section>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+    }}
+  >
+    {!isCollapsed && <h3>Menu</h3>}
+    <button
+      type="button"
+      className={styles.collapseButton}
+      onClick={toggleCollapse}
+    >
+      {isCollapsed ? (
+        <Icon name="arrow_right" />
+      ) : (
+        <Icon name="arrow_left" />
+      )}
+    </button>
+  </div>
+  <div>
+    {menuItems.map((item: IMenuItem) => (
+      <MenuItem item={item} key={item.id} isCollapsed={isCollapsed} />
+    ))}
+  </div>
+</section>
+```
+
+**Master Branch Characteristics:**
+- Uses CSS Modules (`styles.collapseButton`) for basic styling
+- Inline styles for layout structure
+- Simple conditional rendering without animations
+- Basic collapse/expand functionality
+- No Tailwind classes or transitions
+
+#### UI Branch - Enhanced with Styling & Animations
+The sidebar on UI branch adds Tailwind styling and smooth animations:
+
+```tsx
+<section className="h-full">
+  <div className="flex items-center justify-between">
+    <div className={`transition-opacity duration-300 ${
+      isCollapsed ? 'opacity-0 w-0' : 'opacity-100 w-auto'
+    }`}>
+      {!isCollapsed && <h3 className="font-bold max-sm:hidden whitespace-nowrap">Menu</h3>}
+    </div>
+    <button
+      type="button"
+      className="my-2 hidden sm:flex flex-shrink-0"
+      onClick={toggleCollapse}
+    >
+      <div className="rounded-2large backdrop-blur-sm bg-white/20 hover:bg-white hover:text-black p-2 transition-colors duration-200">
+        <Icon name={`arrow_${isCollapsed ? "right" : "left"}`} />
+      </div>
+    </button>
+  </div>
+  <div className="flex flex-col gap-2">
+    {menuItems.map((item: IMenuItem) => (
+      <MenuItem item={item} key={item.id} isCollapsed={isCollapsed} />
+    ))}
+  </div>
+</section>
+```
+
+**UI Branch Enhancements:**
+- **Tailwind Classes**: Responsive design with `hidden sm:flex`, `max-sm:hidden`
+- **Smooth Animations**: Opacity transitions with `transition-opacity duration-300`
+- **Styled Components**: Beautiful buttons with backdrop blur and hover effects
+- **Responsive Behavior**: Different layouts for mobile vs desktop
+- **Modern Styling**: Rounded corners, gradients, and smooth transitions
+
+### Sidebar Structure Components
+
+#### Header/Toggle Section (Desktop Only)
+```tsx
+// Contains title and collapse button
+<div className="flex items-center justify-between">
+  {/* Animated title that fades in/out */}
+  {/* Toggle button with hover effects */}
+</div>
+```
+- **Purpose**: Controls sidebar expand/collapse state
+- **Visibility**: Desktop only (`hidden sm:flex` on button)
+- **Animation**: Title fades with opacity transitions
+
+#### Menu Items Section (All Devices)
+```tsx
+// Contains navigation menu items
+<div className="flex flex-col gap-2">
+  {menuItems.map((item: IMenuItem) => (
+    <MenuItem item={item} key={item.id} isCollapsed={isCollapsed} />
+  ))}
+</div>
+```
+- **Purpose**: Renders actual navigation items
+- **Responsive**: MenuItem components handle their own mobile/desktop behavior
+- **State**: Receives `isCollapsed` prop to render appropriately
+
+### Development Guidelines
+
+- **Master Branch**: Focus on functionality, use CSS Modules, minimal styling
+- **UI Branch**: Add Tailwind classes, animations, responsive behavior
+- **Component Structure**: Separate toggle controls from menu items
+- **Responsive Design**: Use Tailwind responsive prefixes consistently
+- **Animation Timing**: Use consistent durations (300ms for main, 200ms for hovers)
+
 ## API Design Patterns
 
 ### API Route Structure
