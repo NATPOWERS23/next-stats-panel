@@ -5,8 +5,8 @@ import TwitchButton from "../TwitchButton/TwitchButton";
 import ClerkLogoutButton from "../ClerkLogoutButton/ClerkLogoutButton";
 import styles from "./Navbar.module.css";
 
-export default function Navbar() {
-  const { userId, has } = auth();
+export default async function Navbar() {
+  const { userId, has } = await auth();
 
   const userHasRole =
     has({ role: "org:member" }) ||

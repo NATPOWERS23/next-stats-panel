@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { dark, neobrutalism } from "@clerk/themes";
 import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
-import TwitchProvider from "@/contexts/useTwitch";
 import CustomLoader from "@/components/CustomLoader/CustomLoader";
+import ClientProviders from "@/components/ClientProviders";
 import Navbar from "@/components/Navbar/Navbar";
 import Modal from "@/components/Modal/Modal";
 import "../styles/globals.css";
@@ -24,7 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
+    <html lang="en" suppressHydrationWarning>
+      <body className={mainFont.className} suppressHydrationWarning>
+        <ClerkProvider
       appearance={{
         baseTheme: [dark, neobrutalism],
         variables: { 
@@ -41,20 +43,18 @@ export default function RootLayout({
         },
       }}
     >
-      <html lang="en">
-        <body className={mainFont.className}>
           <ClerkLoading>
             <CustomLoader />
           </ClerkLoading>
           <ClerkLoaded>
-            <TwitchProvider>
-              <Navbar />
+            <Navbar />
+            <ClientProviders>
               {children}
               <Modal />
-            </TwitchProvider>
+            </ClientProviders>
           </ClerkLoaded>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

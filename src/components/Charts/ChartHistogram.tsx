@@ -1,6 +1,6 @@
 "use client";
 
-import moment from "moment";
+import dayjs from "@/utils/dayjs";
 import {
   VictoryAxis,
   VictoryChart,
@@ -38,7 +38,7 @@ export function ChartHistogram({ chartData, title }: { chartData: StreamFLRClass
           />
         }
       >
-        <VictoryLabel x={225} y={25} textAnchor="end" text={`Solar Flares Events to in ${moment().format("YYYY")}`} />
+        <VictoryLabel x={225} y={25} textAnchor="end" text={`Solar Flares Events to in ${dayjs().format("YYYY")}`} />
 
         <VictoryStack colorScale={colors}>
           {Object.entries(chartData).map(([key, dataGroup]: Array<string | any>) => {

@@ -7,8 +7,8 @@ import LinkButton from "@/components/LinkButton/LinkButton";
 import UserInfoBar from "./components/UserInfoBar/UserInfoBar";
 import styles from "./profile.module.css";
 
-const Profile = () => {
-  const { userId } = auth();
+const Profile = async () => {
+  const { userId } = await auth();
   const isAuthenticated = !!userId;
 
   if (!isAuthenticated) redirect("/client");

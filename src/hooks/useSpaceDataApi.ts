@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from '@/utils/dayjs';
 
 import { useEffect, useState } from 'react';
 
@@ -26,9 +26,9 @@ export function useSpaceDataApi(): {
   useEffect(() => {
     setIsSpaceDataLoading(true);
 
-    const endDate = moment().format('yyyy-MM-DD');
-    const startDate = moment().subtract(1, 'months').format('yyyy-MM-DD');
-    const startFLRDate = moment().subtract(1, 'years').add(1, 'months').startOf('month').format('yyyy-MM-DD');
+    const endDate = dayjs().format('YYYY-MM-DD');
+    const startDate = dayjs().subtract(1, 'months').format('YYYY-MM-DD');
+    const startFLRDate = dayjs().subtract(1, 'years').add(1, 'months').startOf('month').format('YYYY-MM-DD');
 
     getGSTData(startDate, endDate).then((data: GSTData[]) => {
       if (!data.length) return;
@@ -38,7 +38,7 @@ export function useSpaceDataApi(): {
     getFLRData(startFLRDate, endDate).then((data: FLRData[]) => {
       if (!data.length) return;
 
-      const lastMonthFLRData = data.filter((item) => moment(item.peakTime).isSame(moment(), 'months'));
+      const lastMonthFLRData = data.filter((item) => dayjs(item.peakTime).isSame(dayjs(), 'month'));
 
       setFLRData(formatFLR(lastMonthFLRData));
       setFLRClassData(formatFLRClass(data));

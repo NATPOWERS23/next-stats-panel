@@ -3,6 +3,7 @@
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
+import { type JSX } from "react";
 import React, { Fragment } from "react";
 
 interface Rating {
@@ -40,42 +41,42 @@ export default function ManagerRating({
 							content={<Icon name="share" />}
 							onClick={openShareModal}
 							size="small"
-							buttonType="outlined"
 						/>
 					</div>
 				</div>
 				<div className="main">
 					<div className="flex flex-col gap-1 sm:gap-0 sm:grid sm:grid-cols-[repeat(5_minmax(0,_auto))] items-center">
-						<>
+						<div key="header-row" className="contents">
 							<span className="sm:col-start-3 hidden sm:flex">Deals</span>
 							<span className="hidden sm:flex">Profit</span>
 							<span> </span>
-						</>
-						{rating?.map((item, index) => (
-							<Fragment key={item.id}>
-								{item.avatarSrc ? (
-									<Avatar sizes={24} src={item.avatarSrc} />
-								) : (
-									<Avatar sizes={24} />
-								)}
-								<span>{item.name}</span>
-								<span className="flex sm:hidden">Deals: </span>
-								<Button
-									content={item.dealsAmount.toString()}
-									onClick={undefined}
-									size="small"
-								/>
-								<span className="flex sm:hidden">Profit: </span>
-								<Button
-									content={`$${item.profit}`}
-									onClick={undefined}
-									fullWidth={true}
-									size="small"
-								/>
-								<span className="flex justify-end">#{index + 1}</span>
-								<hr className="block w-full sm:col-start-1 sm:col-end-6 my-2" />
-							</Fragment>
-						))}
+						</div>
+						{data.rating && data.rating.length > 0 &&
+							data.rating.map((item, index) => (
+								<Fragment key={item.id}>
+									{item.avatarSrc ? (
+										<Avatar sizes={24} src={item.avatarSrc} />
+									) : (
+										<Avatar sizes={24} />
+									)}
+									<span>{item.name}</span>
+									<span className="flex sm:hidden">Deals: </span>
+									<Button
+										content={item.dealsAmount.toString()}
+										onClick={undefined}
+										size="small"
+									/>
+									<span className="flex sm:hidden">Profit: </span>
+									<Button
+										content={`$${item.profit}`}
+										onClick={undefined}
+										fullWidth={true}
+										size="small"
+									/>
+									<span className="flex justify-end">#{index + 1}</span>
+									<hr className="block w-full sm:col-start-1 sm:col-end-6 my-2" />
+								</Fragment>
+							))}
 					</div>
 				</div>
 				<div className="footer">

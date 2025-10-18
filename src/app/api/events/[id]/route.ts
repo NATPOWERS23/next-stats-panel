@@ -2,10 +2,11 @@ import type { NextRequest } from "next/server";
 import { updateEvent, deleteEvent } from "@/db/actions/event.action";
 
 // Update an existing event
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const payload = await req.json();
-    const eventId = params.id;
+    const resolvedParams = await params;
+    const eventId = resolvedParams.id;
 
     if (!eventId || !payload) {
       return new Response(JSON.stringify({ error: 'Event ID or sent data is empty' }), {
@@ -30,9 +31,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 }
 
 // Delete an event
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const eventId = params.id;
+    const resolvedParams = await params;
+    const eventId = resolvedParams.id;
 
     if (!eventId) {
       return new Response(JSON.stringify({ error: 'Event ID is required' }), {

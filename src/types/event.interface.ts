@@ -4,14 +4,14 @@ export interface UserEvent {
 	userId: string;
 	title: string;
 	description?: string;
-	startDate: string;
-	endDate?: string;
+	startDate: Date | string;
+	endDate?: Date | string;
 	// location?: string | null;
 	// type?: 'personal' | 'professional' | 'other';
 	// isAllDay?: boolean;
 	// tags?: string[];
-	createdAt?: Date;
-	updatedAt?: Date;
+	createdAt?: Date | string;
+	updatedAt?: Date | string;
 }
 
 export interface NewEventState {

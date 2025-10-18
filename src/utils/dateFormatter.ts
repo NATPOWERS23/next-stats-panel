@@ -1,8 +1,8 @@
-import moment from 'moment';
+import dayjs from './dayjs';
 
 export function formatEventDate(dateString: string) {
   try {
-    const dateTime = moment(dateString);
+    const dateTime = dayjs(dateString);
     if (dateTime.isValid()) {
       return dateTime.format('DD/MM [at] HH:mm');
     }
@@ -15,11 +15,11 @@ export function formatEventDate(dateString: string) {
 
 export function calculateDuration(startDateString: string, endDateString: string) {
   try {
-    const startDate = moment(startDateString);
-    const endDate = moment(endDateString);
+    const startDate = dayjs(startDateString);
+    const endDate = dayjs(endDateString);
 
     if (startDate.isValid() && endDate.isValid()) {
-      const duration = moment.duration(endDate.diff(startDate));
+      const duration = dayjs.duration(endDate.diff(startDate));
 
       const days = duration.days();
       const hours = duration.hours();

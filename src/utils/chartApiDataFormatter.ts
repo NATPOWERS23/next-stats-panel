@@ -1,15 +1,15 @@
-import moment from "moment";
+import dayjs from "../utils/dayjs";
 import groupBy from "lodash/groupBy";
 
 import type { FLRData, GSTData, StreamFLRClassData, StreamFLRData } from "../types/charts-interfaces";
 
 export const generateDatesOfCurrentMonth = () => {
-  const startDate = moment().subtract(1, "month");
-  const endDate = moment().endOf("month");
+  const startDate = dayjs().subtract(1, "month");
+  const endDate = dayjs().endOf("month");
 
   const dates = [];
   for (let i = 1; i < endDate.date() + 1; i++) {
-    dates.push(moment().month(startDate.month())?.add(1, "months")?.date(i));
+    dates.push(dayjs().month(startDate.month()).add(1, "months").date(i));
   }
   return dates;
 };
@@ -18,7 +18,7 @@ export const formatGST = (gstData: GSTData[]) => {
   const gstDataSet = new Map();
 
   for (const gstEntry of gstData) {
-    gstDataSet.set(moment(gstEntry.startTime)?.add(1, "months")?.format("MM-DD"), gstEntry.allKpIndex[0].kpIndex);
+    gstDataSet.set(dayjs(gstEntry.startTime).add(1, "months").format("MM-DD"), gstEntry.allKpIndex[0].kpIndex);
   }
 
   const chartDates = generateDatesOfCurrentMonth();
@@ -33,7 +33,7 @@ export const formatFLR = (flrData: FLRData[]): StreamFLRData[] => {
   const flrDataSet = new Map();
 
   for (const flrEntry of flrData) {
-    const flrDate = moment(flrEntry.beginTime).format("MM-DD");
+    const flrDate = dayjs(flrEntry.beginTime).format("MM-DD");
     flrDataSet.has(flrDate)
       ? flrDataSet.set(flrDate, [...flrDataSet.get(flrDate), flrEntry])
       : flrDataSet.set(flrDate, [{ ...flrEntry }]);
@@ -45,16 +45,16 @@ export const formatFLR = (flrData: FLRData[]): StreamFLRData[] => {
     const currentFLRObj = flrDataSet.has(date.format("MM-DD")) ? flrDataSet.get(date.format("MM-DD"))[0] : {};
     return {
       x: date.format("MM-DD"),
-      y: currentFLRObj.peakTime ? moment.utc(currentFLRObj.peakTime).format("HH") : 0,
+      y: currentFLRObj.peakTime ? dayjs.utc(currentFLRObj.peakTime).format("HH") : 0,
       class: currentFLRObj.classType || "",
-      amount: Math.round(moment.utc(currentFLRObj.endTime).diff(moment.utc(currentFLRObj.beginTime), "minutes")),
+      amount: Math.round(dayjs.utc(currentFLRObj.endTime).diff(dayjs.utc(currentFLRObj.beginTime), "minutes")),
     };
   });
 };
 
 export const formatFLRClass = (flrData: FLRData[]): StreamFLRClassData => {
   const currentData = flrData.map((entry) => {
-    return { day: moment.utc(entry.beginTime).toDate(), classType: entry.classType[0] };
+    return { day: dayjs.utc(entry.beginTime).toDate(), classType: entry.classType[0] };
   });
   const groupedData = groupBy(currentData, ({ classType }: { classType: string }) => classType);
 

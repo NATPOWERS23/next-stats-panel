@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import { type ReactNode } from "react";
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/nextjs";
@@ -9,13 +9,16 @@ const TwitchContext = createContext({
 	twitchChannelConnected: false,
 });
 
-const TwitchProvider = <T extends React.ReactNode>({
+const TwitchProvider = ({
 	children,
-}: { children: T }) => {
+}: { children: ReactNode }) => {
 	const [twitchChannelConnected, setTwitchChannelConnected] = useState(false);
+	const [isMounted, setIsMounted] = useState(false);
 	const { user } = useUser();
 
 	const saveTwitchAccessKeys = async () => {
+		if (!isMounted || typeof window === 'undefined') return;
+		
 		const userId = user?.publicMetadata.userId;
 		const channelId = localStorage.getItem("twitchChannelId");
 		const twitchClientId = localStorage.getItem("twitchClientId");
@@ -69,6 +72,8 @@ const TwitchProvider = <T extends React.ReactNode>({
 	};
 
 	const connectTwitch = async () => {
+		if (!isMounted || typeof window === 'undefined') return;
+		
 		console.log("Connecting to Twitch channel...");
 		const url = window.location.href;
 		const accessTokenRegex = /access_token=([^&]+)/;
@@ -83,7 +88,14 @@ const TwitchProvider = <T extends React.ReactNode>({
 	};
 
 	useEffect(() => {
-		connectTwitch();
+		setIsMounted(true);
+		
+		// Only run client-side code after component has mounted
+		const timer = setTimeout(() => {
+			connectTwitch();
+		}, 100);
+		
+		return () => clearTimeout(timer);
 	}, []);
 
 	return (

@@ -1,4 +1,4 @@
-import { PaginationInfo } from "./pagination.interface"
+import type { PaginationInfo } from "./pagination.interface"
 
 export interface Response<T> { 
   data: T
