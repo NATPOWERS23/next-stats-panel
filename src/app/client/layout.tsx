@@ -5,12 +5,12 @@ import pawLogo from "@public/assets/logos/pawlogo.svg";
 import LinkButton from "@/components/LinkButton/LinkButton";
 import styles from "./layout.module.css";
 
-export default function ClientLayout({
+export default async function ClientLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { userId }: { userId: string | null } = auth();
+  const { userId }: { userId: string | null } = await auth();
   const isSignedIn = Boolean(userId);
 
   return (

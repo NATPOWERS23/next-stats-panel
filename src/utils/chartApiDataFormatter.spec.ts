@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from './dayjs';
 import { generateDatesOfCurrentMonth, timeLabels } from './chartApiDataFormatter';
 
 describe('Chart API utility Functions', () => {
@@ -9,7 +9,7 @@ describe('Chart API utility Functions', () => {
   
       expect(dates.length).toBeGreaterThan(0);
   
-      const today = moment().format('MM-DD');
+      const today = dayjs().format('MM-DD');
       expect(dates.some(date => date.format('MM-DD') === today)).toBe(true);
     });
   })

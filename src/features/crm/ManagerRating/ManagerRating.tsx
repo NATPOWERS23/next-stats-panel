@@ -3,7 +3,7 @@
 import Avatar from "@/components/Avatar/Avatar";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
-import React from "react";
+import { type JSX } from "react";
 
 interface Rating {
 	name: string;
@@ -34,41 +34,38 @@ export default function ManagerRating({
 						<Button
 							content={<Icon name="share" />}
 							onClick={openShareModal}
-							buttonType="outlined"
 						/>
 					</div>
 				</div>
 				<div className="main">
 					<div className="grid grid-cols-[repeat(5_minmax(0,_auto))] items-center">
-						<>
+						<div key="header-row" className="contents">
 							<span className="col-start-3">Deals</span>
 							<span>Profit</span>
 							<span> </span>
-						</>
-						{data.rating.length &&
+						</div>
+						{data.rating && data.rating.length > 0 &&
 							data.rating.map((item, index) => (
-								<>
+								<div key={`rating-row-${index}-${item.name}`} className="contents">
 									{item.avatarSrc ? (
-										<Avatar key={item.name} sizes={24} src={item.avatarSrc} />
+										<Avatar sizes={24} src={item.avatarSrc} />
 									) : (
-										<Avatar key={item.name} sizes={24} />
+										<Avatar sizes={24} />
 									)}
-									<span key={item.name}>{item.name}</span>
+									<span>{item.name}</span>
 									<Button
-										key={item.name}
 										content={item.dealsAmount.toString()}
 										onClick={undefined}
 									/>
 									<Button
-										key={item.name}
 										content={`$${item.profit}`}
 										onClick={undefined}
 									/>
-									<span key={item.name} className="flex justify-end">
+									<span className="flex justify-end">
 										#{index + 1}
 									</span>
-									<hr key={item.name} />
-								</>
+									<hr />
+								</div>
 							))}
 					</div>
 				</div>

@@ -1,15 +1,15 @@
 "use client";
 
-import moment from "moment";
+import dayjs from "@/utils/dayjs";
 import { VictoryChart, VictoryAxis, VictoryArea, VictoryLine, VictoryLabel, VictoryLegend } from "victory";
 
 import type { StreamGSTData } from "@/types/charts-interfaces";
 
 export function ChartStream({ chartData, title }: { chartData: StreamGSTData[]; title: string }) {
   const streamData: StreamGSTData[] = chartData;
-  const lengthAxisX = moment().endOf("month").date();
-  const currentMonth = moment().format("MMMM");
-  const currentDate = moment().format("MM-DD");
+  const lengthAxisX = dayjs().endOf("month").date();
+  const currentMonth = dayjs().format("MMMM");
+  const currentDate = dayjs().format("MM-DD");
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

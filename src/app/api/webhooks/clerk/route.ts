@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   }
 
   // Get the headers
-  const headerPayload = headers()
+  const headerPayload = await headers()
   const svix_id = headerPayload.get('svix-id')
   const svix_timestamp = headerPayload.get('svix-timestamp')
   const svix_signature = headerPayload.get('svix-signature')
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
       if (newUser) {
         console.log('Creating new user on Clerk...')
   
-        await clerkClient.users.updateUserMetadata(id, {
+        await (await clerkClient()).users.updateUserMetadata(id, {
           publicMetadata: {
             userId: newUser._id,
             twitchUserId: twitchUserId || null,

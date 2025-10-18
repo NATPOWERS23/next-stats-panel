@@ -1,7 +1,7 @@
 import PageTitle from "@/components/PageTitle/PageTitle";
 import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import { Pagination } from "@/components/Pagination/Pagination";
-import { PaginateResponse } from "@/types/response.interface";
+import type { PaginateResponse } from "@/types/response.interface";
 import { getAllArticles } from "./(server)/api";
 import { ArticleList } from "./components/ArticleList/ArticleList";
 import type { Article } from "./components/ArticleBrief/ArticleBriefs";
@@ -10,8 +10,9 @@ import type { Article } from "./components/ArticleBrief/ArticleBriefs";
 export default async function NewsPage({
   searchParams,
 }: {
-  searchParams: Record<string, string>;
+  searchParams: Promise<Record<string, string>>;
 }) {
+  const resolvedSearchParams = await searchParams;
   const articlesResponse: PaginateResponse<Article[]> = await getAllArticles();
   const articles: Article[] = articlesResponse.data;
   const { total_pages, current_page } = articlesResponse.pagination;

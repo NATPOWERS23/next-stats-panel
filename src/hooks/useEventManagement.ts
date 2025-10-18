@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
 import type { EventTime, NewEventState, UserEvent } from '@/types/event.interface';
-import moment from 'moment';
+import dayjs from '@/utils/dayjs';
 
 const parseEventTime = (timeString: string): EventTime => {
   const [hours, minutes] = timeString.split(':').map(Number);
   return {
-    hours: hours || moment().hour(),
-    minutes: minutes || moment().minute()
+    hours: hours || dayjs().hour(),
+    minutes: minutes || dayjs().minute()
   };
 };
 
@@ -44,10 +44,10 @@ export const useEventManagement = (userId?: string) => {
     setError(null);
 
     try {
-      const startDate = moment(overrideStartDate) || moment();
+      const startDate = dayjs(overrideStartDate) || dayjs();
       const eventStartTime = parseEventTime(newEvent.startTime);
       startDate.hour(eventStartTime.hours).minute(eventStartTime.minutes);
-      const endDate = newEvent.endDate ? moment(newEvent.endDate) : moment(startDate).add(1, 'hour');
+      const endDate = newEvent.endDate ? dayjs(newEvent.endDate) : dayjs(startDate).add(1, 'hour');
       if (newEvent.endTime) {
         const eventEndTime = parseEventTime(newEvent.endTime);
         endDate.hour(eventEndTime.hours).minute(eventEndTime.minutes);

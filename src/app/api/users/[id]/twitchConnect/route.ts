@@ -1,9 +1,10 @@
 import { getUserById } from "@/db/actions/user.action";
 import type { NextRequest } from "next/server";
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = params.id;
+    const resolvedParams = await params;
+    const userId = resolvedParams.id;
     const user = await getUserById(userId);
 
     return new Response(JSON.stringify({ hasTwitchAccessData: !!(user?.twitchAccessToken && user.twitchClientId) }), {

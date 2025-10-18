@@ -1,5 +1,5 @@
 import ArticleBrief from "../ArticleBrief/ArticleBrief";
-import { Article } from "../ArticleBrief/ArticleBriefs";
+import type { Article } from "../ArticleBrief/ArticleBriefs";
 
 interface ArticleListProps {
   articles: Article[];

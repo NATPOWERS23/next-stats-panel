@@ -1,6 +1,6 @@
 "use client";
 
-import moment from "moment";
+import dayjs from "@/utils/dayjs";
 import {
   VictoryAxis,
   VictoryChart,
@@ -14,8 +14,8 @@ import type { StreamFLRData } from "@/types/charts-interfaces";
 import { timeLabels } from "@/utils/chartApiDataFormatter";
 
 export function ChartDots({ chartData, title }: { chartData: StreamFLRData[]; title: string }) {
-  const lengthAxisX = moment().endOf("month").date();
-  const currentMonth = moment().format("MMMM");
+  const lengthAxisX = dayjs().endOf("month").date();
+  const currentMonth = dayjs().format("MMMM");
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

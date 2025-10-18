@@ -1,10 +1,11 @@
 import type { NextRequest } from 'next/server';
 import { getUserById, updateUser } from '@/db/actions/user.action';
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const payload = await req.json()
-    const userId = params.id;
+    const resolvedParams = await params;
+    const userId = resolvedParams.id;
 
     if (!userId || !payload) {
       return new Response(JSON.stringify({ error: 'User ID or sent data is empty' }), {
@@ -28,9 +29,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = params.id;
+    const resolvedParams = await params;
+    const userId = resolvedParams.id;
     const user = await getUserById(userId);
 
     return new Response(JSON.stringify(user), {
