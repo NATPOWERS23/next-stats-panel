@@ -1,4 +1,5 @@
-import { Pagination, PaginationProps } from "@/components/Pagination/Pagination";
+import { Pagination } from "@/components/Pagination/Pagination";
+import type { PaginationProps } from "@/components/Pagination/Pagination";
 
 
 export default function PaginationWrapper({ currentPage, totalPages }: PaginationProps) {

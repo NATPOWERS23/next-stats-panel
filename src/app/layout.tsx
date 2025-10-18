@@ -27,22 +27,22 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={mainFont.className} suppressHydrationWarning>
         <ClerkProvider
-      appearance={{
-        baseTheme: [dark, neobrutalism],
-        variables: { 
-          colorPrimary: "var(--green)",
-          colorText: "var(--white)",
-        },
-        elements: {
-          socialButtonsBlockButton: {
-            color: "var(--white)",
-          },
-          socialButtonsBlockButtonText: {
-            color: "var(--white)",
-          },
-        },
-      }}
-    >
+          appearance={{
+            baseTheme: [dark, neobrutalism],
+            variables: {
+              colorPrimary: "var(--green)",
+              colorText: "var(--white)",
+            },
+            elements: {
+              socialButtonsBlockButton: {
+                color: "var(--white)",
+              },
+              socialButtonsBlockButtonText: {
+                color: "var(--white)",
+              },
+            },
+          }}
+        >
           <ClerkLoading>
             <CustomLoader />
           </ClerkLoading>

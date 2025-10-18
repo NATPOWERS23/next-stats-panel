@@ -1,7 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useCallback } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/nextjs";
 
@@ -71,7 +71,7 @@ const TwitchProvider = ({
 		}
 	};
 
-	const connectTwitch = async () => {
+	const connectTwitch = useCallback(async () => {
 		if (!isMounted || typeof window === 'undefined') return;
 		
 		console.log("Connecting to Twitch channel...");
@@ -85,7 +85,7 @@ const TwitchProvider = ({
 		} else {
 			getTwitchAccessKeys();
 		}
-	};
+	}, [isMounted, saveTwitchAccessKeys, getTwitchAccessKeys]);
 
 	useEffect(() => {
 		setIsMounted(true);
@@ -96,7 +96,7 @@ const TwitchProvider = ({
 		}, 100);
 		
 		return () => clearTimeout(timer);
-	}, []);
+	}, [connectTwitch]);
 
 	return (
 		<TwitchContext.Provider

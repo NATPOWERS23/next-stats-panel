@@ -4,7 +4,6 @@ import { currentUser } from "@clerk/nextjs/server";
 
 import { connect } from "@/db/mongo-db-config";
 import User from "@/db/models/user.model";
-import { connect } from "@/db/mongo-db-config";
 import styles from "./UserInfoBar.module.css";
 import Avatar from "@/components/Avatar/Avatar";
 import LinkButton from "@/components/LinkButton/LinkButton";
