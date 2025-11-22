@@ -38,6 +38,10 @@ next-env.d.ts
 # VisualStudioCode #
 .vscode
 
+# GitHub #
+.github/COPILOT.md
+.github/MIGRATION_GUIDE.md
+
 src/environments/
 src/app/(core)/(mocks)/
 .env
