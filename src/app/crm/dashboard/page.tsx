@@ -4,11 +4,13 @@ import ManagerRating from "@/features/crm/ManagerRating/ManagerRating";
 import ProgressLineBox from "@/features/crm/ProgressLineBox/ProgressLineBox";
 import Subscribers from "@/features/crm/Subscribers/Subscribers";
 import CUpdate from "@/features/crm/CUpdate/CUpdate";
+import GeminiTranslator from "@/features/crm/GeminiTranslator";
 
 export default function DashboardPage() {
   const pageContent = (
     <>
       <PageTitle title="Dashboard" />
+      <GeminiTranslator />
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
         <CUpdate
           user={{
