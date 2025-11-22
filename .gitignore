@@ -41,6 +41,7 @@ next-env.d.ts
 # GitHub #
 .github/COPILOT.md
 .github/MIGRATION_GUIDE.md
+.github/GEMINI_TRANSLATE_FEATURE.md
 
 src/environments/
 src/app/(core)/(mocks)/

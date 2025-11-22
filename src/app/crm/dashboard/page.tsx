@@ -4,11 +4,13 @@ import ManagerRating from "@/features/crm/ManagerRating/ManagerRating";
 import SpaceStatistic from "../../../features/crm/SpaceStatistic/SpaceStatistic";
 import Subscribers from "../../../features/crm/Subscribers/Subscribers";
 import CUpdate from "../../../features/crm/CUpdate/CUpdate";
+import GeminiTranslator from "@/features/crm/GeminiTranslator";
 
 export default function DashboardPage() {
   const pageContent = (
     <>
       <PageTitle title="Dashboard" />
+      <GeminiTranslator />
       <div>
         <CUpdate
           user={{

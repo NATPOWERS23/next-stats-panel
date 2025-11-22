@@ -18,6 +18,8 @@
     "@fullcalendar/daygrid": "^6.1.16",
     "@fullcalendar/interaction": "^6.1.16",
     "@fullcalendar/react": "^6.1.16",
+    "@google/genai": "^1.30.0",
+    "@google/generative-ai": "^0.24.1",
     "@nivo/bar": "^0.87.0",
     "@nivo/core": "^0.87.0",
     "axios": "^1.7.9",
