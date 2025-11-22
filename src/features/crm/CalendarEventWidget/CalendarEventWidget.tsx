@@ -27,8 +27,8 @@ const CalendarEventWidget = ({ events }: { events: UserEvent[] }) => {
 	const dataFormatter = (events: UserEvent[]): fullcalendarEvent[] => {
 		return events.map((event: UserEvent) => ({
 			title: event.title,
-			start: event.startDate,
-			end: event.endDate,
+			start: new Date(event.startDate),
+			end: event.endDate ? new Date(event.endDate) : undefined,
 			description: event.description,
 		}));
 	};

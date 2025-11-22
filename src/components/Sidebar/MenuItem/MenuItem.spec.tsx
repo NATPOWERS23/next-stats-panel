@@ -32,20 +32,20 @@ describe('MenuItem', () => {
   const mockItemWithoutSubMenu = { id: '2', title: 'No Sub Menu', link: '/no-sub' };
 
   it('renders a link when there is no submenu', () => {
-    const { getByText } = render(<MenuItem item={mockItemWithoutSubMenu} />);
+    const { getByText } = render(<MenuItem item={mockItemWithoutSubMenu} isCollapsed={false} />);
     const link = getByText('No Sub Menu');
     expect(link.tagName).toBe('A');
     expect(link.getAttribute('href')).toBe('/crm/no-sub');
   });
 
   it('renders a div instead of a link when there is a submenu', () => {
-    const { getByText } = render(<MenuItem item={mockItem} />);
+    const { getByText } = render(<MenuItem item={mockItem} isCollapsed={false} />);
     const div = getByText('Test Item');
     expect(div.tagName).toBe('DIV');
   });
 
   it('toggles submenu visibility when clicked', () => {
-    const { getByText, queryByText } = render(<MenuItem item={mockItem} />);
+    const { getByText, queryByText } = render(<MenuItem item={mockItem} isCollapsed={false} />);
     const div = getByText('Test Item');
 
     // Submenu should be hidden initially
@@ -65,7 +65,7 @@ describe('MenuItem', () => {
   });
 
   it('renders correct number of subitems in submenu', () => {
-    const { getByText, getAllByRole } = render(<MenuItem item={mockItem} />);
+    const { getByText, getAllByRole } = render(<MenuItem item={mockItem} isCollapsed={false} />);
     const div = getByText('Test Item');
 
     // Show submenu
@@ -76,7 +76,7 @@ describe('MenuItem', () => {
   });
 
   it('renders correct links in subitems', () => {
-    const { getByText, getAllByRole } = render(<MenuItem item={mockItem} />);
+    const { getByText, getAllByRole } = render(<MenuItem item={mockItem} isCollapsed={false} />);
     const div = getByText('Test Item');
 
     // Show submenu

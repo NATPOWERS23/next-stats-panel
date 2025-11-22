@@ -39,7 +39,7 @@ describe('InfoBox', () => {
 
   it('applies the correct CSS classes', () => {
     const { container } = render(<InfoBox title="Test Title" numbers={100} />);
-    expect(container.firstChild?.className).toBe('mockInfoBox');
+    expect((container.firstChild as HTMLElement)?.className).toBe('mockInfoBox');
     expect(container.querySelector('.mockTitle')).toBeTruthy();
     expect(container.querySelector('.mockContent')).toBeTruthy();
     expect(container.querySelector('.mockNumbers')).toBeTruthy();
