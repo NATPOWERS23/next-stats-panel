@@ -26,8 +26,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const ai = new GoogleGenAI({ apiKey });
-    
-const prompt = `Translate this Ukrainian text to English for a Slack message to a dev team.
+
+    const prompt = `Translate this Ukrainian text to English for a Slack message to a dev team.
 
 Tone requirements:
 - Friendly and approachable (like talking to colleagues)
@@ -49,38 +49,38 @@ Second translation here
 Third translation here
 
 Ukrainian text: ${body.text}`;
-    
+
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: prompt,
     });
-    
-const fullText = response.text.trim();
 
-// Split by newlines and filter empty lines
-const options = fullText
-  .split('\n')
-  .map(opt => opt.trim())
-  .filter(opt => opt.length > 0)
-  // Remove any numbers, dots, or dashes at the start
-  .map(opt => opt.replace(/^[\d\.\-\*\)]+\s*/, ''));
+    const fullText = typeof response.text === 'string' ? response.text.trim() : '';
 
-// Take only first 3 options
-const translations = options.slice(0, 3);
+    // Split by newlines and filter empty lines
+    const options = fullText
+      .split('\n')
+      .map(opt => opt.trim())
+      .filter(opt => opt.length > 0)
+      // Remove any numbers, dots, or dashes at the start
+      .map(opt => opt.replace(/^[\d\.\-\*\)]+\s*/, ''));
 
-if (translations.length === 0) {
-  return NextResponse.json({ 
-    translations: [fullText]
-  });
-}
+    // Take only first 3 options
+    const translations = options.slice(0, 3);
 
-return NextResponse.json({ 
-  translations
-});
+    if (translations.length === 0) {
+      return NextResponse.json({
+        translations: [fullText]
+      });
+    }
+
+    return NextResponse.json({
+      translations
+    });
   } catch (error: any) {
     console.error('Translation error:', error);
-    return NextResponse.json({ 
-      error: error.message || 'Translation failed' 
+    return NextResponse.json({
+      error: error.message || 'Translation failed'
     }, { status: 500 });
   }
 }
