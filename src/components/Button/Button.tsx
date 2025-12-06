@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 export default function Button({
 	content = "",
 	onClick = () => {
@@ -10,7 +12,7 @@ export default function Button({
 	size = "medium",
 	fullWidth = false,
 }: {
-	content?: string | JSX.Element;
+	content?: string | React.JSX.Element;
 	onClick?: (arg?: any) => void;
 	type?: "button" | "submit" | "reset" | undefined;
 	buttonType?: "primary" | "secondary" | "outlined";

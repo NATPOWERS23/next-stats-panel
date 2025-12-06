@@ -1,6 +1,7 @@
+import type React from "react";
 import dynamic from 'next/dynamic';
 
-type ClientOnlyProps = { children: JSX.Element };
+type ClientOnlyProps = { children: React.JSX.Element };
 
 const ClientOnly = (props: ClientOnlyProps) => {
   const { children } = props;

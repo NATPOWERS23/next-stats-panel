@@ -1,5 +1,6 @@
 "use client";
 
+import type React from "react";
 import ClientOnly from "@/utils/ClientOnly";
 import { ChartStream } from "@/components/Charts/ChartStream";
 import { ChartDots } from "@/components/Charts/ChartDots";
@@ -16,7 +17,7 @@ function SpaceStatistic() {
   const { GSTData, FLRData, FLRClassData, isSpaceDataLoading } =
     useSpaceDataApi();
 
-  const chartWrapper = (chart: JSX.Element) => {
+  const chartWrapper = (chart: React.JSX.Element) => {
     return isSpaceDataLoading ? (
       <SkeletonLoaderWrapper>
         <SkeletonLoader />

@@ -29,7 +29,7 @@ const CalendarEventWidget = ({ events }: { events: UserEvent[] }) => {
 			title: event.title,
 			start: new Date(event.startDate),
 			end: event.endDate ? new Date(event.endDate) : undefined,
-			description: event.description,
+			description: event.description ?? undefined,
 		}));
 	};
 

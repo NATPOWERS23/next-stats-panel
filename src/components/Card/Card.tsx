@@ -1,3 +1,5 @@
+import type React from "react";
+
 import Icon from "../Icon/Icon";
 
 export default function Card({
@@ -7,7 +9,7 @@ export default function Card({
 	isInnerCard = false,
 }: {
 	title?: string;
-	body?: JSX.Element;
+	body?: React.JSX.Element;
 	actions?: {
 		name: string;
 		url?: string;
