@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import 'base/_reset.css';
 @import 'base/_variables.css';
 @import 'base/_animation.css';
@@ -13,6 +9,10 @@
 @import 'utilities/_helpers.css';
 @import 'vendors/_clerk.css';
 @import 'vendors/_fullcalendar.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .sidebar {
   @apply min-h-full p-2 bg-grey block rounded-br-lg
