@@ -23,7 +23,7 @@ export const useEventManagement = (userId?: string) => {
 
   const handleEventChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setNewEvent(prev => ({
+    setNewEvent((prev: NewEventState) => ({
       ...prev,
       [name]: value
     }));

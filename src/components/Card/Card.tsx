@@ -1,8 +1,10 @@
+import type React from "react";
+
 export default function Card({
 	title = "",
 	body = <></>,
 	actions = [],
-}: { title?: string; body?: JSX.Element; actions?: any }) {
+}: { title?: string; body?: React.JSX.Element; actions?: any }) {
 	return (
 		<div className="card">
 			<div className="card-title">{title}</div>

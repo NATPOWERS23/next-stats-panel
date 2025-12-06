@@ -55,7 +55,7 @@ Ukrainian text: ${body.text}`;
       contents: prompt,
     });
     
-const fullText = response.text.trim();
+const fullText = response.text?.trim() || '';
 
 // Split by newlines and filter empty lines
 const options = fullText
